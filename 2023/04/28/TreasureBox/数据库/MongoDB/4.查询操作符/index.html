@@ -1,32 +1,485 @@
-extends includes/layout.pug
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>查询操作符 | devin's blog</title><meta name="author" content="devin"><meta name="copyright" content="devin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="查询和计划操作符[TOC] 一、评价查询操作符   方法名 描述    $mod 取模计算   $regex 模糊查询，查询该字段包含某个字符串   $text 对有text索引的字段进行模糊查询   $where 使用js代码查询数据   1、使用$mod进行模运算查询c1的数据集如下： 12345&gt; db.c1.find()&amp;#123; &quot;_id&quot; : ObjectI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="查询操作符">
+<meta property="og:url" content="http://example.com/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E5%BA%93/MongoDB/4.%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%E7%AC%A6/index.html">
+<meta property="og:site_name" content="devin&#39;s blog">
+<meta property="og:description" content="查询和计划操作符[TOC] 一、评价查询操作符   方法名 描述    $mod 取模计算   $regex 模糊查询，查询该字段包含某个字符串   $text 对有text索引的字段进行模糊查询   $where 使用js代码查询数据   1、使用$mod进行模运算查询c1的数据集如下： 12345&gt; db.c1.find()&amp;#123; &quot;_id&quot; : ObjectI">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-04-28T10:40:04.885Z">
+<meta property="article:modified_time" content="2023-04-28T10:44:49.078Z">
+<meta property="article:author" content="devin">
+<meta property="article:tag" content="开源">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E5%BA%93/MongoDB/4.%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%E7%AC%A6/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '查询操作符',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-28 18:44:49'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-block content
-  #post
-    if top_img === false
-      include includes/header/post-info.pug
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
-    article#article-container.post-content!=page.content
-    include includes/post/post-copyright.pug
-    .tag_share
-      if (theme.post_meta.post.tags)
-        .post-meta__tag-list
-          each item, index in page.tags.data
-            a(href=url_for(item.path)).post-meta__tags #[=item.name]
-      include includes/third-party/share/index.pug
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-    if theme.reward.enable && theme.reward.QR_code
-      !=partial('includes/post/reward', {}, {cache: true})
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="devin's blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="devin's blog"><span class="site-name">devin's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">查询操作符</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-04-28T10:40:04.885Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-28T10:44:49.078Z" title="更新于 2023-04-28 18:44:49">2023-04-28</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="查询操作符"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="查询和计划操作符"><a href="#查询和计划操作符" class="headerlink" title="查询和计划操作符"></a>查询和计划操作符</h2><p>[TOC]</p>
+<h3 id="一、评价查询操作符"><a href="#一、评价查询操作符" class="headerlink" title="一、评价查询操作符"></a>一、评价查询操作符</h3><table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$mod</td>
+<td>取模计算</td>
+</tr>
+<tr>
+<td>$regex</td>
+<td>模糊查询，查询该字段包含某个字符串</td>
+</tr>
+<tr>
+<td>$text</td>
+<td>对有text索引的字段进行模糊查询</td>
+</tr>
+<tr>
+<td>$where</td>
+<td>使用js代码查询数据</td>
+</tr>
+</tbody></table>
+<h5 id="1、使用-mod进行模运算查询"><a href="#1、使用-mod进行模运算查询" class="headerlink" title="1、使用$mod进行模运算查询"></a>1、使用<code>$mod</code>进行模运算查询</h5><p>c1的数据集如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c1.find()</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f97bb1a0436fe0f6dbb0526&quot;), &quot;age&quot; : <span class="number">1</span>, &quot;length&quot; : <span class="number">30</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f97bb200436fe0f6dbb0527&quot;), &quot;age&quot; : <span class="number">7</span>, &quot;length&quot; : <span class="number">30</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f97bb260436fe0f6dbb0528&quot;), &quot;age&quot; : <span class="number">8</span>, &quot;length&quot; : <span class="number">30</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f97bb860436fe0f6dbb052a&quot;), &quot;age&quot; : <span class="number">13</span>, &quot;length&quot; : <span class="number">30</span> &#125;</span><br></pre></td></tr></table></figure>
 
-    //- ad
-    if theme.ad && theme.ad.post
-      .ads-wrap!=theme.ad.post
+<p>取年龄模6结果为1的数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c1.find(&#123;age:&#123;$mod:[<span class="number">6</span>,<span class="number">1</span>]&#125;&#125;)</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f97bb1a0436fe0f6dbb0526&quot;), &quot;age&quot; : <span class="number">1</span>, &quot;length&quot; : <span class="number">30</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f97bb200436fe0f6dbb0527&quot;), &quot;age&quot; : <span class="number">7</span>, &quot;length&quot; : <span class="number">30</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f97bb860436fe0f6dbb052a&quot;), &quot;age&quot; : <span class="number">13</span>, &quot;length&quot; : <span class="number">30</span> &#125;</span><br></pre></td></tr></table></figure>
 
-    if theme.post_pagination
-      include includes/pagination.pug
-    if theme.related_post && theme.related_post.enable
-      != related_posts(page,site.posts)
+<h5 id="2、使用-regex进行模糊查询"><a href="#2、使用-regex进行模糊查询" class="headerlink" title="2、使用$regex进行模糊查询"></a>2、使用<code>$regex</code>进行模糊查询</h5><p>c2的数据集如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c2.find() </span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f97bc460436fe0f6dbb052b&quot;), &quot;name&quot; : &quot;小明&quot;, &quot;age&quot; : <span class="number">20</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f97bc4c0436fe0f6dbb052c&quot;), &quot;name&quot; : &quot;小刚&quot;, &quot;age&quot; : <span class="number">20</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f97bc570436fe0f6dbb052d&quot;), &quot;name&quot; : &quot;小明明&quot;, &quot;age&quot; : <span class="number">20</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f97bc5f0436fe0f6dbb052e&quot;), &quot;name&quot; : &quot;大明&quot;, &quot;age&quot; : <span class="number">20</span> &#125;</span><br></pre></td></tr></table></figure>
 
-    if page.comments !== false && theme.comments && theme.comments.use
-      - var commentsJsLoad = true
-      !=partial('includes/third-party/comments/index', {}, {cache: true})
-      
+<p>查name中包含“明”的数据：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c2.find(&#123;name:&#123;&quot;$regex&quot;:&quot;明&quot;&#125;&#125;))</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f97bc460436fe0f6dbb052b&quot;), &quot;name&quot; : &quot;小明&quot;, &quot;age&quot; : <span class="number">20</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f97bc570436fe0f6dbb052d&quot;), &quot;name&quot; : &quot;小明明&quot;, &quot;age&quot; : <span class="number">20</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f97bc5f0436fe0f6dbb052e&quot;), &quot;name&quot; : &quot;大明&quot;, &quot;age&quot; : <span class="number">20</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3、使用-text对有text索引的字段进行模糊查询"><a href="#3、使用-text对有text索引的字段进行模糊查询" class="headerlink" title="3、使用$text对有text索引的字段进行模糊查询"></a>3、使用<code>$text</code>对有<code>text</code>索引的字段进行模糊查询</h5><p>先对c4添加索引：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c4.createIndex( &#123; subject: &quot;text&quot; &#125; )</span><br></pre></td></tr></table></figure>
+
+<p>c4的数据集如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.c4.find( )</span><br><span class="line">&#123; &quot;_id&quot; : 1, &quot;subject&quot; : &quot;hello world&quot;, &quot;title&quot; : &quot;hello&quot; &#125;</span><br><span class="line">&#123; &quot;_id&quot; : 2, &quot;subject&quot; : &quot;hello python&quot;, &quot;title&quot; : &quot;python&quot; &#125;</span><br><span class="line">&#123; &quot;_id&quot; : 3, &quot;subject&quot; : &quot;hello java&quot;, &quot;title&quot; : &quot;java&quot; &#125;</span><br><span class="line">&#123; &quot;_id&quot; : 4, &quot;subject&quot; : &quot;hello mongodb&quot;, &quot;title&quot; : &quot;mongodb&quot; &#125;</span><br><span class="line">&#123; &quot;_id&quot; : 5, &quot;subject&quot; : &quot;中文&quot;, &quot;title&quot; : &quot;mongodb&quot; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用”<code>$text</code>“进行查询</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c4.find(&#123;&quot;$text&quot;:&#123;&quot;$search&quot;:&quot;world&quot;&#125;&#125;)</span><br><span class="line">&#123; &quot;_id&quot; : <span class="number">1</span>, &quot;subject&quot; : &quot;hello world&quot;, &quot;title&quot; : &quot;hello&quot; &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="4、使用-where进行查询"><a href="#4、使用-where进行查询" class="headerlink" title="4、使用$where进行查询"></a>4、使用<code>$where</code>进行查询</h5><p>c5的数据集如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c5.find()</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f98df8e4262ff84adb202d5&quot;), &quot;a&quot; : &#123; &quot;a&quot; : <span class="number">1</span> &#125;, &quot;b&quot; : <span class="number">2</span>, &quot;c&quot; : <span class="number">3</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f98df9c4262ff84adb202d6&quot;), &quot;a&quot; : &#123; &quot;a&quot; : <span class="number">1</span>, &quot;b&quot; : &quot;1&quot; &#125;, &quot;b&quot; : <span class="number">2</span>, &quot;c&quot; : <span class="number">3</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f98df9f4262ff84adb202d7&quot;), &quot;a&quot; : &#123; &quot;a&quot; : <span class="number">1</span>, &quot;b&quot; : &quot;2&quot; &#125;, &quot;b&quot; : <span class="number">2</span>, &quot;c&quot; : <span class="number">3</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>查询某条内嵌文档中<code>a</code>的值跟<code>b</code>的值相等的数据：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c5.find(&#123;$<span class="keyword">where</span>:&quot;this.a.a==this.a.b&quot;&#125;)</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f98df9c4262ff84adb202d6&quot;), &quot;a&quot; : &#123; &quot;a&quot; : <span class="number">1</span>, &quot;b&quot; : &quot;1&quot; &#125;, &quot;b&quot; : <span class="number">2</span>, &quot;c&quot; : <span class="number">3</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、逻辑查询操作符"><a href="#二、逻辑查询操作符" class="headerlink" title="二、逻辑查询操作符"></a>二、逻辑查询操作符</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$and</td>
+<td>并且，两个条件同时成立</td>
+</tr>
+<tr>
+<td>$nor</td>
+<td>两个条件同时不成立</td>
+</tr>
+<tr>
+<td>$not</td>
+<td>不是某个值</td>
+</tr>
+<tr>
+<td>$or</td>
+<td>或者，两个条件只成立一个</td>
+</tr>
+</tbody></table>
+<p>c6的数据集如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c6.find()</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f98e4217c6aa7043a43d2f8&quot;), &quot;subject&quot; : &quot;hello world&quot;, &quot;title&quot; : &quot;hello&quot; &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f98e4297c6aa7043a43d2f9&quot;), &quot;subject&quot; : &quot;hello python&quot;, &quot;title&quot; : &quot;hello&quot; &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f98e42e7c6aa7043a43d2fa&quot;), &quot;subject&quot; : &quot;hello java&quot;, &quot;title&quot; : &quot;hello&quot; &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="1、使用-and进行查询"><a href="#1、使用-and进行查询" class="headerlink" title="1、使用$and进行查询"></a>1、使用<code>$and</code>进行查询</h5><p><strong>查询subject为hello java,title为hello的文档</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c6.find(&#123;$<span class="keyword">and</span>:[&#123;&quot;subject&quot;:&quot;hello java&quot;&#125;,&#123;&quot;title&quot;:&quot;hello&quot;&#125;]&#125;)</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f98e42e7c6aa7043a43d2fa&quot;), &quot;subject&quot; : &quot;hello java&quot;, &quot;title&quot; : &quot;hello&quot; &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2、使用-nor进行查询"><a href="#2、使用-nor进行查询" class="headerlink" title="2、使用$nor进行查询"></a>2、使用<code>$nor</code>进行查询</h5><p><strong>查询subject不为hello java并且title不为hel的文档</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.c6.find(&#123;$nor:[&#123;<span class="string">&quot;subject&quot;</span>:<span class="string">&quot;hello java&quot;</span>&#125;,&#123;<span class="string">&quot;title&quot;</span>:<span class="string">&quot;hel&quot;</span>&#125;]&#125;)</span><br><span class="line">&#123; <span class="string">&quot;_id&quot;</span> : ObjectId(<span class="string">&quot;5f98e4217c6aa7043a43d2f8&quot;</span>), <span class="string">&quot;subject&quot;</span> : <span class="string">&quot;hello world&quot;</span>, <span class="string">&quot;title&quot;</span> : <span class="string">&quot;hello&quot;</span> &#125;</span><br><span class="line">&#123; <span class="string">&quot;_id&quot;</span> : ObjectId(<span class="string">&quot;5f98e4297c6aa7043a43d2f9&quot;</span>), <span class="string">&quot;subject&quot;</span> : <span class="string">&quot;hello python&quot;</span>, <span class="string">&quot;title&quot;</span> : <span class="string">&quot;hello&quot;</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3、使用-not进行查询"><a href="#3、使用-not进行查询" class="headerlink" title="3、使用$not进行查询"></a>3、使用$not进行查询</h5><p><strong>查询b不小于2的值</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c5.find(&#123;b:&#123;$<span class="keyword">not</span>:&#123;$lt:<span class="number">2</span>&#125;&#125;&#125;)</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f98df8e4262ff84adb202d5&quot;), &quot;a&quot; : &#123; &quot;a&quot; : <span class="number">1</span> &#125;, &quot;b&quot; : <span class="number">2</span>, &quot;c&quot; : <span class="number">3</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f98df9c4262ff84adb202d6&quot;), &quot;a&quot; : &#123; &quot;a&quot; : <span class="number">1</span>, &quot;b&quot; : &quot;1&quot; &#125;, &quot;b&quot; : <span class="number">2</span>, &quot;c&quot; : <span class="number">3</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f98df9f4262ff84adb202d7&quot;), &quot;a&quot; : &#123; &quot;a&quot; : <span class="number">1</span>, &quot;b&quot; : &quot;2&quot; &#125;, &quot;b&quot; : <span class="number">2</span>, &quot;c&quot; : <span class="number">3</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f98e0674262ff84adb202d8&quot;), &quot;a&quot; : &#123; &quot;a&quot; : <span class="number">1</span>, &quot;b&quot; : <span class="number">1</span> &#125;, &quot;b&quot; : <span class="number">2</span>, &quot;c&quot; : <span class="number">3</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="4、使用-or进行查询"><a href="#4、使用-or进行查询" class="headerlink" title="4、使用$or进行查询"></a>4、使用$or进行查询</h5><p><strong>查询b为2或者c为4的值</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c5.find(&#123;$<span class="keyword">or</span>:[&#123;b:<span class="number">2</span>&#125;,&#123;c:<span class="number">4</span>&#125;]&#125;)</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f98df8e4262ff84adb202d5&quot;), &quot;a&quot; : &#123; &quot;a&quot; : <span class="number">1</span> &#125;, &quot;b&quot; : <span class="number">2</span>, &quot;c&quot; : <span class="number">3</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f98df9c4262ff84adb202d6&quot;), &quot;a&quot; : &#123; &quot;a&quot; : <span class="number">1</span>, &quot;b&quot; : &quot;1&quot; &#125;, &quot;b&quot; : <span class="number">2</span>, &quot;c&quot; : <span class="number">3</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f98df9f4262ff84adb202d7&quot;), &quot;a&quot; : &#123; &quot;a&quot; : <span class="number">1</span>, &quot;b&quot; : &quot;2&quot; &#125;, &quot;b&quot; : <span class="number">2</span>, &quot;c&quot; : <span class="number">3</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f98e0674262ff84adb202d8&quot;), &quot;a&quot; : &#123; &quot;a&quot; : <span class="number">1</span>, &quot;b&quot; : <span class="number">1</span> &#125;, &quot;b&quot; : <span class="number">2</span>, &quot;c&quot; : <span class="number">3</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、比较查询操作符"><a href="#三、比较查询操作符" class="headerlink" title="三、比较查询操作符"></a>三、比较查询操作符</h3><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">$gt</td>
+<td align="center">大于</td>
+</tr>
+<tr>
+<td align="center">$gte</td>
+<td align="center">大于等于</td>
+</tr>
+<tr>
+<td align="center">$lt</td>
+<td align="center">小于</td>
+</tr>
+<tr>
+<td align="center">$lte</td>
+<td align="center">小于等于</td>
+</tr>
+<tr>
+<td align="center">$in</td>
+<td align="center">在…之中</td>
+</tr>
+<tr>
+<td align="center">$nin</td>
+<td align="center">不在….之中</td>
+</tr>
+<tr>
+<td align="center">$ne</td>
+<td align="center">不等于</td>
+</tr>
+<tr>
+<td align="center">$eq</td>
+<td align="center">等于</td>
+</tr>
+</tbody></table>
+<p>c7的数据集如下</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c7.find()</span><br><span class="line">&#123; &quot;_id&quot; : <span class="number">1</span>, &quot;age&quot; : <span class="number">20</span>, &quot;length&quot; : <span class="number">17</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : <span class="number">2</span>, &quot;age&quot; : <span class="number">23</span>, &quot;length&quot; : <span class="number">17</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : <span class="number">3</span>, &quot;age&quot; : <span class="number">24</span>, &quot;length&quot; : <span class="number">17</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : <span class="number">4</span>, &quot;age&quot; : <span class="number">19</span>, &quot;length&quot; : <span class="number">17</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="1、-gt查询年龄大于20的"><a href="#1、-gt查询年龄大于20的" class="headerlink" title="1、$gt查询年龄大于20的"></a>1、<code>$gt</code>查询年龄大于20的</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c7.find(&#123;age:&#123;$gt:<span class="number">20</span>&#125;&#125;)</span><br><span class="line">&#123; &quot;_id&quot; : <span class="number">2</span>, &quot;age&quot; : <span class="number">23</span>, &quot;length&quot; : <span class="number">17</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : <span class="number">3</span>, &quot;age&quot; : <span class="number">24</span>, &quot;length&quot; : <span class="number">17</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2、-gte查询年龄大于等于20的"><a href="#2、-gte查询年龄大于等于20的" class="headerlink" title="2、$gte查询年龄大于等于20的"></a>2、<code>$gte</code>查询年龄大于等于20的</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c7.find(&#123;age:&#123;$gte:<span class="number">20</span>&#125;&#125;)</span><br><span class="line">&#123; &quot;_id&quot; : <span class="number">1</span>, &quot;age&quot; : <span class="number">20</span>, &quot;length&quot; : <span class="number">17</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : <span class="number">2</span>, &quot;age&quot; : <span class="number">23</span>, &quot;length&quot; : <span class="number">17</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : <span class="number">3</span>, &quot;age&quot; : <span class="number">24</span>, &quot;length&quot; : <span class="number">17</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3、-lt查询年龄小于20的"><a href="#3、-lt查询年龄小于20的" class="headerlink" title="3、$lt查询年龄小于20的"></a>3、<code>$lt</code>查询年龄小于20的</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c7.find(&#123;age:&#123;$lt:<span class="number">20</span>&#125;&#125;)</span><br><span class="line">&#123; &quot;_id&quot; : <span class="number">4</span>, &quot;age&quot; : <span class="number">19</span>, &quot;length&quot; : <span class="number">17</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="4、-lte查询年龄小于等于20的"><a href="#4、-lte查询年龄小于等于20的" class="headerlink" title="4、$lte查询年龄小于等于20的"></a>4、<code>$lte</code>查询年龄小于等于20的</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c7.find(&#123;age:&#123;$lte:<span class="number">20</span>&#125;&#125;)</span><br><span class="line">&#123; &quot;_id&quot; : <span class="number">1</span>, &quot;age&quot; : <span class="number">20</span>, &quot;length&quot; : <span class="number">17</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : <span class="number">4</span>, &quot;age&quot; : <span class="number">19</span>, &quot;length&quot; : <span class="number">17</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="5、-in查询年龄在20-21-22之中的"><a href="#5、-in查询年龄在20-21-22之中的" class="headerlink" title="5、$in查询年龄在20,21,22之中的"></a>5、<code>$in</code>查询年龄在20,21,22之中的</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c7.find(&#123;age:&#123;$<span class="keyword">in</span>:[<span class="number">20</span>,<span class="number">21</span>,<span class="number">22</span>]&#125;&#125;)</span><br><span class="line">&#123; &quot;_id&quot; : <span class="number">1</span>, &quot;age&quot; : <span class="number">20</span>, &quot;length&quot; : <span class="number">17</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="6、-nin查询年龄不在20-21-22之中的"><a href="#6、-nin查询年龄不在20-21-22之中的" class="headerlink" title="6、$nin查询年龄不在20,21,22之中的"></a>6、<code>$nin</code>查询年龄不在20,21,22之中的</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c7.find(&#123;age:&#123;$nin:[<span class="number">20</span>,<span class="number">21</span>,<span class="number">22</span>]&#125;&#125;)</span><br><span class="line">&#123; &quot;_id&quot; : <span class="number">2</span>, &quot;age&quot; : <span class="number">23</span>, &quot;length&quot; : <span class="number">17</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : <span class="number">3</span>, &quot;age&quot; : <span class="number">24</span>, &quot;length&quot; : <span class="number">17</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : <span class="number">4</span>, &quot;age&quot; : <span class="number">19</span>, &quot;length&quot; : <span class="number">17</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="7、-ne查询年龄不等于20的"><a href="#7、-ne查询年龄不等于20的" class="headerlink" title="7、$ne查询年龄不等于20的"></a>7、<code>$ne</code>查询年龄不等于20的</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c7.find(&#123;age:&#123;$ne:<span class="number">20</span>&#125;&#125;)</span><br><span class="line">&#123; &quot;_id&quot; : <span class="number">2</span>, &quot;age&quot; : <span class="number">23</span>, &quot;length&quot; : <span class="number">17</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : <span class="number">3</span>, &quot;age&quot; : <span class="number">24</span>, &quot;length&quot; : <span class="number">17</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : <span class="number">4</span>, &quot;age&quot; : <span class="number">19</span>, &quot;length&quot; : <span class="number">17</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="8、-eq查询年龄等于20的"><a href="#8、-eq查询年龄等于20的" class="headerlink" title="8、$eq查询年龄等于20的"></a>8、<code>$eq</code>查询年龄等于20的</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c7.find(&#123;age:&#123;$eq:<span class="number">20</span>&#125;&#125;)</span><br><span class="line">&#123; &quot;_id&quot; : <span class="number">1</span>, &quot;age&quot; : <span class="number">20</span>, &quot;length&quot; : <span class="number">17</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="四、数组查询操作符"><a href="#四、数组查询操作符" class="headerlink" title="四、数组查询操作符"></a>四、数组查询操作符</h3><table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>$all</code></td>
+<td align="center">匹配数组中包含某个数组的所有数据</td>
+</tr>
+<tr>
+<td align="center"><code>$size</code></td>
+<td align="center">匹配数组长度为某个数的数据</td>
+</tr>
+<tr>
+<td align="center"><code>$elemMatch</code></td>
+<td align="center">查询数组中至少有一个元素满足所有指定条件的文档</td>
+</tr>
+<tr>
+<td align="center">$slice</td>
+<td align="center">对数组返回的值切片</td>
+</tr>
+</tbody></table>
+<p>c8的数据集如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c8.find()</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f992b2b7c6aa7043a43d2fb&quot;), &quot;name&quot; : &quot;zs&quot;, &quot;score&quot; : [ <span class="number">10</span>, <span class="number">80</span>, <span class="number">90</span> ] &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f992b347c6aa7043a43d2fc&quot;), &quot;name&quot; : &quot;yz&quot;, &quot;score&quot; : [ <span class="number">70</span>, <span class="number">80</span>, <span class="number">90</span> ] &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f992b407c6aa7043a43d2fd&quot;), &quot;name&quot; : &quot;lh&quot;, &quot;score&quot; : [ <span class="number">70</span>, <span class="number">85</span>, <span class="number">92</span> ] &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f992b497c6aa7043a43d2fe&quot;), &quot;name&quot; : &quot;llx&quot;, &quot;score&quot; : [ <span class="number">79</span>, <span class="number">85</span>, <span class="number">92</span> ] &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f992e637c6aa7043a43d2ff&quot;), &quot;name&quot; : &quot;xm&quot;, &quot;score&quot; : [ <span class="number">79</span>, <span class="number">85</span> ] &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="1、-all查询score包含-70-80-的数据"><a href="#1、-all查询score包含-70-80-的数据" class="headerlink" title="1、$all查询score包含[70,80]的数据"></a>1、<code>$all</code>查询score包含[70,80]的数据</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c8.find(&#123;score:&#123;$<span class="keyword">all</span>:[<span class="number">70</span>,<span class="number">80</span>]&#125;&#125;)</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f992b347c6aa7043a43d2fc&quot;), &quot;name&quot; : &quot;yz&quot;, &quot;score&quot; : [ <span class="number">70</span>, <span class="number">80</span>, <span class="number">90</span> ] &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2、-size查询score长度为3数据"><a href="#2、-size查询score长度为3数据" class="headerlink" title="2、$size查询score长度为3数据"></a>2、<code>$size</code>查询score长度为3数据</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c8.find(&#123;score:&#123;$size:<span class="number">2</span>&#125;&#125;)</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f992e637c6aa7043a43d2ff&quot;), &quot;name&quot; : &quot;xm&quot;, &quot;score&quot; : [ <span class="number">79</span>, <span class="number">85</span> ] &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3、-elemMatch查询数组中至少有一个元素满足所有指定条件的文档"><a href="#3、-elemMatch查询数组中至少有一个元素满足所有指定条件的文档" class="headerlink" title="3、$elemMatch查询数组中至少有一个元素满足所有指定条件的文档"></a>3、<code>$elemMatch</code>查询数组中至少有一个元素满足所有指定条件的文档</h5><p>查询score中至少有一个介于80和60之间</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c8.find(&#123;score:&#123;$elemMatch:&#123;$lt:<span class="number">80</span>,$gt:<span class="number">60</span>&#125;&#125;&#125;)</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f992b347c6aa7043a43d2fc&quot;), &quot;name&quot; : &quot;yz&quot;, &quot;score&quot; : [ <span class="number">70</span>, <span class="number">80</span>, <span class="number">90</span> ] &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f992b407c6aa7043a43d2fd&quot;), &quot;name&quot; : &quot;lh&quot;, &quot;score&quot; : [ <span class="number">70</span>, <span class="number">85</span>, <span class="number">92</span> ] &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f992b497c6aa7043a43d2fe&quot;), &quot;name&quot; : &quot;llx&quot;, &quot;score&quot; : [ <span class="number">79</span>, <span class="number">85</span>, <span class="number">92</span> ] &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f992e637c6aa7043a43d2ff&quot;), &quot;name&quot; : &quot;xm&quot;, &quot;score&quot; : [ <span class="number">79</span>, <span class="number">85</span> ] &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="4、查询数组第一个值为70的数据"><a href="#4、查询数组第一个值为70的数据" class="headerlink" title="4、查询数组第一个值为70的数据"></a>4、查询数组第一个值为70的数据</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.c8.find(&#123;&quot;score.0&quot;:70&#125;)</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f992b347c6aa7043a43d2fc&quot;), &quot;name&quot; : &quot;yz&quot;, &quot;score&quot; : [ 70, 80, 90 ] &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f992b407c6aa7043a43d2fd&quot;), &quot;name&quot; : &quot;lh&quot;, &quot;score&quot; : [ 70, 85, 92 ] &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="五、元查询操作符"><a href="#五、元查询操作符" class="headerlink" title="五、元查询操作符"></a>五、元查询操作符</h3><table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$type</td>
+<td>数据类型操作符</td>
+</tr>
+<tr>
+<td>$exists</td>
+<td>判断字段是否存在，1为存在，0为不存在</td>
+</tr>
+</tbody></table>
+<h5 id="1、-type查询数据为某个类型的数据"><a href="#1、-type查询数据为某个类型的数据" class="headerlink" title="1、$type查询数据为某个类型的数据"></a>1、<code>$type</code>查询数据为某个类型的数据</h5><table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">数字</th>
+<th align="center">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Double</td>
+<td align="center">1</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">String</td>
+<td align="center">2</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Object</td>
+<td align="center">3</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Array</td>
+<td align="center">4</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Binary data</td>
+<td align="center">5</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Undefined</td>
+<td align="center">6</td>
+<td align="center">已废弃。</td>
+</tr>
+<tr>
+<td align="center">Object id</td>
+<td align="center">7</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Boolean</td>
+<td align="center">8</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Date</td>
+<td align="center">9</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Null</td>
+<td align="center">10</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Regular Expression</td>
+<td align="center">11</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">JavaScript</td>
+<td align="center">13</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Symbol</td>
+<td align="center">14</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">JavaScript (with scope)</td>
+<td align="center">15</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">32-bit integer</td>
+<td align="center">16</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Timestamp</td>
+<td align="center">17</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">64-bit integer</td>
+<td align="center">18</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Min key</td>
+<td align="center">255</td>
+<td align="center">Query with <code>-1</code>。</td>
+</tr>
+<tr>
+<td align="center">Max key</td>
+<td align="center">127</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>c9的数据集为：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c9.find()</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f993d7b7c6aa7043a43d300&quot;), &quot;name&quot; : &quot;zs&quot;, &quot;age&quot; : <span class="number">20</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f993d847c6aa7043a43d301&quot;), &quot;name&quot; : &quot;ls&quot;, &quot;age&quot; : &quot;20&quot; &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f993e247c6aa7043a43d302&quot;), &quot;name&quot; : &quot;ww&quot;, &quot;age&quot; : <span class="number">20</span>, &quot;score&quot; : <span class="number">95</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>查询age为字符串类型的数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c9.find(&#123;age:&#123;&quot;$type&quot;:<span class="number">2</span>&#125;&#125;)</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f993d847c6aa7043a43d301&quot;), &quot;name&quot; : &quot;ls&quot;, &quot;age&quot; : &quot;20&quot; &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2、-exists查询某个字段存在的数据"><a href="#2、-exists查询某个字段存在的数据" class="headerlink" title="2、$exists查询某个字段存在的数据"></a>2、<code>$exists</code>查询某个字段存在的数据</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> db.c9.find(&#123;score:&#123;$<span class="keyword">exists</span>:<span class="number">1</span>&#125;&#125;)</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f993e247c6aa7043a43d302&quot;), &quot;name&quot; : &quot;ww&quot;, &quot;age&quot; : <span class="number">20</span>, &quot;score&quot; : <span class="number">95</span> &#125;</span><br><span class="line"><span class="operator">&gt;</span> db.c9.find(&#123;score:&#123;$<span class="keyword">exists</span>:<span class="number">0</span>&#125;&#125;)</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f993d7b7c6aa7043a43d300&quot;), &quot;name&quot; : &quot;zs&quot;, &quot;age&quot; : <span class="number">20</span> &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5f993d847c6aa7043a43d301&quot;), &quot;name&quot; : &quot;ls&quot;, &quot;age&quot; : &quot;20&quot; &#125;</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>db.c9.find({score:{$exists:1}})<br>{ “_id” : ObjectId(“5f993e247c6aa7043a43d302”), “name” : “ww”, “age” : 20, “score” : 95 }<br>db.c9.find({score:{$exists:0}})<br>{ “_id” : ObjectId(“5f993d7b7c6aa7043a43d300”), “name” : “zs”, “age” : 20 }<br>{ “_id” : ObjectId(“5f993d847c6aa7043a43d301”), “name” : “ls”, “age” : “20” }</p>
+</blockquote>
+<pre><code>
+</code></pre>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">devin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E5%BA%93/MongoDB/4.%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%E7%AC%A6/">http://example.com/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E5%BA%93/MongoDB/4.%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%E7%AC%A6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">devin's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E5%BA%93/MongoDB/2.%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/" title="增删改查"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">增删改查</div></div></a></div><div class="next-post pull-right"><a href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E5%BA%93/MongoDB/1.%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" title="基本命令"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">基本命令</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">devin</div><div class="author-info__description">分享技术知识</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liuhuanxg"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%92%8C%E8%AE%A1%E5%88%92%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">1.</span> <span class="toc-text">查询和计划操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%AF%84%E4%BB%B7%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">1.1.</span> <span class="toc-text">一、评价查询操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%E3%80%81%E4%BD%BF%E7%94%A8-mod%E8%BF%9B%E8%A1%8C%E6%A8%A1%E8%BF%90%E7%AE%97%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">1、使用$mod进行模运算查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%E3%80%81%E4%BD%BF%E7%94%A8-regex%E8%BF%9B%E8%A1%8C%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">2、使用$regex进行模糊查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%E3%80%81%E4%BD%BF%E7%94%A8-text%E5%AF%B9%E6%9C%89text%E7%B4%A2%E5%BC%95%E7%9A%84%E5%AD%97%E6%AE%B5%E8%BF%9B%E8%A1%8C%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.1.0.3.</span> <span class="toc-text">3、使用$text对有text索引的字段进行模糊查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4%E3%80%81%E4%BD%BF%E7%94%A8-where%E8%BF%9B%E8%A1%8C%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.1.0.4.</span> <span class="toc-text">4、使用$where进行查询</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E9%80%BB%E8%BE%91%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">1.2.</span> <span class="toc-text">二、逻辑查询操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%E3%80%81%E4%BD%BF%E7%94%A8-and%E8%BF%9B%E8%A1%8C%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">1、使用$and进行查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%E3%80%81%E4%BD%BF%E7%94%A8-nor%E8%BF%9B%E8%A1%8C%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">2、使用$nor进行查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%E3%80%81%E4%BD%BF%E7%94%A8-not%E8%BF%9B%E8%A1%8C%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">3、使用$not进行查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4%E3%80%81%E4%BD%BF%E7%94%A8-or%E8%BF%9B%E8%A1%8C%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.2.0.4.</span> <span class="toc-text">4、使用$or进行查询</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%AF%94%E8%BE%83%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">1.3.</span> <span class="toc-text">三、比较查询操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%E3%80%81-gt%E6%9F%A5%E8%AF%A2%E5%B9%B4%E9%BE%84%E5%A4%A7%E4%BA%8E20%E7%9A%84"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">1、$gt查询年龄大于20的</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%E3%80%81-gte%E6%9F%A5%E8%AF%A2%E5%B9%B4%E9%BE%84%E5%A4%A7%E4%BA%8E%E7%AD%89%E4%BA%8E20%E7%9A%84"><span class="toc-number">1.3.0.2.</span> <span class="toc-text">2、$gte查询年龄大于等于20的</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%E3%80%81-lt%E6%9F%A5%E8%AF%A2%E5%B9%B4%E9%BE%84%E5%B0%8F%E4%BA%8E20%E7%9A%84"><span class="toc-number">1.3.0.3.</span> <span class="toc-text">3、$lt查询年龄小于20的</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4%E3%80%81-lte%E6%9F%A5%E8%AF%A2%E5%B9%B4%E9%BE%84%E5%B0%8F%E4%BA%8E%E7%AD%89%E4%BA%8E20%E7%9A%84"><span class="toc-number">1.3.0.4.</span> <span class="toc-text">4、$lte查询年龄小于等于20的</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5%E3%80%81-in%E6%9F%A5%E8%AF%A2%E5%B9%B4%E9%BE%84%E5%9C%A820-21-22%E4%B9%8B%E4%B8%AD%E7%9A%84"><span class="toc-number">1.3.0.5.</span> <span class="toc-text">5、$in查询年龄在20,21,22之中的</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6%E3%80%81-nin%E6%9F%A5%E8%AF%A2%E5%B9%B4%E9%BE%84%E4%B8%8D%E5%9C%A820-21-22%E4%B9%8B%E4%B8%AD%E7%9A%84"><span class="toc-number">1.3.0.6.</span> <span class="toc-text">6、$nin查询年龄不在20,21,22之中的</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7%E3%80%81-ne%E6%9F%A5%E8%AF%A2%E5%B9%B4%E9%BE%84%E4%B8%8D%E7%AD%89%E4%BA%8E20%E7%9A%84"><span class="toc-number">1.3.0.7.</span> <span class="toc-text">7、$ne查询年龄不等于20的</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8%E3%80%81-eq%E6%9F%A5%E8%AF%A2%E5%B9%B4%E9%BE%84%E7%AD%89%E4%BA%8E20%E7%9A%84"><span class="toc-number">1.3.0.8.</span> <span class="toc-text">8、$eq查询年龄等于20的</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%95%B0%E7%BB%84%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">1.4.</span> <span class="toc-text">四、数组查询操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%E3%80%81-all%E6%9F%A5%E8%AF%A2score%E5%8C%85%E5%90%AB-70-80-%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">1.4.0.1.</span> <span class="toc-text">1、$all查询score包含[70,80]的数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%E3%80%81-size%E6%9F%A5%E8%AF%A2score%E9%95%BF%E5%BA%A6%E4%B8%BA3%E6%95%B0%E6%8D%AE"><span class="toc-number">1.4.0.2.</span> <span class="toc-text">2、$size查询score长度为3数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%E3%80%81-elemMatch%E6%9F%A5%E8%AF%A2%E6%95%B0%E7%BB%84%E4%B8%AD%E8%87%B3%E5%B0%91%E6%9C%89%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%BB%A1%E8%B6%B3%E6%89%80%E6%9C%89%E6%8C%87%E5%AE%9A%E6%9D%A1%E4%BB%B6%E7%9A%84%E6%96%87%E6%A1%A3"><span class="toc-number">1.4.0.3.</span> <span class="toc-text">3、$elemMatch查询数组中至少有一个元素满足所有指定条件的文档</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4%E3%80%81%E6%9F%A5%E8%AF%A2%E6%95%B0%E7%BB%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%80%BC%E4%B8%BA70%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">1.4.0.4.</span> <span class="toc-text">4、查询数组第一个值为70的数据</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%85%83%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">1.5.</span> <span class="toc-text">五、元查询操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%E3%80%81-type%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE%E4%B8%BA%E6%9F%90%E4%B8%AA%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">1.5.0.1.</span> <span class="toc-text">1、$type查询数据为某个类型的数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%E3%80%81-exists%E6%9F%A5%E8%AF%A2%E6%9F%90%E4%B8%AA%E5%AD%97%E6%AE%B5%E5%AD%98%E5%9C%A8%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">1.5.0.2.</span> <span class="toc-text">2、$exists查询某个字段存在的数据</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/hello-world/" title="Hello World">Hello World</a><time datetime="2023-04-28T10:44:48.968Z" title="发表于 2023-04-28 18:44:48">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/1%E3%80%81TCPIP%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="1、TCPIP网络模型">1、TCPIP网络模型</a><time datetime="2023-04-28T10:40:04.953Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/" title="算法">算法</a><time datetime="2023-04-28T10:40:04.944Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/kafka/1.kafka%E8%AF%A6%E8%A7%A3/" title="kafka详解">kafka详解</a><time datetime="2023-04-28T10:40:04.944Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1.%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%88%9D%E8%AF%86/" title="数据结构初识">数据结构初识</a><time datetime="2023-04-28T10:40:04.943Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By devin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

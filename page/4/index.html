@@ -1,7 +1,332 @@
-extends includes/layout.pug
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>devin's blog - vinya</title><meta name="author" content="devin"><meta name="copyright" content="devin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="分享技术知识">
+<meta property="og:type" content="website">
+<meta property="og:title" content="devin&#39;s blog">
+<meta property="og:url" content="http://example.com/page/4/index.html">
+<meta property="og:site_name" content="devin&#39;s blog">
+<meta property="og:description" content="分享技术知识">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="devin">
+<meta property="article:tag" content="开源">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'devin\'s blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-04-28 19:25:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-block content
-  include ./includes/mixins/post-ui.pug
-  #recent-posts.recent-posts
-    +postUI
-    include includes/pagination.pug
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="devin's blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="devin's blog"><span class="site-name">devin's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">devin's blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E5%BA%93/MongoDB/4.%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%E7%AC%A6/" title="查询操作符">查询操作符</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-28T10:40:04.885Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></span></div><div class="content">查询和计划操作符[TOC]
+一、评价查询操作符
+
+
+方法名
+描述
+
+
+
+$mod
+取模计算
+
+
+$regex
+模糊查询，查询该字段包含某个字符串
+
+
+$text
+对有text索引的字段进行模糊查询
+
+
+$where
+使用js代码查询数据
+
+
+1、使用$mod进行模运算查询c1的数据集如下：
+12345&gt; db.c1.find()&#123; &quot;_id&quot; : ObjectId(&quot;5f97bb1a0436fe0f6dbb0526&quot;), &quot;age&quot; : 1, &quot;length&quot; : 30 &#125;&#123; &quot;_id&quot; : ObjectId(&quot;5f97bb200436fe0f6dbb0527&quot;), &quot;age&quot; : 7, &quot;length&quot; : 30 &#125;&#123; &quot;_id&quot; : ObjectId(&quot;5f97bb260436fe0f6dbb0528&quot;), &quot;age&q ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E5%BA%93/MongoDB/1.%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" title="基本命令">基本命令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-28T10:40:04.884Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></span></div><div class="content">Mongo简介和基本使用[TOC]
+一、MongoDB简介1、什么是MongoDBMongoDB是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。
+在高负载的情况下，添加更多的节点，可以保证服务器性能。
+MongoDB旨在为web应用提供可扩展的高性能数据存储解决方案。
+MongoDB将数据存储为一个文档，数据结构由键值（key&#x3D;&gt;value）对组成。MongoDB文档类似于JSON对象，字段值可以包含其他文档，数组及文档数组。
+
+
+2、主要特点
+MongoDB的提供了一个面向文档存储，操作起来比较简单和容易。
+你可以在MongoDB记录中设置任何属性的索引 (如：FirstName&#x3D;”Sameer”,Address&#x3D;”8 Gandhi Road”)来实现更快的排序。
+你可以通过本地或者网络创建数据镜像，这使得MongoDB有更强的扩展性。
+如果负载的增加（需要更多的存储空间和更强的处理能力） ，它可以分布在计算机网络中的其他节点上这就是所谓的分片。
+Mongo支持丰富的查询表达式。查询指令使用JSON形式的标记，可轻易查询文档中内嵌的 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E5%BA%93/MongoDB/10.MONGO%E9%9B%86%E7%BE%A4/" title="MONGO集群">MONGO集群</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-28T10:40:04.884Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></span></div><div class="content">MONGO集群MONGO的三种集群：Replica Set &#x2F; Sharding &#x2F; Master-Slaver，
+Replica Set：
+
+Mongodb(M)表示主节点，Mongodb(s)表示备节点，Mongodb(A)
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E5%BA%93/MongoDB/0.mongoDB%E5%B7%A5%E5%85%B7/" title="mongoDB工具">mongoDB工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-28T10:40:04.883Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></span></div><div class="content">MongoDB工具MongoDB在bin目录中提供了一系列有用的工具这些工具提供了MongoDB在运维管理上的方便。
+
+
+
+工具
+描述
+
+
+
+mongosniff
+mongodb监测工具，作用等同于tcpdump
+
+
+mongodump
+mongo数据备份工具mongodump -h dbhost -d dbname -o dbdirectory-h：MongoDB所在的服务器地址-d：需要备份的数据库实例-o：备份的数据存放位置
+
+
+mongoimport
+mongodb数据导入工具
+
+
+mongoexport
+mongo数据导出工具
+
+
+bsondump
+将bson格式数据转出为json格式数据
+
+
+mongoperf
+
+
+
+mongorestore
+mongodb数据恢复工具
+
+
+mongod.exe
+MongoDB服务启动工具
+
+
+mongofiles
+GridFS管理工具，可实现二进制文件的存取
+
+
+mongooplog
+
+
+
+mongotop
+跟踪一个MongoDB实例，查看哪些大量的时间花费在读取和写入数据。
+
+
+mongos
+分片路由。如果使用了sharding功能，则 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/04/28/TreasureBox/%E6%80%BB%E7%BB%93/2.%E5%8D%87%E5%93%B2%E7%A7%91%E6%8A%80/" title="升哲科技">升哲科技</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-28T10:40:04.882Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></span></div><div class="content">1、python多进程、多线程、协程，gil，100个请求怎么用50个线程跑
+
+进程：程序的一次执行过程被成为进程，是CPU调度的最小单位
+线程：进程由若干个线程组成，且最少有一个线程，
+协程：微线程，切换受代码控制
+
+2、tornado跟django的对比，tornado为什么这么快
+
+tornado是协程，django是线程
+
+3、设计模式，知道的设计模式有哪些，怎么使用？
+
+单例
+工厂
+MTV
+修饰器模式
+
+4、单例模式怎么用，使用场景？
+
+控制一个类只会产生一个对象，通常用于数据库连接
+
+5、数据库连接池的概念
+
+在
+
+6、进程池
+
+多进程共享某个消息队列，从队列中消费消息处理
+
+7、除了mysql，mongo，redis三种数据库还用过哪些，优缺点是什么
+
+sqlite，轻量级，并发支持很弱
+
+8、nginx负载均衡
+
+怎么实现？
+
+9、mysql使用在项目中怎么使用的？mysql索引怎么设计的，数据量大怎么分库分表，数据最多的多少
+
+B+树，联合索引，自增为主键索引，char和varchar的区别，
+按照日期分库分表，
+或者地域，用户ID之类的信息
+
+10、根据日期查询的时 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/04/28/TreasureBox/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/code%20review%E6%80%BB%E7%BB%93/" title="code review总结">code review总结</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-28T10:40:04.882Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></span></div><div class="content">前言作为公司代码委员会golang分会的理事，作为(还未任命)的技术leader，我review了很多代码，看了很多别人的review评论。发现，即使是委员会的委员，code review的水品，写出好代码的水品，不乏缺乏根本性的思路、设计原则的同学。特此，想分享一下我的很多理念和思路。
+为什么技术人员包括leader都要做code review​        谚语曰: ‘Talk Is Cheap, Show Me The Code’。知易行难，知行合一难。嘴里要讲出来总是轻松，把别人讲过的话记住，组织一下语言，再讲出来，很容易。绝知此事要躬行。设计理念你可能道听途说了一些，以为自己掌握了，但是你会做么？有能力去思考、改进自己当前的实践方式和实践中的代码细节么？不客气地说，很多人仅仅是知道并且认同了某个设计理念，进而产生了一种虚假的安心感—自己的技术并不差。但是，他根本没有去实践这些设计理念，甚至根本实践不了这些设计理念，从结果来说，他懂不懂这些道理&#x2F;理念，有什么差别？变成了自欺欺人。
+​        代码，是设计理念落地的地方，是技术的呈现和根本。同学们可以在revi ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/04/28/TreasureBox/%E6%80%BB%E7%BB%93/1.tencent/" title="tencent">tencent</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-28T10:40:04.858Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></span></div><div class="content">1、Mysql索引联合索引，联合索引不生效怎么办
+
+1.索引失效分析工具：使用explain命令加在要分析的sql语句前面，在执行结果中查看key这一列的值，如果为NULL，说明没有使用索引。
+索引失效的场景：
+
+or语句前后没有同时使用索引。当or左右查询字段只有一个是索引，该索引失效，只有当or左右查询字段均为索引时，才会生效。
+复合索引未使用左列索引，即不是使用第一列索引，索引失效。
+like以%开头，当like前缀没有%，后缀有%时，索引有效; 
+需要类型转换; （比如在一个int字段中使用字符串进行查询，或者在varchar字段中使用int进行查询）
+where中索引列有运算，或者索引列使用了函数;（比如在查询name时使用LENGTH方法）
+where中在索引字段上使用not，&lt;&gt;，!&#x3D;。（不等于操作符是永远不会用到索引的，因此对它的处理只会产生全表扫描。key&lt;&gt;0 改为 key&gt;0 or key&lt;0。）不等于操作符是永远不会用到索引的，因此对它的处理只会产生全表扫描。优化方法：key&lt;&gt;0 改为 key&gt;0 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/04/28/TreasureBox/%E5%BF%AB%E6%8D%B7%E9%94%AE/" title="快捷键">快捷键</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-28T10:40:04.857Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></span></div><div class="content">无序列表：输入-之后输入空格有序列表：输入数字+“.”之后输入空格任务列表：-[空格]空格 文字标题：ctrl+数字表格：ctrl+t生成目录：[TOC]按回车选中一整行：ctrl+l选中单词：ctrl+d选中相同格式的文字：ctrl+e跳转到文章开头：ctrl+home跳转到文章结尾：ctrl+end搜索：ctrl+f替换：ctrl+h引用：输入&gt;之后输入空格代码块：ctrl+alt+f加粗：ctrl+b倾斜：ctrl+i下划线：ctrl+u删除线：alt+shift+5插入图片：直接拖动到指定位置即可或者ctrl+shift+i插入链接：ctrl+k
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/04/28/TreasureBox/vue/2.%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95/1.%E6%8F%92%E5%80%BC/" title="插值">插值</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-28T10:40:04.857Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></span></div><div class="content">模板语法一、插值
+文本
+ 数据绑定的最基本形式是使用”Mustache”语法（双花括号）的文本插值，例：
+ 1&lt;span&gt;Message: &#123;&#123; msg &#125;&#125;&lt;/span&gt;
+
+ 每当数据对象的msg属性更改时，该数据也会被更新，可以使用v-once指令执行一次性插值，该插值不会随着数据更改而更新，但是也会影响同一节点上其他的绑定。
+ 1234&lt;div id=&quot;app&quot;&gt;        &lt;span v-once&gt;Message:&#123;&#123; msg &#125;&#125;&lt;/span&gt;        &lt;span&gt;&#123;&#123; msg &#125;&#125;&lt;/span&gt;&lt;/div&gt;
+
+ 123456789&lt;script&gt;    var vm =new Vue(&#123;        el:&quot;#app&quot;,        data:&#123;            msg: ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/04/28/TreasureBox/vue/1.%E5%88%9D%E8%AF%86Vue/2.%E5%88%9B%E5%BB%BAvue%E5%AE%9E%E4%BE%8B/" title="创建vue实例">创建vue实例</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-04-28T10:40:04.855Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></span></div><div class="content">创建Vue实例每个Vue应用程序都通过使用以下功能创建一个新的Vue实例：
+12345&lt;script&gt;	var vm = new Vue(&#123;// options&#125;)&lt;/script&gt;
+
+j经常会使用vm（ViewModel）来引用Vue实例
+数据与方法1、创建Vue实例后，它将在其data对象中找到所有属性添加到Vue的反应系统中。当这些属性的值更改时，视图中的数据也会发生改变。
+123456789&lt;script&gt;    	var data = &#123; a : 1 &#125;;    	var vm  = new Vue(&#123;        data:data        &#125;);    	console.log(vm.a == data.a);    	vm.a = 2;    	console.log(vm.a,data.a);     // 修改属性时原来的值会相应修改    &lt;/script&gt;
+
+使用Object.freeze()时，可以防止更改现有的属性
+html文件：
+12345& ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/#content-inner">16</a><a class="extend next" rel="next" href="/page/5/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">devin</div><div class="author-info__description">分享技术知识</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liuhuanxg"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/hello-world/" title="Hello World">Hello World</a><time datetime="2023-04-28T10:44:48.968Z" title="发表于 2023-04-28 18:44:48">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/1%E3%80%81TCPIP%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="1、TCPIP网络模型">1、TCPIP网络模型</a><time datetime="2023-04-28T10:40:04.953Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/" title="算法">算法</a><time datetime="2023-04-28T10:40:04.944Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/kafka/1.kafka%E8%AF%A6%E8%A7%A3/" title="kafka详解">kafka详解</a><time datetime="2023-04-28T10:40:04.944Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1.%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%88%9D%E8%AF%86/" title="数据结构初识">数据结构初识</a><time datetime="2023-04-28T10:40:04.943Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">151</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">151</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-04-28T11:24:59.988Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By devin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

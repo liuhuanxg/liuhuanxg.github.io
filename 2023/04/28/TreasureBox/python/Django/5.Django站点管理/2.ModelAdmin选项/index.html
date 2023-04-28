@@ -1,32 +1,307 @@
-extends includes/layout.pug
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ModelAdmin选项 | devin's blog</title><meta name="author" content="devin"><meta name="copyright" content="devin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="ModelAdmin选项 ModelAdmin是比较灵活的，具有定制页面的选项，所有选项都在ModelAdmin子类上定义： 1234from django.contrib import adminclass AuthorAdmin(admin.ModelAdmin):    date_hierarchy &#x3D; &amp;#x27;pub_date&amp;#x27;   date_hierarchy 设置date">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ModelAdmin选项">
+<meta property="og:url" content="http://example.com/2023/04/28/TreasureBox/python/Django/5.Django%E7%AB%99%E7%82%B9%E7%AE%A1%E7%90%86/2.ModelAdmin%E9%80%89%E9%A1%B9/index.html">
+<meta property="og:site_name" content="devin&#39;s blog">
+<meta property="og:description" content="ModelAdmin选项 ModelAdmin是比较灵活的，具有定制页面的选项，所有选项都在ModelAdmin子类上定义： 1234from django.contrib import adminclass AuthorAdmin(admin.ModelAdmin):    date_hierarchy &#x3D; &amp;#x27;pub_date&amp;#x27;   date_hierarchy 设置date">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-04-28T10:40:04.804Z">
+<meta property="article:modified_time" content="2023-04-28T10:44:49.009Z">
+<meta property="article:author" content="devin">
+<meta property="article:tag" content="开源">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/04/28/TreasureBox/python/Django/5.Django%E7%AB%99%E7%82%B9%E7%AE%A1%E7%90%86/2.ModelAdmin%E9%80%89%E9%A1%B9/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ModelAdmin选项',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-28 18:44:49'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-block content
-  #post
-    if top_img === false
-      include includes/header/post-info.pug
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
-    article#article-container.post-content!=page.content
-    include includes/post/post-copyright.pug
-    .tag_share
-      if (theme.post_meta.post.tags)
-        .post-meta__tag-list
-          each item, index in page.tags.data
-            a(href=url_for(item.path)).post-meta__tags #[=item.name]
-      include includes/third-party/share/index.pug
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-    if theme.reward.enable && theme.reward.QR_code
-      !=partial('includes/post/reward', {}, {cache: true})
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="devin's blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="devin's blog"><span class="site-name">devin's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">ModelAdmin选项</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-04-28T10:40:04.804Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-28T10:44:49.009Z" title="更新于 2023-04-28 18:44:49">2023-04-28</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="ModelAdmin选项"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>ModelAdmin选项</p>
+<p>ModelAdmin是比较灵活的，具有定制页面的选项，所有选项都在ModelAdmin子类上定义：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AuthorAdmin</span>(admin.ModelAdmin):</span><br><span class="line">    date_hierarchy = <span class="string">&#x27;pub_date&#x27;</span></span><br></pre></td></tr></table></figure>
 
-    //- ad
-    if theme.ad && theme.ad.post
-      .ads-wrap!=theme.ad.post
+<ol>
+<li><h4 id="date-hierarchy"><a href="#date-hierarchy" class="headerlink" title="date_hierarchy"></a>date_hierarchy</h4><p> 设置date_hierarchy为模型中的DateField或DateTimeField，更改列表页面实现一个简单的分组功能，将符合某个日期分类的数据归为一类。如：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date_hierarchy = <span class="string">&#x27;pub_date&#x27;</span></span><br></pre></td></tr></table></figure>
 
-    if theme.post_pagination
-      include includes/pagination.pug
-    if theme.related_post && theme.related_post.enable
-      != related_posts(page,site.posts)
+<p> 还可以使用__查找在相关模型上指定的字段，如：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date_hierarchy = <span class="string">&#x27;author__pub_date&#x27;</span></span><br></pre></td></tr></table></figure>
 
-    if page.comments !== false && theme.comments && theme.comments.use
-      - var commentsJsLoad = true
-      !=partial('includes/third-party/comments/index', {}, {cache: true})
-      
+<p> 这会根据可用的数据智能地分类，如果所有日期都在一个月之内，则按日级时间分类。</p>
+</li>
+<li><h4 id="empty-value-display"><a href="#empty-value-display" class="headerlink" title="empty_value_display"></a>empty_value_display</h4><p> 覆盖记录字段为空（None，空字符串等）的默认显示值。默认值为破折号（—）。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AuthorAdmin</span>(admin.ModelAdmin):</span><br><span class="line">    empty_value_display = <span class="string">&#x27;-empty-&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p> 还可以只复写某个特定的字段如：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AuthorAdmin</span>(admin.ModelAdmin):</span><br><span class="line">    fields = (<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;view_birth_date&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">view_birth_date</span>(<span class="params">self, obj</span>):</span><br><span class="line">        <span class="keyword">return</span> obj.birth_date</span><br><span class="line"></span><br><span class="line">    view_birth_date.empty_value_display = <span class="string">&#x27;???&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="exclude"><a href="#exclude" class="headerlink" title="exclude"></a>exclude</h4><p> 提供此属性时，代表要从表单中排除的字段名称列表。</p>
+<p> 例如，如下模型：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Author</span>(models.Model):</span><br><span class="line">    name = models.CharField(max_length=<span class="number">100</span>)</span><br><span class="line">    title = models.CharField(max_length=<span class="number">3</span>)</span><br><span class="line">    birth_date = models.DateField(blank=<span class="literal">True</span>, null=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p> 如果仅希望<code>Author</code>模型的表单仅包含<code>name</code> 和<code>title</code>字段，则可以指定<code>fields</code>或<code>exclude</code>类似这样：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AuthorAdmin</span>(admin.ModelAdmin):</span><br><span class="line">    fields = (<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;title&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AuthorAdmin</span>(admin.ModelAdmin):</span><br><span class="line">    exclude = (<span class="string">&#x27;birth_date&#x27;</span>,)</span><br></pre></td></tr></table></figure>
+
+<p> 由于作者模型只有三个字段，<code>name</code>，<code>title</code>，和 <code>birth_date</code>，上面的两种构造方式达成的效果一致。</p>
+</li>
+<li><h4 id="fields"><a href="#fields" class="headerlink" title="fields"></a>fields</h4><p> fields选项控制在“添加”和“更改”页面上的表单进行简单的布局更改，如：仅显示可用字段的子集，修改顺序或者分组。</p>
+<p> 要在同一行上显示多个字段，请将这些字段包装在自己的元组中。在此示例中，<code>url</code>和<code>title</code>字段将显示在同一行上，并且该<code>content</code>字段将在其下面显示在其自己的行上：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">FlatPageAdmin</span>(admin.ModelAdmin):</span><br><span class="line">    fields = ((<span class="string">&#x27;url&#x27;</span>, <span class="string">&#x27;title&#x27;</span>), <span class="string">&#x27;content&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="fieldsets"><a href="#fieldsets" class="headerlink" title="fieldsets"></a>fieldsets</h4><p> fieldsets对表单进行分块如：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fieldsets = (   </span><br><span class="line">(<span class="string">&quot;基本信息&quot;</span>, &#123;<span class="string">&#x27;fields&#x27;</span>: [<span class="string">&#x27;goods_name&#x27;</span>,<span class="string">&#x27;goods_method&#x27;</span>,<span class="string">&#x27;goods_pic&#x27;</span>,<span class="string">&#x27;goods_address&#x27;</span>,<span class="string">&#x27;type&#x27;</span>,<span class="string">&#x27;oprice&#x27;</span>,<span class="string">&#x27;xprice&#x27;</span>]&#125;),   </span><br><span class="line">(<span class="string">&quot;介绍&quot;</span>, &#123;<span class="string">&#x27;fields&#x27;</span>: [<span class="string">&#x27;goods_info&#x27;</span>, <span class="string">&#x27;goods_content&#x27;</span>]&#125;)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="form"><a href="#form" class="headerlink" title="form"></a>form</h4><p> 默认情况下，admin将会为模型动态创建一个<code>ModelForm</code>。它用于创建在两个添加&#x2F;更改页面上显示的表单。您可以轻松地提供自己的设置，<code>ModelForm</code>以覆盖添加&#x2F;更改页面上的任何默认表单行为。</p>
+<p> 如果您<code>ModelForm</code>和<code>ModelAdmin</code>双方都定义了一个<code>exclude</code> 选项，则<code>ModelAdmin</code>优先：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django <span class="keyword">import</span> forms</span><br><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> myapp.models <span class="keyword">import</span> Person</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PersonForm</span>(forms.ModelForm):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Meta</span>:</span><br><span class="line">        model = Person</span><br><span class="line">        exclude = [<span class="string">&#x27;name&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PersonAdmin</span>(admin.ModelAdmin):</span><br><span class="line">    exclude = [<span class="string">&#x27;age&#x27;</span>]</span><br><span class="line">    form = PersonForm</span><br></pre></td></tr></table></figure>
+
+<p> 在上面的示例中，“年龄”字段将被排除，但“名称”字段将包含在生成的表单中。</p>
+</li>
+<li><h4 id="inlines"><a href="#inlines" class="headerlink" title="inlines"></a>inlines</h4><p> 内联样式，如下例子：GoodsInfo表和Detail表属于一对多的关系，这样可以在添加GoodsInfo页面时，添加三条Detail的数据。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">DetailInline</span>(admin.TabularInline):   </span><br><span class="line">    model = Detail   </span><br><span class="line">    extra = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@admin.register(<span class="params">GoodsInfo</span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">GoodsInfoAdmin</span>(admin.ModelAdmin):   </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_queryset</span>(<span class="params">self, request</span>):      </span><br><span class="line">        qs= <span class="built_in">super</span>(GoodsInfoAdmin, self).get_queryset(request)     </span><br><span class="line">        <span class="keyword">if</span> request.user.is_superuser:         </span><br><span class="line">            <span class="keyword">return</span> qs      </span><br><span class="line">        <span class="keyword">return</span> qs.<span class="built_in">filter</span>(seller=request.user.<span class="built_in">id</span>)   </span><br><span class="line">    	<span class="comment">#根据登录的用户返回数据 		</span></span><br><span class="line">    inlines = [DetailInline,]</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="list-display"><a href="#list-display" class="headerlink" title="list_display"></a>list_display</h4><p> list_display控制在列表页面显示哪些字段。例：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list_display = (<span class="string">&#x27;first_name&#x27;</span>, <span class="string">&#x27;last_name&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p> 如果未设置list_display，则管理站点将只显示一列，显示_<em>str</em>_()每个对象的表示形式。</p>
+<p> 有四种形式的参数：</p>
+<ul>
+<li><p>模型字段的名称。例如：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">PersonAdmin</span>(admin.ModelAdmin):</span><br><span class="line">    list_display = (<span class="string">&#x27;first_name&#x27;</span>, <span class="string">&#x27;last_name&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>接受一个参数（模型实例）的可调用对象。例如：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">upper_case_name</span>(<span class="params">obj</span>):</span><br><span class="line">    <span class="keyword">return</span> (<span class="string">&quot;%s %s&quot;</span> % (obj.first_name, obj.last_name)).upper()</span><br><span class="line">upper_case_name.short_description = <span class="string">&#x27;Name&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PersonAdmin</span>(admin.ModelAdmin):</span><br><span class="line">    list_display = (upper_case_name,)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一个字符串，表示<code>ModelAdmin</code>接受一个参数（模型实例）的方法。例如：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">PersonAdmin</span>(admin.ModelAdmin):</span><br><span class="line">    list_display = (<span class="string">&#x27;upper_case_name&#x27;</span>,)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">upper_case_name</span>(<span class="params">self, obj</span>):</span><br><span class="line">        <span class="keyword">return</span> (<span class="string">&quot;%s %s&quot;</span> % (obj.first_name, obj.last_name)).upper()</span><br><span class="line">    upper_case_name.short_description = <span class="string">&#x27;Name&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>代表模型属性或方法的字符串（无任何必需的参数）。例如：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>(models.Model):</span><br><span class="line">    name = models.CharField(max_length=<span class="number">50</span>)</span><br><span class="line">    birthday = models.DateField()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">decade_born_in</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.birthday.strftime(<span class="string">&#x27;%Y&#x27;</span>)[:<span class="number">3</span>] + <span class="string">&quot;0&#x27;s&quot;</span></span><br><span class="line">    decade_born_in.short_description = <span class="string">&#x27;Birth decade&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PersonAdmin</span>(admin.ModelAdmin):</span><br><span class="line">    list_display = (<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;decade_born_in&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>  需要注意的一些特殊情况<code>list_display</code>：</p>
+<ul>
+<li><p>如果该字段为<code>ForeignKey</code>，则Django将显示 <code>__str__()</code>相关对象的。</p>
+</li>
+<li><p>不支持<code>ManyToManyField</code>字段，因为这将需要为表中的每一行执行一个单独的SQL语句。不过，如果要执行此操作，请为模型提供自定义方法，然后将该方法的名称添加到<code>list_display</code>。</p>
+</li>
+<li><p>如果该字段为<code>BooleanField</code>，则Django将显示一个漂亮的“ on”或“ off”图标，而不是<code>True</code>or <code>False</code>。</p>
+</li>
+<li><p>如果给定的字符串是模型的方法<code>ModelAdmin</code>或可调用的字符串，则Django将默认对输出进行HTML转义。要转义用户输入并允许您自己使用未转义的标签，请使用<a target="_blank" rel="noopener" href="https://docs.djangoproject.com/zh-hans/2.1/ref/utils/#django.utils.html.format_html"><code>format_html()</code></a>。</p>
+<p>  <strong>完整的示例代码：</strong></p>
+<p>  model.py中:</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"><span class="keyword">from</span> django.utils.html <span class="keyword">import</span> format_html</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>(models.Model):</span><br><span class="line">    status=models.BooleanField(default=<span class="number">1</span>,verbose_name=(<span class="string">&#x27;上传状态&#x27;</span>))</span><br><span class="line"></span><br><span class="line">  	<span class="keyword">def</span> <span class="title function_">colored_status</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> self.status == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> format_html(</span><br><span class="line">                <span class="string">&#x27;&lt;span&gt;&lt;a href=&quot;/unlockcms/send_status/&#123;&#125;&quot;&gt;&#123;&#125;&lt;/a&gt;&lt;/span&gt;&#x27;</span>,self.<span class="built_in">id</span>,<span class="string">&#x27;正在上传，查看详情&#x27;</span>,</span><br><span class="line">            )</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            color_code=<span class="string">&#x27;green&#x27;</span></span><br><span class="line">            <span class="keyword">return</span> format_html(</span><br><span class="line">                <span class="string">&#x27;&lt;span style=&quot;color:&#123;&#125;;&quot;&gt;&#123;&#125;&lt;/span&gt;&#x27;</span>,color_code,<span class="string">&#x27;上传成功&#x27;</span>,</span><br><span class="line">            )</span><br><span class="line">    colored_status.short_description = <span class="string">u&#x27;上传状态&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>  在admin.py中设置：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">VersionAdmin</span>(admin.ModelAdmin):   </span><br><span class="line">	list_display = (<span class="string">&#x27;colored_status&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h4 id="list-display-links"><a href="#list-display-links" class="headerlink" title="list_display_links"></a>list_display_links</h4><p> 默认情况下，list_display中的第一列会链接到每个项目的更改页面，但是可以通过list_display_links进行复写。</p>
+<ul>
+<li><p>设置为<code>None</code>时，完全不链接。</p>
+</li>
+<li><p>将其设置为<code>list_display</code>您想要将其列转换为链接的字段列表或元组（格式与相同 ）。</p>
+<p>  可以指定一个或多个字段。只要这些字段显示在中 <code>list_display</code>，Django就不会在意链接了多少个字段。唯一的要求是，如果使用 <code>list_display_links</code>这种方式，则必须定义<code>list_display</code>。</p>
+</li>
+</ul>
+</li>
+<li><h4 id="list-filter"><a href="#list-filter" class="headerlink" title="list_filter"></a>list_filter</h4><p>设置list_filter可以激活管理员列表页面右侧的过滤器。如下图所示</p>
+<img src = './image/list_filter.png'>
+
+<p>list_filter应为元素的列表或元组，其中每个元素应为以下类型之一：</p>
+<p><code>BooleanField</code>，<code>CharField</code>，<code>DateField</code>，<code>DateTimeField</code>， <code>IntegerField</code>，<code>ForeignKey</code>或<code>ManyToManyField</code>。</p>
+<p>查找时也可以使用__来跨越关系查找如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">PersonAdmin</span>(admin.ModelAdmin):</span><br><span class="line">    list_filter = (<span class="string">&#x27;is_staff&#x27;</span>, <span class="string">&#x27;company&#x27;</span>,<span class="string">&#x27;company__name&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="list-per-page"><a href="#list-per-page" class="headerlink" title="list_per_page"></a>list_per_page</h4><p> 设置list_per_page控制在每个列表页显示的项目条数，默认情况下为100条。如：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list_per_page = <span class="number">50</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="ordering"><a href="#ordering" class="headerlink" title="ordering"></a>ordering</h4><p> 在admin中设置ordering以指定如何在Django管理视图中对对象列表进行排序，ordering参数应该为列表或者元组。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ordering=(<span class="string">&#x27;id&#x27;</span>,)</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="raw-id-fields"><a href="#raw-id-fields" class="headerlink" title="raw_id_fields"></a>raw_id_fields</h4><p> 默认情况下，Django的管理员对<code>ForeignKey</code>字段使用（<select>）选择框界面。有时，不需要承担必须选择所有相关实例以显示在下拉菜单中的开销。</p>
+<p> raw_id_fields是要更改为或Input窗口小部件的&#96;ForeignKey&#96;&#96;ManyToManyField字段的列表：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ArticleAdmin</span>(admin.ModelAdmin):</span><br><span class="line">    raw_id_fields = (<span class="string">&quot;newspaper&quot;</span>,)</span><br></pre></td></tr></table></figure>
+
+<p> 该<code>raw_id_fields</code> <code>Input</code>窗口小部件应包含一个主键，如果该字段是一个<code>ForeignKey</code>或逗号分隔值的列表中，如果该字段为一个<code>ManyToManyField</code>的<code>raw_id_fields</code>,会在小部件旁边显示放大镜按钮，允许用户搜索和选择一个值的字段：</p>
+ <img src='./image/raw_id_fields.png'>
+</li>
+<li><h4 id="readonly-fields"><a href="#readonly-fields" class="headerlink" title="readonly_fields"></a>readonly_fields</h4><p> 默认情况下，管理员将所有字段显示为可编辑，此选项中的任何字段（应为list或者tuple）将按原样显示其数据，并且不可编辑。在创建和标记ModelForm时也会被排除。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">PersonAdmin</span>(admin.ModelAdmin):</span><br><span class="line">    readonly_fields = (<span class="string">&#x27;address_report&#x27;</span>,)</span><br></pre></td></tr></table></figure>
+
+<p> 还可以通过方法进行控制：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ModelInfoAdmin</span>(admin.ModelAdmin):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">get_readonly_fields</span>(<span class="params">self, request, obj=<span class="literal">None</span></span>):   </span><br><span class="line">		<span class="keyword">if</span> obj:      </span><br><span class="line">			<span class="keyword">if</span> <span class="keyword">not</span> request.user.has_perm(<span class="string">&#x27;unlockcms.add_modelinfo&#x27;</span>):         						<span class="keyword">return</span>	[<span class="string">&#x27;title&#x27;</span>,<span class="string">&#x27;name&#x27;</span>]      		</span><br><span class="line">            <span class="keyword">return</span> []   </span><br><span class="line">	<span class="keyword">return</span> []</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="save-as"><a href="#save-as" class="headerlink" title="save_as"></a>save_as</h4><p> 设置save_as为在管理员更改表单页面的”另存为“功能。</p>
+<p> 通常，对象具有是哪个保存选项：”保存“，”保存并继续编辑“，和”保存并添加另一个“。如果save_as为True，则”保存并添加另一个“将由”另存为新“按钮代替，该按钮会创建新对象，而不是更新现有对象。</p>
+<p> 默认情况下，save_as设置为False。</p>
+</li>
+<li><h4 id="save-as-continue"><a href="#save-as-continue" class="headerlink" title="save_as_continue"></a>save_as_continue</h4><p> 当save_as &#x3D; True时，添加新对象的默认重定向是该对象的更改视图。如果设置save_as_continue&#x3D;False，重定向将转到更改列表视图。默认情况下：save_as_continue设置为True。</p>
+</li>
+<li><h4 id="save-on-top"><a href="#save-on-top" class="headerlink" title="save_on_top"></a>save_on_top</h4><p> 设置save_on_top可以在管理员更改表单顶部添加保存按钮。通常，保存按钮只显示在底部。如果设置为save_on_top,则按钮同时显示在顶部和底部。</p>
+</li>
+<li><h4 id="search-fields"><a href="#search-fields" class="headerlink" title="search_fields"></a>search_fields</h4><p> 设置search_fields为管理员列表页面启用搜索框。应该将其设置为一个字段名称列表。只要有人在该文本矿中提交搜索查询，就讲对其进行搜索。</p>
+<p> 这些字段应该是某种文本字段，例如CharField或TextField。您还可以使用<code>ForeignKey</code>或 <code>ManyToManyField</code>使用查询API来执行相关的关联查询。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">search_fields = [<span class="string">&#x27;foreign_key__related_fieldname&#x27;</span>]</span><br><span class="line"><span class="comment">#在博客admin中按照作者邮箱查找博客条目</span></span><br><span class="line">search_fields = [<span class="string">&#x27;user__email&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p> 该搜索时按照icontains思路，搜索时不区分大小写。如果想要在搜索时区分大小写，则在最后添加exact：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">search_fields = [<span class="string">&#x27;first_name__exact&#x27;</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="show-full-result-count"><a href="#show-full-result-count" class="headerlink" title="show_full_result_count"></a>show_full_result_count</h4><p> 设置show_full_result_count控制是否在过滤后的管理页面上显示对象的全部数量，默认为True，生成符合条件的条数。如果数量比较大时，使用比较费时。</p>
+</li>
+<li><h4 id="filter-horizontal"><a href="#filter-horizontal" class="headerlink" title="filter_horizontal"></a>filter_horizontal</h4><p>  多对多字段时可以在后台批量增加数据增加数据</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># type，language，technology为Projects表中的多对多字段</span><br><span class="line">@admin.register(Projects)</span><br><span class="line">class ProjectsAdmin(admin.ModelAdmin):</span><br><span class="line">    list_display = [&quot;project_name&quot;, &quot;href&quot;, &quot;url&quot;, &quot;href&quot;, &quot;add_time&quot;]</span><br><span class="line">    filter_horizontal = [&quot;type&quot;, &quot;language&quot;, &quot;technology&quot;]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p> �数据</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># type，language，technology为Projects表中的多对多字段</span><br><span class="line">@admin.register(Projects)</span><br><span class="line">class ProjectsAdmin(admin.ModelAdmin):</span><br><span class="line">    list_display = [&quot;project_name&quot;, &quot;href&quot;, &quot;url&quot;, &quot;href&quot;, &quot;add_time&quot;]</span><br><span class="line">    filter_horizontal = [&quot;type&quot;, &quot;language&quot;, &quot;technology&quot;]</span><br></pre></td></tr></table></figure>
+</li>
+<li></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">devin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/04/28/TreasureBox/python/Django/5.Django%E7%AB%99%E7%82%B9%E7%AE%A1%E7%90%86/2.ModelAdmin%E9%80%89%E9%A1%B9/">http://example.com/2023/04/28/TreasureBox/python/Django/5.Django%E7%AB%99%E7%82%B9%E7%AE%A1%E7%90%86/2.ModelAdmin%E9%80%89%E9%A1%B9/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">devin's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/04/28/TreasureBox/python/Django/5.Django%E7%AB%99%E7%82%B9%E7%AE%A1%E7%90%86/3.ModelAdmin%E6%96%B9%E6%B3%95/" title="ModelAdmin方法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">ModelAdmin方法</div></div></a></div><div class="next-post pull-right"><a href="/2023/04/28/TreasureBox/python/Django/5.Django%E7%AB%99%E7%82%B9%E7%AE%A1%E7%90%86/1.%E6%B3%A8%E5%86%8C%E5%92%8C%E5%8A%A8%E4%BD%9C/" title="注册和动作"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">注册和动作</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">devin</div><div class="author-info__description">分享技术知识</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liuhuanxg"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#date-hierarchy"><span class="toc-number">1.</span> <span class="toc-text">date_hierarchy</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#empty-value-display"><span class="toc-number">2.</span> <span class="toc-text">empty_value_display</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#exclude"><span class="toc-number">3.</span> <span class="toc-text">exclude</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fields"><span class="toc-number">4.</span> <span class="toc-text">fields</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fieldsets"><span class="toc-number">5.</span> <span class="toc-text">fieldsets</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#form"><span class="toc-number">6.</span> <span class="toc-text">form</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#inlines"><span class="toc-number">7.</span> <span class="toc-text">inlines</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#list-display"><span class="toc-number">8.</span> <span class="toc-text">list_display</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#list-display-links"><span class="toc-number">9.</span> <span class="toc-text">list_display_links</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#list-filter"><span class="toc-number">10.</span> <span class="toc-text">list_filter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#list-per-page"><span class="toc-number">11.</span> <span class="toc-text">list_per_page</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ordering"><span class="toc-number">12.</span> <span class="toc-text">ordering</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#raw-id-fields"><span class="toc-number">13.</span> <span class="toc-text">raw_id_fields</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#readonly-fields"><span class="toc-number">14.</span> <span class="toc-text">readonly_fields</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#save-as"><span class="toc-number">15.</span> <span class="toc-text">save_as</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#save-as-continue"><span class="toc-number">16.</span> <span class="toc-text">save_as_continue</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#save-on-top"><span class="toc-number">17.</span> <span class="toc-text">save_on_top</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#search-fields"><span class="toc-number">18.</span> <span class="toc-text">search_fields</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#show-full-result-count"><span class="toc-number">19.</span> <span class="toc-text">show_full_result_count</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#filter-horizontal"><span class="toc-number">20.</span> <span class="toc-text">filter_horizontal</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/hello-world/" title="Hello World">Hello World</a><time datetime="2023-04-28T10:44:48.968Z" title="发表于 2023-04-28 18:44:48">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/1%E3%80%81TCPIP%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="1、TCPIP网络模型">1、TCPIP网络模型</a><time datetime="2023-04-28T10:40:04.953Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/" title="算法">算法</a><time datetime="2023-04-28T10:40:04.944Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/kafka/1.kafka%E8%AF%A6%E8%A7%A3/" title="kafka详解">kafka详解</a><time datetime="2023-04-28T10:40:04.944Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1.%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%88%9D%E8%AF%86/" title="数据结构初识">数据结构初识</a><time datetime="2023-04-28T10:40:04.943Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By devin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
