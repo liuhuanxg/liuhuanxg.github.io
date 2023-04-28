@@ -1,0 +1,354 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>devin's blog - vinya</title><meta name="author" content="devin"><meta name="copyright" content="devin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="分享技术知识">
+<meta property="og:type" content="website">
+<meta property="og:title" content="devin&#39;s blog">
+<meta property="og:url" content="http://example.com/page/10/index.html">
+<meta property="og:site_name" content="devin&#39;s blog">
+<meta property="og:description" content="分享技术知识">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="devin">
+<meta property="article:tag" content="开源">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/10/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'devin\'s blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-04-28 18:24:54'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="devin's blog" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">150</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="devin's blog"><span class="site-name">devin's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">devin's blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/pip-bu-neng-shi-yong/" title="pip不能使用">pip不能使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.395Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">https://bootstrap.pypa.io/get-pip.py
+下载这个文件，然后在本地双击运行。
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/flask/flask-qing-qiu-gou-zi/" title="flask请求钩子">flask请求钩子</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.395Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">Flask的请求钩子有时在处理请求之前或之后执行代码会很有用。例如，在请求开始时，我们可能需要创建数据库连接或者认证发起请求的用户。为了避免在每个视图函数中都使用重复的代码，Flask 提供了注册通用函数的功能，注册的函数可在请求被分发到视图函数之前或之后调用。
+在请求的钩子函数和视图函数之间共享数据一般使用上下文全局变量g。例如，before_request处理程序时可以从数据库中加载已经登录的用户，并将其保存在g.user中，随后调用视图函数时，视图函数再使用g.user获取用户。
+一、before_first_request注册一个函数，在处理第一个请求之前运行。
+二、before_request注册一个函数，在每次请求之前执行
+三、after_request注册一个函数，如果没有未处理的异常抛出，在每次请求之后运行
+四、teardown_request注册一个函数，即使有未处理的异常抛出，也在每次请求之后运行。
+app.url_map查看都有哪些url映射。
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/tornado/1-yong-hu-zhi-nan/1-jie-shao/" title="1、介绍">1、介绍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.395Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">用户指南一、介绍Tornado是一个Python web框架和异步网络库，通过非阻塞网络I/O，Tornado可以支持上万级的连接，处理场链接，WebSockets和其他需要与每个用户保持长久连接的应用。
+Tornado大提升可以被分为4个主要的部分
+
+web框架（包含创建web应用的RequestHandler类，还有很多其他支持的类）
+HTTP的客户端和服务端实现（HTTPServer and AsyncHTTPClient）
+异步网络库（IOLoop和IOStream），为HTTP组件提供构建模块，也可以用来实现其他协议。
+协程库（tornado.gen）允许异步代码写的更直接而不用链式回调的方式。
+
+Tornado web 框架和HTTP server 一起为 WSGI 提供了一个全栈式的选择. 在WSGI容器 (WSGIAdapter) 中使用Tornado web框架或者使用Tornado HTTP server 作为一个其他WSGI框架(WSGIContainer)的容器,这样的组合方式都是有局限性的. 为了充分利用Tornado的特性,你需要一起使用Tornado的we ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/python-ji-chu/1.ji-chu/1.chu-shi-python/" title="初识python">初识python</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.395Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">初识python一、安装python
+windows安装 在python官网下载对应的解释器版本：https://www.python.org/。双击运行解释器进行安装。推荐在安装时不要安装在C盘。
+
+Linux安装 Linux环境中自带了Python 2.x版本，想更新到3.x版本需要去官网下载对应的解释器，以Centos安装python示例：
+
+安装依赖库
+ 1yum -y install wget gcc zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel
+
+下载Python源码并解压到指定目录
+ 123wget https://www.python.org/ftp/python/3.7.6/Python-3.7.6.tar.xzxz -d Python-3.7.6.tar.xztar -xvf Python-3.7.6.tar
+
+切换到Pyth ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/flask/flask-mail/flask-mail-shi-yong/" title="flask_mail使用">flask_mail使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.395Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">flask-mail1、安装
+pip install flask-mail
+2、配置项
+
+
+
+配置
+默认值
+说明
+
+
+
+MAIL_SERVER
+localhost
+电子邮件服务器的主机名或IP地址
+
+
+MAIL_PORT
+25
+电子邮件服务器的端口
+
+
+MAIL_USE_TLS
+False
+启用传输层安全(TransportLayer Security,TLS)协议
+
+
+MAIL_USE_SSL
+False
+启用安全套接层(Secure SocketsLayer,SSL)协议
+
+
+MAIL_USERNAME
+None
+邮件账户的用户名
+
+
+MAIL_PASSWORD
+None
+邮件账户的密码
+
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/django/qi-ta/4-zhong-jian-jian/" title="4、中间件">4、中间件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.394Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">中间件中间件是Django请求/响应处理的框架。这是一个轻量级的插件系统，用于全局更改Django的输入或者输出。
+每个中间件组件负责执行某些特定的功能，Django中有一些内置的中间件，可以直接进行使用。自定义中间件文件：MiddleWareIp.py
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152#-*-coding:utf-8 -*-"""@File: middleware.py@user：liuhuan   """# process_request 请求开始，视图之前# process_views 请求开始，视图之中# process_exception 错误# process_template_response 视图结束，模板开始渲染# process_response 响应结束from django.utils.deprecation import MiddlewareMixinfrom django.http import Htt ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/flask/flask-sqlalchemy/1-ji-chu-pei-zhi/" title="1、基础配置">1、基础配置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.394Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">一、基础flask-sqlalchemy示例1234567891011121314151617181920212223242526272829303132333435363738394041from flask import Flaskfrom flask_sqlalchemy import SQLAlchemyapp = Flask(__name__)app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///OA.sqlite"# 链接mysql时设置：mysql://username:password@server/dbapp.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = Falsedb = SQLAlchemy(app)class User(db.Model):    id = db.Column(db.Integer, primary_key=True)    username = db.Column(db.String(80), unique=True)    email = db.Colum ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/flask/flask-sqlalchemy/2-sheng-ming-mo-xing/" title="2、声明模型">2、声明模型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.394Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">一、字段类型所有模型的基类都是db.Model，创建的表名会自动进行设置。将大写的表名转化为小写，并将”CamelCase”转换为”Camel_case”，需要改名字时设置类属性:*__tablename*__。
+使用db.Column定义列，常见的字段类型。
+
+
+
+类型
+python类型
+说明
+
+
+
+Integer
+int
+一个整数
+
+
+String(size)
+str
+最大长度的字符串（在某些数据库中为可选，例如PostgreSQL）
+
+
+Text
+str
+一些更长的unicode文本
+
+
+DateTime
+datetime.datetime
+日期和时间表示为Pythondatetime对象。
+
+
+Float
+float
+存储浮点值
+
+
+Boolean
+bool
+存储一个布尔值
+
+
+PickleType
+任何 Python
+存储一个pickled python 对象
+
+
+LargeBinary
+str
+存储大的任意二进制数据
+
+
+列选项设置
+
+
+
+选项名
+说明
+
+
+
+primary_key
+如果设为True，就是表的主键
+
+
+unique
+如果设为True，不允许出现重复的值
+
+
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/flask/flask-sqlalchemy/3-zeng-shan-cha/" title="3、增删查">3、增删查</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.394Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">SQLALchemy的CRUD操作一、添加123me = User("user2","user2@example.com")db.session.add(me)db.session.commit()
+
+二、删除123# 删除db.session.delete(User.query.filter_by(username="user2").first())db.session.commit()
+
+三、查找1、查询过滤器
+
+
+过滤器
+说明
+
+
+
+filter()
+把过滤器添加到原查询上，返回一个新查询
+
+
+filter_by()
+把等值过滤器添加到原查询上，返回一个新查询
+
+
+limit()
+使用指定的值限制原查询的结果数量，返回一个新查询
+
+
+offset()
+偏移原查询返回的结果，返回一个新查询
+
+
+order_by()
+根据指定条件对原查询结果进行排序，返回一个新查询
+
+
+group_by()
+根据指定结果对原查询结果进行分组，返回一个新查询
+
+
+2、查询执行函数
+
+
+方法
+说明
+
+
+
+all()
+以列表形式返回查询的所有结果
+
+
+first()
+返回查询的第一个结果，如果没有结果，则 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/flask/flask-sqlalchemy/4-shi-yong-flask-migrate-guan-li-shu-ju-ku-qian-yi/" title="4、使用flask_migrate管理数据库迁移">4、使用flask_migrate管理数据库迁移</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.394Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content"></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/9/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#content-inner">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/#content-inner">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/#content-inner">15</a><a class="extend next" rel="next" href="/page/11/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">devin</div><div class="author-info__description">分享技术知识</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">150</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liuhuanxg"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/20/treasurebox/elasticsearch/xue-xi-bi-ji/index/" title="index">index</a><time datetime="2023-04-20T02:33:25.636Z" title="发表于 2023-04-20 10:33:25">2023-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/20/treasurebox/elasticsearch/index/" title="index">index</a><time datetime="2023-04-20T02:25:18.254Z" title="发表于 2023-04-20 10:25:18">2023-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/24/treasurebox/python/python-cheng-xu-cpu-shi-yong-lu-fen-xi/python-fen-xi-mo-kuai/" title="python分析模块">python分析模块</a><time datetime="2023-03-24T08:25:41.271Z" title="发表于 2023-03-24 16:25:41">2023-03-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/22/treasurebox/elasticsearch/xue-xi-bi-ji/1.he-xin-zhi-shi-pian-2week/9.suggester/" title="suggester">suggester</a><time datetime="2023-03-22T13:06:21.415Z" title="发表于 2023-03-22 21:06:21">2023-03-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/22/treasurebox/python/python-cheng-xu-cpu-shi-yong-lu-fen-xi/fen-xi-python-cheng-xu-cpu-shi-yong-lu-an-li/" title="分析python程序CPU使用率案例">分析python程序CPU使用率案例</a><time datetime="2023-03-22T09:26:02.499Z" title="发表于 2023-03-22 17:26:02">2023-03-22</time></div></div></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">14</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">七月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/06/"><span class="card-archive-list-date">六月 2022</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/05/"><span class="card-archive-list-date">五月 2022</span><span class="card-archive-list-count">119</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">150</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-04-28T10:24:53.831Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By devin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

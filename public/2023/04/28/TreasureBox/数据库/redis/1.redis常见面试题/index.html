@@ -1,0 +1,201 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>redis常见面试题 | devin's blog</title><meta name="author" content="devin"><meta name="copyright" content="devin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一、Redis常见面试题 redis基本数据类型 有String，Hash，List，Set，Sort，SortedSet五种基本的数据结构，除此以外，还有HyperLogLog，Geo，Pub&#x2F;Sub三种，还有Redis Module像BloomFilter，RedisSearch，Redis-ML。  大量key过期时间设置同一个时间过期，一般需要注意什么？ 如果大量的key过期时间">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis常见面试题">
+<meta property="og:url" content="http://example.com/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E5%BA%93/redis/1.redis%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
+<meta property="og:site_name" content="devin&#39;s blog">
+<meta property="og:description" content="一、Redis常见面试题 redis基本数据类型 有String，Hash，List，Set，Sort，SortedSet五种基本的数据结构，除此以外，还有HyperLogLog，Geo，Pub&#x2F;Sub三种，还有Redis Module像BloomFilter，RedisSearch，Redis-ML。  大量key过期时间设置同一个时间过期，一般需要注意什么？ 如果大量的key过期时间">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-04-28T10:40:04.937Z">
+<meta property="article:modified_time" content="2023-04-28T10:44:49.059Z">
+<meta property="article:author" content="devin">
+<meta property="article:tag" content="开源">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E5%BA%93/redis/1.redis%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'redis常见面试题',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-28 18:44:49'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="devin's blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="devin's blog"><span class="site-name">devin's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">redis常见面试题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-04-28T10:40:04.937Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-28T10:44:49.059Z" title="更新于 2023-04-28 18:44:49">2023-04-28</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="redis常见面试题"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="一、Redis常见面试题"><a href="#一、Redis常见面试题" class="headerlink" title="一、Redis常见面试题"></a>一、Redis常见面试题</h3><ol>
+<li><h5 id="redis基本数据类型"><a href="#redis基本数据类型" class="headerlink" title="redis基本数据类型"></a>redis基本数据类型</h5><p> 有String，Hash，List，Set，Sort，SortedSet五种基本的数据结构，除此以外，还有HyperLogLog，Geo，Pub&#x2F;Sub三种，还有Redis Module像BloomFilter，RedisSearch，Redis-ML。</p>
+</li>
+<li><h5 id="大量key过期时间设置同一个时间过期，一般需要注意什么？"><a href="#大量key过期时间设置同一个时间过期，一般需要注意什么？" class="headerlink" title="大量key过期时间设置同一个时间过期，一般需要注意什么？"></a>大量key过期时间设置同一个时间过期，一般需要注意什么？</h5><p> 如果大量的key过期时间设置的过于集中，到过期的时间点时，redis可能会出现短暂的卡顿现象。严重的话会出现缓存雪崩，一般需要在过期时间上加一个随机值，使得过期时间分散一些。<br> 加上首页经常会使用定时任务刷新缓存，可能大量的数据失效时间都十分集中，如果失效时间一样，又刚好卡在失效的时间点大量用户涌入，就有可能造成缓存雪崩。</p>
+</li>
+<li><h5 id="使用过redis分布式锁吗？是怎么回事？"><a href="#使用过redis分布式锁吗？是怎么回事？" class="headerlink" title="使用过redis分布式锁吗？是怎么回事？"></a>使用过redis分布式锁吗？是怎么回事？</h5><p>  先拿setnx来争抢锁，抢到之后，再用expire给锁加一个过期时间防止锁忘记了释放。</p>
+</li>
+<li><h5 id="如果在setnx之后执行expire之前进程意外crash或者要重启维护了，那会怎么样？"><a href="#如果在setnx之后执行expire之前进程意外crash或者要重启维护了，那会怎么样？" class="headerlink" title="如果在setnx之后执行expire之前进程意外crash或者要重启维护了，那会怎么样？"></a>如果在setnx之后执行expire之前进程意外crash或者要重启维护了，那会怎么样？</h5><p> 使用set指令可以把setnx和expire合成一条指令使用。</p>
+</li>
+<li><h5 id="假入redis中有1亿个key，其中有10W个key是以某个固定的已知的前缀开头的，如何将他们全部找出来？"><a href="#假入redis中有1亿个key，其中有10W个key是以某个固定的已知的前缀开头的，如何将他们全部找出来？" class="headerlink" title="假入redis中有1亿个key，其中有10W个key是以某个固定的已知的前缀开头的，如何将他们全部找出来？"></a>假入redis中有1亿个key，其中有10W个key是以某个固定的已知的前缀开头的，如何将他们全部找出来？</h5><p> 使用keys指令可以扫出指定模式的key列表。</p>
+</li>
+<li><h5 id="如果redis正在给线上的业务提供服务，那使用keys指令会有什么问题？"><a href="#如果redis正在给线上的业务提供服务，那使用keys指令会有什么问题？" class="headerlink" title="如果redis正在给线上的业务提供服务，那使用keys指令会有什么问题？"></a>如果redis正在给线上的业务提供服务，那使用keys指令会有什么问题？</h5><p>  redis是单线程，keys指令会导致线程阻塞一段时间，线上服务会停顿，指导指令执行完毕，服务才能恢复。这个时候可以试用scan指令，scan指令可以无阻塞的提取出指定模式的key列表，但是会有一定的重复概率，在客户端做一次去重就可以了，但是整体所花费的时间会比直接用keys指令长。<br>  不过，增量式迭代命令也不是没有缺点的：试用SMEMBERS命令可以返回集合键当前包含的所有元素，但是对于scan这类增量式迭代命令来说，因为在对键进行增量式迭代的过程中，键可能会被修改，所以增量式迭代命令只能对被返回的元素提供有限的保证。</p>
+</li>
+<li><h5 id="使用过redis做异步队列吗？是怎么使用的？"><a href="#使用过redis做异步队列吗？是怎么使用的？" class="headerlink" title="使用过redis做异步队列吗？是怎么使用的？"></a>使用过redis做异步队列吗？是怎么使用的？</h5><p> 一般使用list结构做为队列，rpush生产消息，lpop消费消息，当lpop没有消息的时候，要适当sleep一会再重试。</p>
+</li>
+<li><h5 id="如果不使用sleep呢？"><a href="#如果不使用sleep呢？" class="headerlink" title="如果不使用sleep呢？"></a>如果不使用sleep呢？</h5><p> list有个指令叫blpop，在没有消息的时候，它会阻塞住直到消息到来。</p>
+</li>
+<li><h5 id="能不能一次消费多次？"><a href="#能不能一次消费多次？" class="headerlink" title="能不能一次消费多次？"></a>能不能一次消费多次？</h5><p> 使用pub&#x2F;sub主题订阅者模式，可以实现1:N的消息队列。</p>
+</li>
+<li><h5 id="pub-x2F-sub有什么缺点？"><a href="#pub-x2F-sub有什么缺点？" class="headerlink" title="pub&#x2F;sub有什么缺点？"></a>pub&#x2F;sub有什么缺点？</h5><p>在消费者下线的情况下，生产的消息会丢失，得使用专业的消息队列如RocketMQ等。</p>
+</li>
+<li><h5 id="Redis如何实现延时队列？"><a href="#Redis如何实现延时队列？" class="headerlink" title="Redis如何实现延时队列？"></a>Redis如何实现延时队列？</h5><p>  使用sorted set，用时间戳作为score，消息内容作为key调用zadd来生产消息，消费者用zrangebyscore指令获取N秒之前的数据轮询进行处理。</p>
+</li>
+<li><h5 id="Redis是怎么持久化的？服务主从数据怎么交互的？"><a href="#Redis是怎么持久化的？服务主从数据怎么交互的？" class="headerlink" title="Redis是怎么持久化的？服务主从数据怎么交互的？"></a>Redis是怎么持久化的？服务主从数据怎么交互的？</h5><p>  RDB做镜像全量持久化，AOF做增量持久化，因为RDB会耗费较长时间，不够实时，在停机的时候会导致大量丢失数据，所以需要AOF来配合使用。在redis实例重启时，会使用RDB持久化文件重新构建内存，再使用AOF重放近期的操作指令来实现完整恢复重启之前的状态。</p>
+</li>
+<li><h5 id="如果突然机器掉电会怎样？"><a href="#如果突然机器掉电会怎样？" class="headerlink" title="如果突然机器掉电会怎样？"></a>如果突然机器掉电会怎样？</h5><p> 取决于AOF日志sync属性的配置，如果不要求性能，在每条写指令时都sync一下磁盘，就不会丢失数据。但是在高性能要求下每次都sync是不现实的，一般都使用定时sync，比如1s1次，这个时候最多就会丢失1s的数据。</p>
+</li>
+<li><h5 id="RDB的原理是什么？"><a href="#RDB的原理是什么？" class="headerlink" title="RDB的原理是什么？"></a>RDB的原理是什么？</h5><p>  fork和cow，fork指redis通过创建子进程来进行RDB操作，cow指copy onwrite，子进程创建后，父子进程共享数据段，父进程继续提供读写服务，写脏的页面数据会逐渐和子进程分离开来。</p>
+</li>
+<li><h5 id="Pipeline有什么好处，为什么要用pipeline。"><a href="#Pipeline有什么好处，为什么要用pipeline。" class="headerlink" title="Pipeline有什么好处，为什么要用pipeline。"></a>Pipeline有什么好处，为什么要用pipeline。</h5><p>可以将多次IO往返的时间缩短为一次，前提是pipeline执行的指令之间没有因果相关性。使用redis-benchmark进行压测的时候可以发现影响redis的QPS峰值的一个重要因素是pipeline批次指令的数目。</p>
+</li>
+<li><h5 id="Redis的同步机制有了解么？"><a href="#Redis的同步机制有了解么？" class="headerlink" title="Redis的同步机制有了解么？"></a>Redis的同步机制有了解么？</h5><p>  Redis可以使用主从同步、从从同步。第一次同步时，主节点做一次bgsave，并同时将后续修改操作记录到内存buffer，待完成后将RDB文件全量同步到复制节点，复制节点接受完成后将RDB镜像加载到内存。加载完成后。在通过主节点将期间修改的操作记录同步到负直节点进行重放就完成了同步过程。后续的增量数据通过AOF日志同步即可。有点类似数据库的binlog。</p>
+</li>
+<li><h5 id="是否使用过redis集群，集群的高可用怎么保证，集群的原理是什么？"><a href="#是否使用过redis集群，集群的高可用怎么保证，集群的原理是什么？" class="headerlink" title="是否使用过redis集群，集群的高可用怎么保证，集群的原理是什么？"></a>是否使用过redis集群，集群的高可用怎么保证，集群的原理是什么？</h5><p> Redis Sentinal 着眼于高可用，在master宕机时会自动将salve提升为master，继续提供服务。<br> Redis Cluster着眼于扩展性，在单个redis内存不足时，使用Cluster进行分片存储。使用Cluster进行分片存储。</p>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">devin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E5%BA%93/redis/1.redis%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/">http://example.com/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E5%BA%93/redis/1.redis%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">devin's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E5%BA%93/redis/3.redis%E9%AB%98%E9%98%B6/" title="redis高阶"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">redis高阶</div></div></a></div><div class="next-post pull-right"><a href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E5%BA%93/redis/2.1%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" title="1基本命令"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">1基本命令</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">devin</div><div class="author-info__description">分享技术知识</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liuhuanxg"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81Redis%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">一、Redis常见面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#redis%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.0.1.</span> <span class="toc-text">redis基本数据类型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%A7%E9%87%8Fkey%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4%E8%AE%BE%E7%BD%AE%E5%90%8C%E4%B8%80%E4%B8%AA%E6%97%B6%E9%97%B4%E8%BF%87%E6%9C%9F%EF%BC%8C%E4%B8%80%E8%88%AC%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.0.2.</span> <span class="toc-text">大量key过期时间设置同一个时间过期，一般需要注意什么？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%BF%87redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%90%97%EF%BC%9F%E6%98%AF%E6%80%8E%E4%B9%88%E5%9B%9E%E4%BA%8B%EF%BC%9F"><span class="toc-number">1.0.3.</span> <span class="toc-text">使用过redis分布式锁吗？是怎么回事？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E5%9C%A8setnx%E4%B9%8B%E5%90%8E%E6%89%A7%E8%A1%8Cexpire%E4%B9%8B%E5%89%8D%E8%BF%9B%E7%A8%8B%E6%84%8F%E5%A4%96crash%E6%88%96%E8%80%85%E8%A6%81%E9%87%8D%E5%90%AF%E7%BB%B4%E6%8A%A4%E4%BA%86%EF%BC%8C%E9%82%A3%E4%BC%9A%E6%80%8E%E4%B9%88%E6%A0%B7%EF%BC%9F"><span class="toc-number">1.0.4.</span> <span class="toc-text">如果在setnx之后执行expire之前进程意外crash或者要重启维护了，那会怎么样？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%81%87%E5%85%A5redis%E4%B8%AD%E6%9C%891%E4%BA%BF%E4%B8%AAkey%EF%BC%8C%E5%85%B6%E4%B8%AD%E6%9C%8910W%E4%B8%AAkey%E6%98%AF%E4%BB%A5%E6%9F%90%E4%B8%AA%E5%9B%BA%E5%AE%9A%E7%9A%84%E5%B7%B2%E7%9F%A5%E7%9A%84%E5%89%8D%E7%BC%80%E5%BC%80%E5%A4%B4%E7%9A%84%EF%BC%8C%E5%A6%82%E4%BD%95%E5%B0%86%E4%BB%96%E4%BB%AC%E5%85%A8%E9%83%A8%E6%89%BE%E5%87%BA%E6%9D%A5%EF%BC%9F"><span class="toc-number">1.0.5.</span> <span class="toc-text">假入redis中有1亿个key，其中有10W个key是以某个固定的已知的前缀开头的，如何将他们全部找出来？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A6%82%E6%9E%9Credis%E6%AD%A3%E5%9C%A8%E7%BB%99%E7%BA%BF%E4%B8%8A%E7%9A%84%E4%B8%9A%E5%8A%A1%E6%8F%90%E4%BE%9B%E6%9C%8D%E5%8A%A1%EF%BC%8C%E9%82%A3%E4%BD%BF%E7%94%A8keys%E6%8C%87%E4%BB%A4%E4%BC%9A%E6%9C%89%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-number">1.0.6.</span> <span class="toc-text">如果redis正在给线上的业务提供服务，那使用keys指令会有什么问题？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%BF%87redis%E5%81%9A%E5%BC%82%E6%AD%A5%E9%98%9F%E5%88%97%E5%90%97%EF%BC%9F%E6%98%AF%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8%E7%9A%84%EF%BC%9F"><span class="toc-number">1.0.7.</span> <span class="toc-text">使用过redis做异步队列吗？是怎么使用的？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E4%B8%8D%E4%BD%BF%E7%94%A8sleep%E5%91%A2%EF%BC%9F"><span class="toc-number">1.0.8.</span> <span class="toc-text">如果不使用sleep呢？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%83%BD%E4%B8%8D%E8%83%BD%E4%B8%80%E6%AC%A1%E6%B6%88%E8%B4%B9%E5%A4%9A%E6%AC%A1%EF%BC%9F"><span class="toc-number">1.0.9.</span> <span class="toc-text">能不能一次消费多次？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#pub-x2F-sub%E6%9C%89%E4%BB%80%E4%B9%88%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-number">1.0.10.</span> <span class="toc-text">pub&#x2F;sub有什么缺点？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Redis%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%BB%B6%E6%97%B6%E9%98%9F%E5%88%97%EF%BC%9F"><span class="toc-number">1.0.11.</span> <span class="toc-text">Redis如何实现延时队列？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Redis%E6%98%AF%E6%80%8E%E4%B9%88%E6%8C%81%E4%B9%85%E5%8C%96%E7%9A%84%EF%BC%9F%E6%9C%8D%E5%8A%A1%E4%B8%BB%E4%BB%8E%E6%95%B0%E6%8D%AE%E6%80%8E%E4%B9%88%E4%BA%A4%E4%BA%92%E7%9A%84%EF%BC%9F"><span class="toc-number">1.0.12.</span> <span class="toc-text">Redis是怎么持久化的？服务主从数据怎么交互的？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E7%AA%81%E7%84%B6%E6%9C%BA%E5%99%A8%E6%8E%89%E7%94%B5%E4%BC%9A%E6%80%8E%E6%A0%B7%EF%BC%9F"><span class="toc-number">1.0.13.</span> <span class="toc-text">如果突然机器掉电会怎样？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#RDB%E7%9A%84%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.0.14.</span> <span class="toc-text">RDB的原理是什么？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Pipeline%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E5%A4%84%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8pipeline%E3%80%82"><span class="toc-number">1.0.15.</span> <span class="toc-text">Pipeline有什么好处，为什么要用pipeline。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Redis%E7%9A%84%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6%E6%9C%89%E4%BA%86%E8%A7%A3%E4%B9%88%EF%BC%9F"><span class="toc-number">1.0.16.</span> <span class="toc-text">Redis的同步机制有了解么？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%98%AF%E5%90%A6%E4%BD%BF%E7%94%A8%E8%BF%87redis%E9%9B%86%E7%BE%A4%EF%BC%8C%E9%9B%86%E7%BE%A4%E7%9A%84%E9%AB%98%E5%8F%AF%E7%94%A8%E6%80%8E%E4%B9%88%E4%BF%9D%E8%AF%81%EF%BC%8C%E9%9B%86%E7%BE%A4%E7%9A%84%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.0.17.</span> <span class="toc-text">是否使用过redis集群，集群的高可用怎么保证，集群的原理是什么？</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/hello-world/" title="Hello World">Hello World</a><time datetime="2023-04-28T10:44:48.968Z" title="发表于 2023-04-28 18:44:48">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/1%E3%80%81TCPIP%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="1、TCPIP网络模型">1、TCPIP网络模型</a><time datetime="2023-04-28T10:40:04.953Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/" title="算法">算法</a><time datetime="2023-04-28T10:40:04.944Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/kafka/1.kafka%E8%AF%A6%E8%A7%A3/" title="kafka详解">kafka详解</a><time datetime="2023-04-28T10:40:04.944Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1.%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%88%9D%E8%AF%86/" title="数据结构初识">数据结构初识</a><time datetime="2023-04-28T10:40:04.943Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By devin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

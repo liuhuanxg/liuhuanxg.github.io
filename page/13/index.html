@@ -1,0 +1,373 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>devin's blog - vinya</title><meta name="author" content="devin"><meta name="copyright" content="devin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="分享技术知识">
+<meta property="og:type" content="website">
+<meta property="og:title" content="devin&#39;s blog">
+<meta property="og:url" content="http://example.com/page/13/index.html">
+<meta property="og:site_name" content="devin&#39;s blog">
+<meta property="og:description" content="分享技术知识">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="devin">
+<meta property="article:tag" content="开源">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/13/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'devin\'s blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-04-28 18:24:54'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="devin's blog" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">150</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="devin's blog"><span class="site-name">devin's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">devin's blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/django/3.mo-ban-ceng/1.bian-liang-yu-guo-lu-qi/" title="变量与过滤器">变量与过滤器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.375Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">模板层的使用一、变量变量名称由数字、字母和下划线任意组合组成，但不能以下划线开头。在变量中也可以使用点(.)，代表特殊含义。变量名中不能包含空格或标点符号。
+当在模板中遇到点（.）时，会尝试按一下顺序查找
+
+字典查询
+属性或方法查找
+数值索引查找
+
+二、过滤器通过过滤器对要显示的内容做改变。
+
+default  如果变量为False或为空，则使用给定的默认值，否则，将使用变量的值。
+  1{{ value|default:"nothing" }}
+
+filesizeformat  一个可读的文件大小的值。如：”13KB”，”4.1MB”,”102bytes”。
+  1{{ value|filesizeformat }}
+
+  如果value的值为123456789，则输出为：117.7MB。
+
+add  对value值进行加法操作。如果value为4，则结果为6。
+  1{{ value|add:2 }}
+
+  如果想减去某个值，则将add后的数字改为负数。
+  1{{ value|add:-2 }}
+
+  如果想将字符串类型改为整数类型，则进行+0操作。
+  1{{ value|ad ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/django/1.mo-xing-ceng/1.qian-yi/" title="迁移">迁移</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.374Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">数据库迁移
+迁移前的检测
+ python manage.py check
+
+生成迁移文件
+ python manage.py makemigrations
+
+执行迁移
+ python manage.py migrate
+
+显示用于迁移的SQL语句
+ python manage.py sqlmigrate
+
+列出项目的迁移及其状态
+ python manage.py showmigrations
+
+忽略某条迁移文件
+ python  manage.py  migrate  app_name  0003  –fake
+
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/django/1.mo-xing-ceng/2.meta-xuan-xiang/" title="Meta选项">Meta选项</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.374Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">Meta选项
+abstract 如果设置为True时，该模型为抽象基类，在创建表时不创建。
+ abstract = True
+
+app_label 如果模型是在INSTALLED_APPS中定义之外的app中，则必须声明其所属的应用用程序
+ app_label = ‘myapp’
+
+verbose_name 对象的可读名称，在admin后台上单数形式的名称。
+ verbose_name = ‘新闻’
+
+verbose_name_plural 对象的可读名称，在admin后台上复数形式的名称。
+ verbose_name_plural = ‘新闻’
+
+db_table 用于模型的数据库表的名称
+ db_table=’music_album’
+
+ordering 对象的默认排序，用于在获取列表时使用
+ ordering = [‘-id’]
+
+permission 创建额外的权限，将自动为模型创建除了add,change,delete,view之外新的权限。
+ 1permissions = (("can_deliver_pizzas", "Can deliver pizzas"),)
+
+de ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/django/1.mo-xing-ceng/3.zi-duan-lei-xing/" title="字段类型">字段类型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.374Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">字段类型常用字段源代码连接：	https://docs.djangoproject.com/zh-hans/2.1/_modules/django/db/models/fields/
+(1) AutoField
+自增的整型字段，必填参数primary_key=True,则成为数据库的主键，无该字段时，django会自动创建主键id字段。
+(2) BigAutoField
+一个64位整数，非常类似与AutoField，但是范围是从1~9223372036854775807。
+(3) BigIntegerField
+一个64位整数，非常类似于IntegerField，不同之处在于保证可以匹配从-9223372036854775808到9223372036854775807。此字段默认表单小部件是TextInput。
+(4) BinaryField
+一个用于存储原始二进制数据的字段，可以分配bytes，bytearray或memoryview。默认情况下，BinaryField设置editable为False，在这种情况下，他不能包含在ModelForm中，在django2.1中进行了修改： ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/linux/2.linux-jin-jie/" title="linux进阶">linux进阶</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.372Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">linux进阶[TOC]
+一、用户管理命令linux是一个多用户的操作系统，允许多个用户同时操作系统中的文件。而windows是一个伪多用户的操作系统，可以存在多个用户，但是同时只允许一个用户操作系统中的文件。
+为了更好的管理服务器中的服务，一般会创建不同的用户维护不同的服务。
+1、用户管理命令一般情况下都是需要管理员权限才能执行。
+
+
+
+命令
+描述
+
+
+
+useradd
+增加一个用户，在系统中创建一个用户
+
+
+userdel
+删除一个用户，将系统中的某个用户删除
+
+
+passwd 
+修改指定用户密码
+
+
+创建用户并添加密码：
+123456[root@localhost root]# useradd youzi[root@localhost root]# cd /home[root@localhost home]# lsroot youzi[root@localhost home]# passwd youzi密码有默认的限制规则，会校验是否符合格式，输入密码时一般不回显。输完直接确认。
+
+添加完用户之后即可在远端使用ssh youzi@ip进行远端登录。
+删除用户：
+
+默认：删除用户， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/linux/3.shell-bian-cheng/" title="shell编程">shell编程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.372Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">shell编程一、shell编程简介shell编程入门：是unix/linux操作系统中的一种工程自动化操作方式。让我们通过手工操作的繁琐的步骤，使用程序完成自动化的操作。
+1、shell编程用途基础配置：系统初始化操作、系统更新、内核调整等等。
+安装程序：自动部署LNMP、LAMP、MySQL等
+配置变更：Nginx配置、MySQL配置、Redis配置等等
+业务部署：配合git、jenkins等实现自动化持续交付
+日常备份：脚本对项目或者软件实现全备份或者增量备份等
+信息采集：硬件、系统、服务、网络等各种数据的自动采集
+日志分析：获取日志、排序、去重、统计、分析
+服务扩容：监控服务器信息，脚本程序自动化扩容部署
+2、Shell编程的核心shell编程内部就是批量执行Unix/Linux命令的操作，将手工执行多次的命令，转换到脚本程序中通过命令完成一次性执行的效果。
+案例：备份文件，编写shell文件back.sh
+
+#! /bin/sh
+echo   ——开始文件备份——–
+echo 打包文件
+tar -cvf hw.bak.tar 1.py 2.py 3.py test.py
+ec ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/git-ming-ling/git/" title="git">git</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.371Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">git操作
+配置.gitignore文件 作用：可以屏蔽掉某些不需要被管理的文件或文件夹，如日志文件、临时文件等。 git rm -r –cached . git add . git commit -m ‘update .gitignore’
+
+新建 创建一个新的git仓库。这个版本库的配置、存储等信息会被保存到.git文件中
+ 12345678910111213# 初始化当前项目$ git init# 新建一个目录，将其初始化为Git代码库$ git init [project-name]# 在指定目录创建一个空的 Git 仓库。运行这个命令会创建一个名为 directory，只包含 .git 子目录的空目录。$ git init --bare &lt;directory&gt;# 下载一个项目和它的整个代码历史# 这个命令就是将一个版本库拷贝到另一个目录中，同时也将分支都拷贝到新的版本库中。这样就可以在新的版本库中提交到远程分支$ git clone [url]
+
+配置 更改设置。可以是版本库的设置，也可以是系统的或者全局的设置：
+ 123456789101112131415161 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/git-ming-ling/git2/" title="git2">git2</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.371Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">0、.gitignore文件
+
+当版本库中的某个文件不想进行版本控制时，可以通过.gitignore文件进行设置。
+git rm -r –cached .git add .git commit -m ‘update .gitignore’
+
+1、创建Git仓库
+&gt;(1)新建一个文件夹，进入文件夹执行 git init初始化Git仓库，
+(2)添加文件到Git仓库，git add 文件名 ，可反复多次使用，添加多个文件
+(3) git commit -m "更改介绍"
+
+2、时光机穿梭
+&gt;(1)git status 查看仓库状态 git diff 查看修改内容
+&gt;
+&gt;(2)git log 查看历史记录或者 git log --pretty=oneline 
+&gt;
+&gt;(3)git reset --hard HEAD^   (^代表上一个版本，HEAD~100,代表第上100个版本)
+&gt;
+&gt;(4)git reset --hard （commit_id）  在git历史中穿梭
+&gt;
+&gt;(5)git log  查看被提交历史，git ref ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/linux/1.ji-chu-ming-ling/" title="基础命令">基础命令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.371Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">[TOC]
+一、基础命令
+重启网络服务
+ 1sytemctl restart network
+
+查看IP
+ 1ipconfig
+
+二、系统常见命令
+常见命令——ls
+
+
+命令
+描述
+
+
+
+ls
+查看当前文件夹/路径/目录中的所有文件，list file，列表展示文件。-a：查看所有文件，包括隐藏文件linux中以.开头的文件默认为隐藏文件-l：按照列表的方式，展示文件信息-R：递归使用树形的方式展示文件夹中的所有文件
+
+
+
+系统常见命令——cd
+
+
+命令
+描述
+
+
+
+cd
+改变当前文件夹的命令，进入指定的文件夹，英文：change directory——cdcd path/：表示命令行中切换到path/路径/文件夹/目录中cd：直接回车进入当前用户的家目录中root用户进入/root/waltz用户，进入/home/waltzcd /：进入根目录cd /etc：进入根目录下的etc路径cd test：进入当前目录下的test路径
+
+
+
+系统常见命令——pwd
+
+
+命令
+描述
+
+
+
+pwd
+查看当前命令执行的路径英文：print working directory
+
+
+
+系统常见命令—— ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/java/java-bian-ji-gong-ju-shuo-ming/" title="java编辑工具说明">java编辑工具说明</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.370Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">1、关于java的集成开发环境【集成开发环境简称：IDE】    1.1、什么是集成开发环境？        * 集成开发环境可以让软件开发变得更简单、更高效。    * 没有IDE工具：        - 需要安装JDK、需要配置环境变量、需要手动编译java文件。        - java源程序出错之后没有提示        - 没有自动提示功能
+*有IDE工具：
+    - 不需要独立安装JDK【IDE中已经集成】
+    - 不需要手动配置环境变量
+    - 不需要使用javac命令编译java源文件
+    - 并且java源程序编写错误会直接提示
+    - 使用IDE工具有很多代码不用编写，自动生成了
+1.2、java有哪些IDE呢
+    * eclipse(免费)、myeclipse(收费)【最多】
+* myeclipse
+* Intellij IDEA
+* NetBeans
+* JBuilder
+
+   1.3、eclipse快捷键：    Ctrl+1 快速修复(最经典的快捷键,就不用多说了)    Ctrl+D: 删除当前行    Ctrl+Alt+↓ 复制 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/12/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/#content-inner">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/#content-inner">14</a><a class="page-number" href="/page/15/#content-inner">15</a><a class="extend next" rel="next" href="/page/14/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">devin</div><div class="author-info__description">分享技术知识</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">150</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liuhuanxg"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/20/treasurebox/elasticsearch/xue-xi-bi-ji/index/" title="index">index</a><time datetime="2023-04-20T02:33:25.636Z" title="发表于 2023-04-20 10:33:25">2023-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/20/treasurebox/elasticsearch/index/" title="index">index</a><time datetime="2023-04-20T02:25:18.254Z" title="发表于 2023-04-20 10:25:18">2023-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/24/treasurebox/python/python-cheng-xu-cpu-shi-yong-lu-fen-xi/python-fen-xi-mo-kuai/" title="python分析模块">python分析模块</a><time datetime="2023-03-24T08:25:41.271Z" title="发表于 2023-03-24 16:25:41">2023-03-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/22/treasurebox/elasticsearch/xue-xi-bi-ji/1.he-xin-zhi-shi-pian-2week/9.suggester/" title="suggester">suggester</a><time datetime="2023-03-22T13:06:21.415Z" title="发表于 2023-03-22 21:06:21">2023-03-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/22/treasurebox/python/python-cheng-xu-cpu-shi-yong-lu-fen-xi/fen-xi-python-cheng-xu-cpu-shi-yong-lu-an-li/" title="分析python程序CPU使用率案例">分析python程序CPU使用率案例</a><time datetime="2023-03-22T09:26:02.499Z" title="发表于 2023-03-22 17:26:02">2023-03-22</time></div></div></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">14</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">七月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/06/"><span class="card-archive-list-date">六月 2022</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/05/"><span class="card-archive-list-date">五月 2022</span><span class="card-archive-list-count">119</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">150</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-04-28T10:24:53.831Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By devin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

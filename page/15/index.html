@@ -1,0 +1,300 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>devin's blog - vinya</title><meta name="author" content="devin"><meta name="copyright" content="devin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="分享技术知识">
+<meta property="og:type" content="website">
+<meta property="og:title" content="devin&#39;s blog">
+<meta property="og:url" content="http://example.com/page/15/index.html">
+<meta property="og:site_name" content="devin&#39;s blog">
+<meta property="og:description" content="分享技术知识">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="devin">
+<meta property="article:tag" content="开源">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/15/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'devin\'s blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-04-28 18:24:54'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="devin's blog" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">150</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="devin's blog"><span class="site-name">devin's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">devin's blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/java/1.java-ji-chu/3.yun-suan-fu/" title="运算符">运算符</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.366Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">运算符运算符包括：
+
+算术运算符
+比较运算符
+逻辑运算符
+赋值运算符
+特殊的“+”运算符
+三元运算符/三目运算符
+
+一、Java语言中的算术运算符12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970/*	关于java编程中运算符：算术运算符		+	求和		—	求差		*	乘积		/	商		%	求余数【取模】		++	自加1		--	自减1	注意：		一个表达式中有多个运算符，运算符有优先级，不确定的加小括号，优先级得到提升*/public class OperatorTest01{	public static void main(String[] args){		int i = 10;		int j = 3;		System.out.println(i + j);  //13		System.out.println(i - j);	//7		System.out.println( ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/java/1.java-ji-chu/4.fen-zhi-yu-ju/" title="分支语句">分支语句</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.366Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">分支语句分支语句又称选择语句，当满足某个条件时，就进行某种操作。Java中有三种选择结构：
+
+if…else if..else
+while…
+do…while
+
+一、java语言中的if分支语句java语言中有if，else if和else三个if语法，与python不同的是没有elif的用法，只有else if。
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788/*	关于java语言中的if语句，属于选择结构，if语句又被称为分支语句/条件控制语句		1、if语句的语法结构：四种编写方式			第一种：			    if(布尔表达式){					java语句;					java语句;					...				}			第二种：				if(布尔表达式){					java语句;					java语句;				 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/java/1.java-ji-chu/5.xun-huan-yu-ju/" title="循环语句">循环语句</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.366Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">循环语句循环结构：        在程序当中总有一些需要反复执行的代码，假设没有循环结构，这些重复执行的代码需要重复编写，代码无法得到重复使用。所以多数编程语言都是支持循环结构的，将来把需要反复执行的代码片段放到“循环体”，再联合计数器，共同控制这段需要反复执行的代码。
+在Java中循环结构分为三种：
+
+for循环
+while循环
+do…while循环
+
+一、for循环
+for循环基础语法 1234567891011121314151617181920212223242526272829303132333435363738394041424344/*	1、当前示例主要讲解for循环。for循环的语法结构如下：		语法结构：			for(初始化表达式;布尔表达式;更新表达式){				//需要重复执行的代码片段【由java语句构成】			}	2、for循环的执行过程/执行原理【*****】		1、初始化表达式、布尔表达式、更新表达式都不是必须的。【两个分号(;)必须要有】		2、初始化表达式最先执行，并且在整个for循环当中只执行一次。		3、布尔表达式必须是true/false,不能是 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/go/go-ji-chu/1.cheng-xu-ji-chu-yu-fa/" title="程序基础语法">程序基础语法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.365Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">Go基本命令1、查看版本
+go version
+2、查看go的环境变量
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/java/1.java-ji-chu/1.yun-xing-guo-cheng/" title="运行过程">运行过程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.365Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">初识java一、初识java1、初识java​	——javac.exe怎么用​		javac A.java  生成编译文件  A.class
+——java.exe怎么用：java 类名
+例如：
+    硬盘上有一个A.class，那么就可以用java A
+    硬盘上有一个B.class，那么就可以用java B
+    不能写成 java A.class
+
+——运行阶段的过程是：
+    * 打开DOS命令窗口
+    * 输入：java A
+    * java.exe命令会启动Java虚拟机（JVM），JVM会启动类加载器ClassLoader
+    * ClassLoader会去硬盘上搜索A.class文件，找到改文件则将该字节码文件装载到JVM中。
+    * JVM将A.class字节码文件解释成二进制1010101010这样的数据。
+    * 然后操作系统执行二进制文件和底层硬件平台进行交互
+
+bin目录介绍：
+    javac.exe 	负责编译(文件中有中文时编译需要加上：javac -encoding utf-8 HelloWorld.java)
+    j ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/java/1.java-ji-chu/2.shu-ju-lei-xing/" title="数据类型">数据类型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.365Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">基本数据类型一、数据类型概述1、编码发展    ASCII码–&gt;    随着计算机发展出现：        ISO-8859-1(latin-1)    随着计算机向亚洲发展，开始逐渐支持中文：        GB2312–&gt;GBK–&gt;GB18030    支持繁体中文：大五码    后来出现了一种编码方式统一了全球所有文字，容量较大，这种编码方式叫做unicode编码。unicode编码方式由多种具体实现。    UTF-8,UTF-16,UTF-322、基本数据类型的取值范围：
+
+
+
+类型
+范围
+
+
+
+byte
+-128~127
+
+
+short
+-32768~32767
+
+
+int
+-2147483648~2147483647
+
+
+long
+
+
+
+float
+
+
+
+double
+
+
+
+boolean
+true/false
+
+
+char
+0~65535
+
+
+3、基本数据类型的默认值,向0看齐
+
+
+
+数据类型
+默认值
+
+
+
+byte,short,int,long
+0
+
+
+float,double
+0.0f/0.0d
+
+
+boolean
+false
+
+
+char
+\u0 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/elasticsearch/1.es-suo-yin-yu-b-tree-dui-bi/" title="es索引与B+tree对比">es索引与B+tree对比</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.359Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">Elasticsearch—索引原理一、介绍Elasticsearch 是一个分布式可扩展的实时搜索引擎和分析引擎，一个建立在全文搜索引擎A**pache Lucene(TM)**基础上的搜索引擎。当然Elasticsearch并不仅仅是Lucene，它不仅包括了全文搜索功能，还可以进行以下工作：
+
+分布式实时文件存储，并将每一个字段都编入索引，使其可以被搜索。
+实时分析的分布式搜索引擎。
+可以扩展到上百台服务器，处理PB级别的结构化或非结构化数据。
+
+基本概念Elasticsearch的文件存储，Elasticsearch是面向文档型的数据库，一条数据在这里就是一个文档，用JSON作为文档序列化的格式。示例：
+12345678{    "name" :     "waltz",    "sex" :      "M",    "age" :      24,    "birthDate": "1996/4/25",    "about" :    "I love World！",    "interests": [ "sports", "music" ]}
+
+用MySQL这样的数据库 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/elasticsearch/2.python-cao-zuo-es/" title="python操作es">python操作es</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.359Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">python操作es示例1、首先在命令行启动elasticsearch：
+1切换至elasticsearch的安装目录的bin目录中，输入：elasticsearch，启动es
+
+2、安装python需要的包：pip install elasticsearch
+3、使用python创建索引：
+1234567# -*- coding: utf-8 -*-from elasticsearch import Elasticsearches = Elasticsearch()# 创建索引result = es.indices.create(index="news", ignore=400)print(result)
+
+4、插入数据
+123data = {"title": "美国留给伊拉克的是烂摊子吗？", 'url': 'http://view.news.qq.com/zt2011/usa_iraq/index.htm'}# result = es.create(index="news", doc_type="politics", id=1, body=data)  # 使用create方法插 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/docker/1.docker-jie-jue-de-wen-ti/" title="Docker解决的问题">Docker解决的问题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.357Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">
+title: Docker解决的问题Docker解决的问题一、解决的问题​	由于不同的机器有不同的操作系统，以及不同的库和组件，在将一个应用部署到多台机器上需要进行大量的环境配置操作。
+​	Docker主要解决环境配置问题，它是一种虚拟化技术，对进程进行隔离，被隔离的进程独立于宿主操作系统和其他隔离的进程。使用Docker可以不修改应用程序代码，不需要开发人员学习特定环境下的技术，就能够将现有的应用程序部署在其他机器上。
+Docker 使用 Google 公司推出的 Go 语言 进行开发实现，基于 Linux 内核的 cgroup，namespace，以及 OverlayFS 类的 Union FS 等技术，对进程进行封装隔离，属于 操作系统层面的虚拟化技术。由于隔离的进程独立于宿主和其它的隔离的进程，因此也称其为容器。最初实现是基于 LXC，从 0.7 版本以后开始去除 LXC，转而使用自行开发的 libcontainer，从 1.11 版本开始，则进一步演进为使用 runC 和 containerd。
+
+
+二、与虚拟机的比较虚拟机也是一种虚拟化技术，它与Docker最大的区别在于 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/docker/3.docker-he-xin-zu-jian/" title="Docker核心组件">Docker核心组件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.357Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">
+title: Docker核心组件Docker核心组件
+镜像(Image)在操作系统中分为内核和用户空间。对于linux而言，内核启动后，会挂载root文件系统为其提供用户空间支持。而Docker镜像(Image)，就相当于是一个root文件系统，比如官方镜像ubuntu18.04就包含了完整的一套Ubuntu18.04最小系统的root文件系统。
+Docker镜像是一个特殊的文件系统，除了提供容器运行时所需的程序、库、资源、配置等文件外，还包含了一起为运行时准备的一些配置参数（如匿名卷、环境变量、用户等）。镜像不包含任何动态数据，其内容再构建之后也不会被改变。
+分层存储因为镜像包含操作系统完整的root文件系统，其体积往往是庞大的，因此在设计Docker时，就充分利用 Union FS 的技术，将其设计为分层存储结构。所以严格来说，镜像并非像是一个ISO那样的打包文件，镜像只是一个虚拟的概念，其实际体现并非由一个文件组成，而是由一组文件系统组成，或者说由多层文件系统联合组成。
+镜像构建时，会一层层构建，前一层是后一层的基础。每一层构建完就不会再发生改变。后一层上的任何改变只发生在自 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/14/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/#content-inner">14</a><span class="page-number current">15</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">devin</div><div class="author-info__description">分享技术知识</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">150</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liuhuanxg"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/20/treasurebox/elasticsearch/xue-xi-bi-ji/index/" title="index">index</a><time datetime="2023-04-20T02:33:25.636Z" title="发表于 2023-04-20 10:33:25">2023-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/20/treasurebox/elasticsearch/index/" title="index">index</a><time datetime="2023-04-20T02:25:18.254Z" title="发表于 2023-04-20 10:25:18">2023-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/24/treasurebox/python/python-cheng-xu-cpu-shi-yong-lu-fen-xi/python-fen-xi-mo-kuai/" title="python分析模块">python分析模块</a><time datetime="2023-03-24T08:25:41.271Z" title="发表于 2023-03-24 16:25:41">2023-03-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/22/treasurebox/elasticsearch/xue-xi-bi-ji/1.he-xin-zhi-shi-pian-2week/9.suggester/" title="suggester">suggester</a><time datetime="2023-03-22T13:06:21.415Z" title="发表于 2023-03-22 21:06:21">2023-03-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/22/treasurebox/python/python-cheng-xu-cpu-shi-yong-lu-fen-xi/fen-xi-python-cheng-xu-cpu-shi-yong-lu-an-li/" title="分析python程序CPU使用率案例">分析python程序CPU使用率案例</a><time datetime="2023-03-22T09:26:02.499Z" title="发表于 2023-03-22 17:26:02">2023-03-22</time></div></div></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">14</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">七月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/06/"><span class="card-archive-list-date">六月 2022</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/05/"><span class="card-archive-list-date">五月 2022</span><span class="card-archive-list-count">119</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">150</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-04-28T10:24:53.831Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By devin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

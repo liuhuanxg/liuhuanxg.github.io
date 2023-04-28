@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>devin's blog - vinya</title><meta name="author" content="devin"><meta name="copyright" content="devin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="分享技术知识">
+<meta property="og:type" content="website">
+<meta property="og:title" content="devin&#39;s blog">
+<meta property="og:url" content="http://example.com/page/14/index.html">
+<meta property="og:site_name" content="devin&#39;s blog">
+<meta property="og:description" content="分享技术知识">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="devin">
+<meta property="article:tag" content="开源">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/14/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'devin\'s blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-04-28 18:24:54'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="devin's blog" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">150</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="devin's blog"><span class="site-name">devin's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">devin's blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/java/3.gao-jie-yong-fa/1.chang-yong-lei/" title="常用类">常用类</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.370Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">常用类一、正则表达式(理解)二、Math(理解)三、Random(理解)四、System(理解)五、BigInteger/BigDecimal(理解)六、Date/DateFormat/Calendar(掌握)</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/java/2.java-mian-xiang-dui-xiang/7.fang-fa-chong-zai-overload-he-di-gui-han-shu/" title="方法重载(overload)和递归函数">方法重载(overload)和递归函数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.369Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">方法重载和递归方法一、方法重载方法重载：两个方法的功能虽然不同，但是实现的功能类似，让程序员调用的时候就像调同一个方法。
+（1）方法重载示例：12345678910111213141516171819202122232425262728293031323334353637383940/*	体验方法重载的优点：		* 程序员调用方法的时候比较方便		前提：功能相似，功能不同时需要编写不同的方法。*/public class OverloadTest02{	public static void main(String[] args){					// 调用方法		int result1 = sum(1,2);		System.out.println(result1);		// 调用方法		double result2 = sum(1.0,2.0);		System.out.println(result2);		// 调用方法		long result3 = sum((long)1,(long)2);		System.out.println(result3);	}	// 定义一个方法，计算两个 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/java/2.java-mian-xiang-dui-xiang/8.dui-xiang-de-chuang-jian-he-gou-zao-fang-fa/" title="对象的创建和构造方法">对象的创建和构造方法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.369Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">对象的创建
+类和对象的区别 1234567891011121314151617181920212223242526272829303132333435363738面向对象【java语言的核心机制，最重要的内容，java语言的特色】    * 面向过程和面向对象的区别    -- 面向过程：主要关注点是：实现的具体过程，因果关系	-- 面向对象：主要关注对象【独立体】能完成哪些功能。	    优点：耦合度低，扩展力强。	    缺点：前期投入成本较高，需要进行独立体的抽取，大量的系统设计    	-- c语言是纯面向过程的、C++半面向对象、java纯面向对象    * 面向对象的三大特性    —— 封装	—— 继承	—— 多态	面向对象的分析：OOA	面向对象的设计：OOD	面向对象的编程：OOP    * 类和对象的概念      * 什么是类？         —— 类是一个概念，又名类型，代表了一类事物	 —— 在现实世界当中，对象A与对象B具有共同特征，进行抽象总结出的模板            * 对象？         —— 是实际存在的个体。现实当中实际存在       ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/java/2.java-mian-xiang-dui-xiang/9.feng-zhuang-ji-cheng-he-duo-tai/" title="封装、继承和多态">封装、继承和多态</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.369Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">封装、继承和多态一、封装（1）封装的好处1234567891011121314151617181920212223242526272829303132333435363738394041/* * 用户测试类 * 对象可以随便修改属性  *  *  * 封装的好处： * 		1、封装之后，看不到事物复杂的一面，对外提供简单的入口。 * 		 * 		2、封装之后才会形成真正的“对象”，真正的独立体 *  * 		3、封装就意味着程序可以重复使用，并且事物的适应性比较强，在任何场所都可以用 *  * 		4、事物封装之后，安全性提升。 */public class UserTest {	public static void main(String[] args) {			//创建对象		User user = new User();				//  访问age		System.out.println("用户年龄为："+ user.age);				// 修改用户年齡		user.age = 20;		System.out.println("用户年龄为："+ user.age);				//  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/java/2.java-mian-xiang-dui-xiang/java-mian-xiang-dui-xiang/" title="Java面向对象">Java面向对象</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.369Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">Java面向对象一、类和对象
+面向对象和面向过程的区别？
+面向过程 ：面向过程性能比面向对象高。 因为类调用时需要实例化，开销比较大，比较消耗资源，所以当性能是最重要的考量因素的时候，比如单片机、嵌入式开发、Linux/Unix 等一般采用面向过程开发。但是，面向过程没有面向对象易维护、易复用、易扩展。
+
+面向对象 ：面向对象易维护、易复用、易扩展。 因为面向对象有封装、继承、多态性的特性，所以可以设计出低耦合的系统，使系统更加灵活、更加易于维护。但是，面向对象性能比面向过程低。
+  面向过程 ：面向过程性能比面向对象高？？
+  123这个并不是根本原因，面向过程也需要分配内存，计算内存偏移量，Java 性能差的主要原因并不是因为它是面向对象语言，而是 Java 是半编译语言，最终的执行代码并不是可以直接被 CPU 执行的二进制机械码。而面向过程语言大多都是直接编译成机械码在电脑上执行，并且其它一些面向过程的脚本语言性能也并不一定比 Java 好。
+
+
+构造器Constructor是否可被overide？ Constructor 不能被 override（重写）,但是可以 overlo ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/java/2.java-mian-xiang-dui-xiang/11.bao-de-shi-yong-he-object-lei-jie-shao/" title="包的使用和Object类介绍">包的使用和Object类介绍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.368Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">包的使用和Object类介绍一、包的概念12345678910111213141516171819202122232425262728293031323334/*    关于java语言中的包机制	1、包又称为package，java中引入package这种语法机制主要为了方便程序的管理	不同功能的类被分门别类放到不同的软件包中，查找比较方便，管理比较方便，易维护		2、怎么定义package？	 —— 在java源程序的第一行上编写package语句	 —— package只能编写一个语句	 —— 语法结构：	    package 包名;	3、包名的命名规范	    公司的域名倒序 + 项目名 + 模块名 + 功能名;	    采用这种方式的重名几率比较低，因为公司域名具有全球唯一性	    例如：		com.bjpowernode.oa.user.service		org.apach.tomcat.core	4、包名要求全部小写，包名也是标识符，必须遵守标识符命名规则	5、一个包将来对应一个目录	6、使用步骤，以com.bjpowernode.javase.day11为例：		第 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/java/2.java-mian-xiang-dui-xiang/12.scanner-he-string-lei-de-shi-yong/" title="Scanner和String类的使用">Scanner和String类的使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.368Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">Scanner和String的使用一、Scanner的使用12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152/** * Scanner的使用 * 	1、JDK5以后，帮助实现键盘录入数据 *  * 	2、构造方法： * 		public Scanner(InputStream is) * 		Scanner sc = new Scanner(System.in); *  * 	3、成员方法： * 		A：hasNextXxx()	判断是否是xxx类型的元素 * 		B：nextXxx() 	获取xxx类型的元素 *  * 	4、常用的三个方法 * 		nextInt():	获取一个int类型的数据 * 		next()/nextLine():	获取一个String类型的数据 *  *  5、注意的小问题： *  	int  	---&gt;	int *  	String	---&gt;	String *  	String	---&gt;	int * ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/java/2.java-mian-xiang-dui-xiang/13.stringbuffer-he-array/" title="StringBuffer和Array">StringBuffer和Array</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.368Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">StringBuffer、数组排序，Integer、Character类一、StringBuffer/StringBuilder(掌握)
+StringBuffer/StringBuilder区别 StringBuffer是线程安全的可变字符串
+ StringBuilder是县城不安全的可变字符串。
+ 和StringBuffer的功能一样。就是效率高一些，但是不安全。
+
+构造方法 12345678910111213141516171819202122232425262728293031323334353637383940414243/** * 	StringBuffer：线程安全的可变字符串	 * 	可以改变内容和长度 * 	 * 	StringBuffer和String的区别？ * 		A：StringBuffer的长度可变 * 		B：String的长度不可变 *  * 	构造方法： * 		StringBuffer():构造一个其中不带字符的字符串缓冲区，其初始容量为16个字符 * 		StringBuffer(int capacity):构造一个不带字符，但具有指定初始容量的字符 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/java/1.java-ji-chu/6.java-zhong-de-fang-fa/" title="Java中的方法">Java中的方法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.367Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">Java中的方法一、方法的介绍方法，把某些需要重复使用的代码段放在一块，可供重复调用。
+方法的好处：代码得到了重复使用
+方法本质：    方法就是一段代码片段，并且这段代码片段：    可以完成某个特定的功能，可以被重复的使用
+方法，对应英语单词：Method方法在C语言中叫做函数/Function
+方法定义在类体之中，在一个类当中可以定义多个方法，方法编写的位置没有先后顺序，可以随意
+方法体当中不能再定义方法！！！！
+方法体由java语句构成，方法体中的代码遵循自上而下执行
+1234567891011121314151617181920public class MethodTest02{	public static void main(String[] args){				//调用函数，计算两个int类型数据的和		MethodTest02.sumInt(10,20);			MethodTest02.sumInt(666,888);			MethodTest02.sumInt(1000,2022);		}		// 单独定义一个方法	// 该方法完成计算两个int类型数据的和，并且将结 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/java/2.java-mian-xiang-dui-xiang/10.this-static-final-he-fang-wen-kong-zhi-xiu-shi-fu/" title="this、static、final和访问控制修饰符">this、static、final和访问控制修饰符</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.367Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">this、static、final和修饰符一、this的使用（1）this使用概述123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657/** * 关于java语言中的this关键字： * 	1、this 是一个关键字，翻译为：这个 * 	2、是一个引用，保存在堆内存中对象的内部，指的是对象自身 * 	3、创建100个java对象，每一个对象都有一个this，也就是有100个不同的this * 	4、this可以出现在实例方法中，this指向当前正在执行这个动作的对象 * 	5、this多数情况下可以不写 * 	6、this不能使用在带有static的方法中 * **/public class Customer {		String name;   // 实例变量	public Customer() {			}		public static void main(String[] args) {			}		// 不带有static关键字 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/13/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/#content-inner">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/#content-inner">15</a><a class="extend next" rel="next" href="/page/15/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">devin</div><div class="author-info__description">分享技术知识</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">150</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liuhuanxg"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/20/treasurebox/elasticsearch/xue-xi-bi-ji/index/" title="index">index</a><time datetime="2023-04-20T02:33:25.636Z" title="发表于 2023-04-20 10:33:25">2023-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/20/treasurebox/elasticsearch/index/" title="index">index</a><time datetime="2023-04-20T02:25:18.254Z" title="发表于 2023-04-20 10:25:18">2023-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/24/treasurebox/python/python-cheng-xu-cpu-shi-yong-lu-fen-xi/python-fen-xi-mo-kuai/" title="python分析模块">python分析模块</a><time datetime="2023-03-24T08:25:41.271Z" title="发表于 2023-03-24 16:25:41">2023-03-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/22/treasurebox/elasticsearch/xue-xi-bi-ji/1.he-xin-zhi-shi-pian-2week/9.suggester/" title="suggester">suggester</a><time datetime="2023-03-22T13:06:21.415Z" title="发表于 2023-03-22 21:06:21">2023-03-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/22/treasurebox/python/python-cheng-xu-cpu-shi-yong-lu-fen-xi/fen-xi-python-cheng-xu-cpu-shi-yong-lu-an-li/" title="分析python程序CPU使用率案例">分析python程序CPU使用率案例</a><time datetime="2023-03-22T09:26:02.499Z" title="发表于 2023-03-22 17:26:02">2023-03-22</time></div></div></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">14</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">七月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/06/"><span class="card-archive-list-date">六月 2022</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/05/"><span class="card-archive-list-date">五月 2022</span><span class="card-archive-list-count">119</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">150</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-04-28T10:24:53.831Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By devin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

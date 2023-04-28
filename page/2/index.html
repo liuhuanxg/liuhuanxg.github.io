@@ -1,0 +1,320 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>devin's blog - vinya</title><meta name="author" content="devin"><meta name="copyright" content="devin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="分享技术知识">
+<meta property="og:type" content="website">
+<meta property="og:title" content="devin&#39;s blog">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="devin&#39;s blog">
+<meta property="og:description" content="分享技术知识">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="devin">
+<meta property="article:tag" content="开源">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'devin\'s blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-04-28 18:24:54'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="devin's blog" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">150</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="devin's blog"><span class="site-name">devin's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">devin's blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/03/13/treasurebox/elasticsearch/xue-xi-bi-ji/1.he-xin-zhi-shi-pian-2week/4.fen-ci-qi/" title="分词器">分词器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-13T13:09:08.041Z" title="发表于 2023-03-13 21:09:08">2023-03-13</time></span></div><div class="content">分词器规范化normalization提高文档的查询成功率，对词进行切分、同义词归并、大写转小些、负数转单数等；主要分为4步：
+
+切词(word segmentation)
+规范化：normalization
+去重
+字典序
+
+字符过滤器character filter
+HTML Strip：处理html标签123456789101112131415161718192021222324252627282930313233343536373839404142434445464748创建分词器# analysis表示分析器# char_filter表示字符串过滤器，过滤器类型是html_strip# my_analyzer表示分词# escaped_tags表示希望保留的标签PUT my_index{  "settings": {    "analysis": {      "char_filter": {        "my_char_filter":{          "type":"html_strip"        }      },      "analyzer": {    ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/03/12/treasurebox/elasticsearch/xue-xi-bi-ji/1.he-xin-zhi-shi-pian-2week/es-ru-men-zhi-nan/" title="ES入门指南">ES入门指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-12T03:17:52.069Z" title="发表于 2023-03-12 11:17:52">2023-03-12</time></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/03/05/treasurebox/elasticsearch/xue-xi-bi-ji/he-xin-zhi-shi-dian/" title="核心知识点">核心知识点</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-05T09:37:45.394Z" title="发表于 2023-03-05 17:37:45">2023-03-05</time></span></div><div class="content">ES基本介绍倒排索引从一条数据入门倒排索引
+
+
+id
+title
+info
+
+
+
+1
+念奴娇·昆仑
+横空出世，莽昆仑，阅尽人间春色….
+
+
+2
+公无渡河
+黄河西来决昆仑，咆哮万里触龙门…
+
+
+在mysql中查询: select * from table where info like “%昆仑%“;这种查询时索引失效
+倒排索引数据的存储格式通过为每一个field分词后建立倒排索引加速查找效率，以field value为key，数据id为值组建结构
+
+
+
+term
+posting list
+
+
+
+横空出世
+1
+
+
+莽
+1
+
+
+昆仑
+1,2
+
+
+黄河
+2
+
+
+Elastic Stack(ELKB)家族Elastic Search是一个分布式的开放搜索和分析引擎，适用于所有类型的数据格式，包括文本、数字、地理空间、结构化和非结构化数据，基于Lucene基础开发。是一个近实时的搜索平台(1秒)左右。
+LogStash开放性的服务器端数据处理管道，能够从多个来源采集数据、转换数据，对数据进行聚合和处理，然后将数据发送到存储库中。
+Kibana搜索、查看并可视化es中存储的数据，并通过创建柱状图、 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/03/05/treasurebox/elasticsearch/xue-xi-bi-ji/5.luence/3.fst-gou-jian-guo-cheng/" title="FST构建过程">FST构建过程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-05T02:47:36.392Z" title="发表于 2023-03-05 10:47:36">2023-03-05</time></span></div><div class="content">FST构建过程FST表示有限状态集
+FSM(Finle State machine)有限状态机表示有限个状态(State)集合以及这些状态之间转移和动作的数学模型，其中一个状态被标记为开始状态，0个或更多的状态被标记为final状态。
+要素：
+
+有限个状态
+同一时间只能处于同一个状态
+不同状态可以互相转换
+状态是无序
+
+例如：
+
+睡觉——&gt;工作——&gt;卫生间——&gt;吃饭
+睡觉——&gt;吃饭——&gt;卫生间——&gt;工作
+睡觉——&gt;卫生间——&gt;工作——&gt;吃饭
+
+FSA 有限状态接收机要素：
+
+确定性：在任何给定状态下，对于任何输入，最多只能遍历一个transition
+非循环：不可能重复遍历同一个状态
+Final唯一性：当且仅当有限状态机在输入序列的末尾处于最终状态时，才接受特定输入序列
+
+
+输入msbtech
+输入msn
+输入wltech
+
+FST 有限状态转换机FST最重要的功能是可以实现key到value的映射，相当于HashMa p&lt;key, value&gt;，FST的查询速度要比HashMap要慢一些，但是FST的内存消耗要比Has ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/03/05/treasurebox/elasticsearch/xue-xi-bi-ji/5.luence/2.ya-suo-suan-fa/" title="压缩算法">压缩算法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-05T02:47:02.265Z" title="发表于 2023-03-05 10:47:02">2023-03-05</time></span></div><div class="content">posting list压缩算法FOR压缩算法RBM压缩</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/03/02/treasurebox/elasticsearch/ben-di-diao-shi-elasticsearch/mac/" title="mac">mac</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-03-02T13:39:56.058Z" title="发表于 2023-03-02 21:39:56">2023-03-02</time></span></div><div class="content">mac环境运行linux参考链接：https://www.elastic.co/cn/blog/how-to-debug-elasticsearch-source-code-in-intellij-idea
+
+首先clone ElasticSearch源码到本地1234git clone https://github.com/elastic/elasticsearch.gitcd elasticsearch git checkout --track origin/6.6
+
+安装IntelliJ IDEA 软件
+安装Java并配置java路径
+elasticsearch6.6 可以基于java11构建，但是也需要java9的部分功能，所以需要安装java9和java11.
+java9:https://www.oracle.com/java/technologies/javase/javase9-archive-downloads.html
+
+java11:https://www.oracle.com/java/technologies/downloads/#java11
+
+
+123456 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/02/24/treasurebox/elasticsearch/cao-zuo-shou-ce/elsaticsearch-cao-zuo-shou-ce/" title="elsaticsearch操作手册">elsaticsearch操作手册</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-24T06:56:57.159Z" title="发表于 2023-02-24 14:56:57">2023-02-24</time></span></div><div class="content">ES操作手册
+集群
+集群异常情况GET _cluster/allocation/explain
+可选参数：
+
+include_disk_info：bool，可选，如果为true，返回有关磁盘使用情况和分片大小的情况，默认为false。
+include_yes_decisions：可选，布尔值）如果true，则在解释中返回YES决定
+
+12# 查看集群状态异常GET _cluster/allocation/explain
+
+
+集群配置GET /_cluster/settings
+查询参数
+flat_settings:（可选，布尔值）如果true，则以平面格式返回设置。默认为 false.
+include_defaults:（可选，布尔值）如果true，返回所有默认集群设置。默认为false.
+master_timeout:（可选，时间单位）等待连接到主节点的时间。如果在超时到期之前未收到响应，则请求失败并返回错误。默认为 30s.
+timeout:（可选，时间单位）等待响应的时间。如果在超时到期之前未收到响应，则请求失败并返回错误。默认为30s.
+
+
+
+
+集群健康度：GET /_clus ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/02/11/treasurebox/shu-ju-jie-gou/suan-fa/" title="算法">算法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-11T13:24:29.470Z" title="发表于 2023-02-11 21:24:29">2023-02-11</time></span></div><div class="content">递归递归：在函数中自己调用自身，类似于压栈
+递归三要素：
+
+递归边界：一定要有终止条件
+逻辑处理
+调用自身
+状态清理
+
+例如：
+斐波那契
+某个数的阶乘
+分治：Divde &amp; Conquer分而治之：将一个大问题依次解决，类似于庖丁解牛。
+经典算法：二分查找、快排
+贪心算法简单来说：问题能够分解成子问题来解决，子问题的最优解能递推到最终的最优解，这样子问题最优解称为最优子结构。
+贪心算法与动态规划的不同在于它对每个子问题的解决方案都做出选择，不能回退。动态规划则会保存以前的运算结果，并根据以前的结果对当前进行选择，有回退功能。
+广度优先算法Breadth First Search
+在树（图/状态集）中查找特定节点
+每层推进的过程中没有重复的，先扫描某个节点时，将该节点的所有子节点全部加入，以作为下次继续推进。
+又称为地毯式搜索
+深度优先Depth First Search
+每层推进的过程中没有重复的，先扫描某个节点时，将某个节点一直扫描到叶子节点之后，再扫描该节点的其他节点。
+二分查找
+单调递增或递减
+存在上下界
+能够通过索引访问
+
+位运算什么是位运算：程序中所有数在计算机内存中 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/02/11/treasurebox/shu-ju-jie-gou/2.trie/" title="trie">trie</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-02-11T12:15:52.181Z" title="发表于 2023-02-11 20:15:52">2023-02-11</time></span></div><div class="content">Trie树trie的数据结构trie树，即字典树有称为单词查找树或键树，是一种树形结构，是一种哈希树的变种。典型应用于统计和排序大量的字符串（但不限于字符串），所以经常被搜索引擎系统用于文本词频统计。
+它的优点是：最大限度地减少无谓的字符串比较，查询效率比哈希表高。
+trie的核心思想Trie的核心思想是空间换时间。利用字符串的公共前缀来降低查询时间的开销以达到提高效率的目的。
+trie的基本性质
+根节点不包含字符，除根节点外每个节点都只包含一个字符。
+从根节点到某一节点，路径上经过的字符串连接起来，为该节点对应的字符串
+每个节点的所有子节点包含的字符都不相同
+
+树&amp;二叉树&amp;二叉搜索树
+trie结构类似生活中倒立的树。
+树最头上的节点叫做头结点，左边任何一个树叫做左子树，右边叫右子树。
+其中节点称为父节点，同一个父节点的子节点称为兄弟节点。
+子节点距离头节点的距离为层级，头节点所在的层级为level0.
+二叉搜索树(Binary Search Tree)：也称为二叉搜索树、有序二叉树(Ordered binary tree)、排序二叉树（Sorted binary tr ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/12/29/treasurebox/ji-zhu-wen-dang/code-review-zong-jie/" title="code review总结">code review总结</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-29T15:00:53.786Z" title="发表于 2022-12-29 23:00:53">2022-12-29</time></span></div><div class="content">前言作为公司代码委员会golang分会的理事，作为(还未任命)的技术leader，我review了很多代码，看了很多别人的review评论。发现，即使是委员会的委员，code review的水品，写出好代码的水品，不乏缺乏根本性的思路、设计原则的同学。特此，想分享一下我的很多理念和思路。
+为什么技术人员包括leader都要做code review​        谚语曰: ‘Talk Is Cheap, Show Me The Code’。知易行难，知行合一难。嘴里要讲出来总是轻松，把别人讲过的话记住，组织一下语言，再讲出来，很容易。绝知此事要躬行。设计理念你可能道听途说了一些，以为自己掌握了，但是你会做么？有能力去思考、改进自己当前的实践方式和实践中的代码细节么？不客气地说，很多人仅仅是知道并且认同了某个设计理念，进而产生了一种虚假的安心感—自己的技术并不差。但是，他根本没有去实践这些设计理念，甚至根本实践不了这些设计理念，从结果来说，他懂不懂这些道理/理念，有什么差别？变成了自欺欺人。
+​        代码，是设计理念落地的地方，是技术的呈现和根本。同学们可以在review过程中 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/#content-inner">15</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">devin</div><div class="author-info__description">分享技术知识</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">150</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liuhuanxg"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/20/treasurebox/elasticsearch/xue-xi-bi-ji/index/" title="index">index</a><time datetime="2023-04-20T02:33:25.636Z" title="发表于 2023-04-20 10:33:25">2023-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/20/treasurebox/elasticsearch/index/" title="index">index</a><time datetime="2023-04-20T02:25:18.254Z" title="发表于 2023-04-20 10:25:18">2023-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/24/treasurebox/python/python-cheng-xu-cpu-shi-yong-lu-fen-xi/python-fen-xi-mo-kuai/" title="python分析模块">python分析模块</a><time datetime="2023-03-24T08:25:41.271Z" title="发表于 2023-03-24 16:25:41">2023-03-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/22/treasurebox/elasticsearch/xue-xi-bi-ji/1.he-xin-zhi-shi-pian-2week/9.suggester/" title="suggester">suggester</a><time datetime="2023-03-22T13:06:21.415Z" title="发表于 2023-03-22 21:06:21">2023-03-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/22/treasurebox/python/python-cheng-xu-cpu-shi-yong-lu-fen-xi/fen-xi-python-cheng-xu-cpu-shi-yong-lu-an-li/" title="分析python程序CPU使用率案例">分析python程序CPU使用率案例</a><time datetime="2023-03-22T09:26:02.499Z" title="发表于 2023-03-22 17:26:02">2023-03-22</time></div></div></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">14</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">七月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/06/"><span class="card-archive-list-date">六月 2022</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/05/"><span class="card-archive-list-date">五月 2022</span><span class="card-archive-list-count">119</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">150</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-04-28T10:24:53.831Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By devin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

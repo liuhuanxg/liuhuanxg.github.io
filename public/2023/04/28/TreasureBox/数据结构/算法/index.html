@@ -1,0 +1,322 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>算法 | devin's blog</title><meta name="author" content="devin"><meta name="copyright" content="devin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="递归递归：在函数中自己调用自身，类似于压栈 递归三要素：  递归边界：一定要有终止条件 逻辑处理 调用自身 状态清理  例如： 斐波那契 某个数的阶乘 分治：Divde &amp; Conquer分而治之：将一个大问题依次解决，类似于庖丁解牛。 经典算法：二分查找、快排 贪心算法简单来说：问题能够分解成子问题来解决，子问题的最优解能递推到最终的最优解，这样子问题最优解称为最优子结构。 贪心算法与动">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法">
+<meta property="og:url" content="http://example.com/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="devin&#39;s blog">
+<meta property="og:description" content="递归递归：在函数中自己调用自身，类似于压栈 递归三要素：  递归边界：一定要有终止条件 逻辑处理 调用自身 状态清理  例如： 斐波那契 某个数的阶乘 分治：Divde &amp; Conquer分而治之：将一个大问题依次解决，类似于庖丁解牛。 经典算法：二分查找、快排 贪心算法简单来说：问题能够分解成子问题来解决，子问题的最优解能递推到最终的最优解，这样子问题最优解称为最优子结构。 贪心算法与动">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-04-28T10:40:04.944Z">
+<meta property="article:modified_time" content="2023-04-28T10:44:48.971Z">
+<meta property="article:author" content="devin">
+<meta property="article:tag" content="开源">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '算法',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-28 18:44:48'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="devin's blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="devin's blog"><span class="site-name">devin's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">算法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-04-28T10:40:04.944Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-28T10:44:48.971Z" title="更新于 2023-04-28 18:44:48">2023-04-28</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="算法"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h1><p>递归：在函数中自己调用自身，类似于压栈</p>
+<p>递归三要素：</p>
+<ol>
+<li>递归边界：一定要有终止条件</li>
+<li>逻辑处理</li>
+<li>调用自身</li>
+<li>状态清理</li>
+</ol>
+<p>例如：</p>
+<p>斐波那契</p>
+<p>某个数的阶乘</p>
+<h2 id="分治：Divde-amp-Conquer"><a href="#分治：Divde-amp-Conquer" class="headerlink" title="分治：Divde &amp; Conquer"></a>分治：Divde &amp; Conquer</h2><p>分而治之：将一个大问题依次解决，类似于庖丁解牛。</p>
+<p>经典算法：二分查找、快排</p>
+<h2 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h2><p>简单来说：问题能够分解成子问题来解决，子问题的最优解能递推到最终的最优解，这样子问题最优解称为最优子结构。</p>
+<p>贪心算法与动态规划的不同在于它对每个子问题的解决方案都做出选择，不能回退。动态规划则会保存以前的运算结果，并根据以前的结果对当前进行选择，有回退功能。</p>
+<h2 id="广度优先算法"><a href="#广度优先算法" class="headerlink" title="广度优先算法"></a>广度优先算法</h2><p>Breadth First Search</p>
+<p>在树（图&#x2F;状态集）中查找特定节点</p>
+<p>每层推进的过程中没有重复的，先扫描某个节点时，将该节点的所有子节点全部加入，以作为下次继续推进。</p>
+<p>又称为地毯式搜索</p>
+<h2 id="深度优先"><a href="#深度优先" class="headerlink" title="深度优先"></a>深度优先</h2><p>Depth First Search</p>
+<p>每层推进的过程中没有重复的，先扫描某个节点时，将某个节点一直扫描到叶子节点之后，再扫描该节点的其他节点。</p>
+<h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><ol>
+<li>单调递增或递减</li>
+<li>存在上下界</li>
+<li>能够通过索引访问</li>
+</ol>
+<h2 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h2><p>什么是位运算：程序中所有数在计算机内存中都是以二进制的形式储存的。位运算说白了就是对证书在内存中的二进制位进行操作。比如：and运算本来是一个逻辑运算符，但整数与整数之间也可以进行and运算。举个例子：6的二进制是110，11的二进制是1011，那么6 and 11的结果就是2，它的二进制对应位进行逻辑运算的结果（0表示False，1表示True，空位都当0处理）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">110 AND 1011 &gt;&gt; 0010(b)——&gt; 2(d)</span><br></pre></td></tr></table></figure>
+
+<p>由于位运算直接对内存数据进行操作，不需要转成十进制，因此处理速度非常快。</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>描述</th>
+<th>运算规则</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;</td>
+<td>与</td>
+<td>两个位都为1时，结果才为1</td>
+</tr>
+<tr>
+<td>|</td>
+<td>或</td>
+<td>两个位都为0时，结果才为0</td>
+</tr>
+<tr>
+<td>^</td>
+<td>异或</td>
+<td>两个位相同时为0，相异为1</td>
+</tr>
+<tr>
+<td>-</td>
+<td>取反</td>
+<td>0变1，1变0</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>左移</td>
+<td>各二进制位全部左移若敢为，高位丢弃，低位补0</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>右移</td>
+<td>各二进制位全部右移若干位，对无符号数，高位补0，有符号数，各编译器处理方式不一样，有的补符号位(算数右移)，有的补0（逻辑右移）</td>
+</tr>
+</tbody></table>
+<h2 id="动态规划-Dynamic-Programming"><a href="#动态规划-Dynamic-Programming" class="headerlink" title="动态规划(Dynamic Programming)"></a>动态规划(Dynamic Programming)</h2><p>动态规划分为4个思路：</p>
+<ol>
+<li>递归+记忆化 ——&gt; 递推</li>
+<li>状态的定义：opt[n]，dp[n]，fib[n]</li>
+<li>状态转移方程：opt[n] &#x3D; best_of(opt[n-1],opt[n-2],…)</li>
+<li>最优子结构</li>
+</ol>
+<p>先规划最基础的一步怎么执行，然后逐层反推，得到最优的方案</p>
+<h2 id="DP-vs-回溯-vs-贪心"><a href="#DP-vs-回溯-vs-贪心" class="headerlink" title="DP vs 回溯 vs 贪心"></a>DP vs 回溯 vs 贪心</h2><ul>
+<li>回溯（递归）—— 重复计算，尽可能考虑重复计算问题，减少重复计算</li>
+<li>贪心 —— 永远局部最优</li>
+<li>DP —— 记录局部最优子结构 &#x2F; 多种记录值</li>
+</ul>
+<h2 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h2><p>并查集(union &amp; find)是一种树形的数据结构，用于处理一些不交集(Disjoint Sets)的合并及查询问题</p>
+<p>Find：确定元素属于哪一个子集。它可以被用来确定两个元素是否属于同一个子集</p>
+<p>union：将两个子集合并为同一个集合。</p>
+<p>示例，给定一串数组<code>1 2 3 4 5 6 7 8 </code></p>
+<p>拆分为<code>1 2 5 6 8</code> <code>3 4</code> <code>7</code>子集形式</p>
+<h5 id="生活中的例子"><a href="#生活中的例子" class="headerlink" title="生活中的例子"></a>生活中的例子</h5><ol>
+<li>小弟——&gt; 老大</li>
+<li>帮派识别</li>
+<li>两种优化方式：并查集的深度成为rank<ol>
+<li>将rank低的合并到rank高的并查集中</li>
+<li>进行读路径优化：将<code>d c b a a</code>路径全部压缩为<code>d a</code>,<code>c a</code>,<code>b a</code>,<code>a a</code></li>
+</ol>
+</li>
+</ol>
+<h2 id="Cache-缓存"><a href="#Cache-缓存" class="headerlink" title="Cache 缓存"></a>Cache 缓存</h2><ol>
+<li>记忆</li>
+<li>钱包——储物柜</li>
+<li>代码模块</li>
+</ol>
+<h2 id="LRU-Cache"><a href="#LRU-Cache" class="headerlink" title="LRU Cache"></a>LRU Cache</h2><ol>
+<li>Least recently used（最近最少使用）</li>
+<li>Double LinkedList</li>
+<li>O(1)查询，查询最近的数据是O(1)</li>
+<li>O(1)修改</li>
+</ol>
+<h2 id="LFU-Cache"><a href="#LFU-Cache" class="headerlink" title="LFU Cache"></a>LFU Cache</h2><ol>
+<li>LFU ——least frequently used 最近最不常用页面置换算法</li>
+<li>LRU——least recently used 最近最少使用页面置换算法</li>
+</ol>
+<h2 id="Bloom-Filter-布隆过滤器"><a href="#Bloom-Filter-布隆过滤器" class="headerlink" title="Bloom Filter 布隆过滤器"></a>Bloom Filter 布隆过滤器</h2><p>一个很长的二进制向量和一个映射函数</p>
+<p>布隆过滤器可以用于检索一个元素是否在一个集合中</p>
+<p>他的优点是空间效率和查询效率远远超过一般算法，缺点是有一定的误识别率和删除困难</p>
+<p>误识别率：数据存在时会出现误判，不存在时一定不存在</p>
+<p>删除困难：哈希之后的结果不好删除，可能会误删其他元素的值</p>
+<p>案例：</p>
+<ol>
+<li>比特币</li>
+<li>分布式系统（Map-Reduce）</li>
+</ol>
+<h2 id="现实中的算法问题"><a href="#现实中的算法问题" class="headerlink" title="现实中的算法问题"></a>现实中的算法问题</h2><p>适用于找房子，找女朋友，吃饭等等选择问题。</p>
+<p>假设1年找2个女朋友，</p>
+<ol>
+<li>如果能选择之前的，O(n)</li>
+<li>如果不能后悔，则用37%原则</li>
+</ol>
+<p>其他：</p>
+<ol>
+<li>Priority Queue 一个任务的密度&#x3D;重要程度&#x2F;完成时间</li>
+<li>Kelly Formula 凯利公式</li>
+<li>Game Theory 博弈论</li>
+</ol>
+<h2 id="代码模版"><a href="#代码模版" class="headerlink" title="代码模版"></a>代码模版</h2><ol>
+<li>递归</li>
+<li>DFS：深度优先遍历</li>
+<li>BFS：广度优先遍历</li>
+<li>二分查找</li>
+<li>DP方程</li>
+</ol>
+<h2 id="练习和切题"><a href="#练习和切题" class="headerlink" title="练习和切题"></a>练习和切题</h2><p><strong>持续练习+精深练习（刻意练习）</strong></p>
+<ol>
+<li>除了做熟悉的题和会做的题之外，去刻意练习自己不熟悉的算法和数据结构，不要为了切题而切题</li>
+<li>做过的题目后续要返回再复习</li>
+</ol>
+<h2 id="面试答题四件套"><a href="#面试答题四件套" class="headerlink" title="面试答题四件套"></a>面试答题四件套</h2><ol>
+<li>Clarification 询问题目细节、边界条件、可能的极端错误</li>
+<li>Possible Solution 所有可能的解法都和面试官沟通一下<ol>
+<li>时间复杂度 &amp; 空间复杂度</li>
+<li>最优解</li>
+</ol>
+</li>
+<li>Coding 写代码</li>
+<li>Test Cases 测试用例</li>
+</ol>
+<p> <strong>沟通和交流很重要</strong></p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>常学常新</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">devin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/">http://example.com/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">devin's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/04/28/TreasureBox/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/1%E3%80%81TCPIP%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="1、TCPIP网络模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">1、TCPIP网络模型</div></div></a></div><div class="next-post pull-right"><a href="/2023/04/28/TreasureBox/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/kafka/1.kafka%E8%AF%A6%E8%A7%A3/" title="kafka详解"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">kafka详解</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">devin</div><div class="author-info__description">分享技术知识</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liuhuanxg"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%92%E5%BD%92"><span class="toc-number">1.</span> <span class="toc-text">递归</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%B2%BB%EF%BC%9ADivde-amp-Conquer"><span class="toc-number">1.1.</span> <span class="toc-text">分治：Divde &amp; Conquer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">贪心算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">广度优先算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88"><span class="toc-number">1.4.</span> <span class="toc-text">深度优先</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="toc-number">1.5.</span> <span class="toc-text">二分查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="toc-number">1.6.</span> <span class="toc-text">位运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-Dynamic-Programming"><span class="toc-number">1.7.</span> <span class="toc-text">动态规划(Dynamic Programming)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DP-vs-%E5%9B%9E%E6%BA%AF-vs-%E8%B4%AA%E5%BF%83"><span class="toc-number">1.8.</span> <span class="toc-text">DP vs 回溯 vs 贪心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E6%9F%A5%E9%9B%86"><span class="toc-number">1.9.</span> <span class="toc-text">并查集</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-number">1.9.0.0.1.</span> <span class="toc-text">生活中的例子</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cache-%E7%BC%93%E5%AD%98"><span class="toc-number">1.10.</span> <span class="toc-text">Cache 缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LRU-Cache"><span class="toc-number">1.11.</span> <span class="toc-text">LRU Cache</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LFU-Cache"><span class="toc-number">1.12.</span> <span class="toc-text">LFU Cache</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bloom-Filter-%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">1.13.</span> <span class="toc-text">Bloom Filter 布隆过滤器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%B0%E5%AE%9E%E4%B8%AD%E7%9A%84%E7%AE%97%E6%B3%95%E9%97%AE%E9%A2%98"><span class="toc-number">1.14.</span> <span class="toc-text">现实中的算法问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%A8%A1%E7%89%88"><span class="toc-number">1.15.</span> <span class="toc-text">代码模版</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0%E5%92%8C%E5%88%87%E9%A2%98"><span class="toc-number">1.16.</span> <span class="toc-text">练习和切题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E7%AD%94%E9%A2%98%E5%9B%9B%E4%BB%B6%E5%A5%97"><span class="toc-number">1.17.</span> <span class="toc-text">面试答题四件套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-number">1.18.</span> <span class="toc-text">最后</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/hello-world/" title="Hello World">Hello World</a><time datetime="2023-04-28T10:44:48.968Z" title="发表于 2023-04-28 18:44:48">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/1%E3%80%81TCPIP%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="1、TCPIP网络模型">1、TCPIP网络模型</a><time datetime="2023-04-28T10:40:04.953Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/" title="算法">算法</a><time datetime="2023-04-28T10:40:04.944Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/kafka/1.kafka%E8%AF%A6%E8%A7%A3/" title="kafka详解">kafka详解</a><time datetime="2023-04-28T10:40:04.944Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1.%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%88%9D%E8%AF%86/" title="数据结构初识">数据结构初识</a><time datetime="2023-04-28T10:40:04.943Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By devin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

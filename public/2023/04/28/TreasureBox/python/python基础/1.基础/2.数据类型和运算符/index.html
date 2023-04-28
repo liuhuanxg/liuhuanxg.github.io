@@ -1,0 +1,314 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>数据类型和运算符 | devin's blog</title><meta name="author" content="devin"><meta name="copyright" content="devin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="数据类型和运算符一、变量和类型在程序设计中，变量是一种存储数据的载体。计算机中的变量是实际存在的数据或者说是存储器中存储数据的一块内存空间，变量的值可以被读取和修改，这是所有计算和控制的基础。首先介绍几种基础的数据类型：  整型：Python中可以处理任意大小的整数（Python 2.x中有int和long两种类型的整数，但这种区分对Python来说意义不大，因此在Python 3.x中整数只有i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据类型和运算符">
+<meta property="og:url" content="http://example.com/2023/04/28/TreasureBox/python/python%E5%9F%BA%E7%A1%80/1.%E5%9F%BA%E7%A1%80/2.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/index.html">
+<meta property="og:site_name" content="devin&#39;s blog">
+<meta property="og:description" content="数据类型和运算符一、变量和类型在程序设计中，变量是一种存储数据的载体。计算机中的变量是实际存在的数据或者说是存储器中存储数据的一块内存空间，变量的值可以被读取和修改，这是所有计算和控制的基础。首先介绍几种基础的数据类型：  整型：Python中可以处理任意大小的整数（Python 2.x中有int和long两种类型的整数，但这种区分对Python来说意义不大，因此在Python 3.x中整数只有i">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-04-28T10:40:04.844Z">
+<meta property="article:modified_time" content="2023-04-28T10:44:49.000Z">
+<meta property="article:author" content="devin">
+<meta property="article:tag" content="开源">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/04/28/TreasureBox/python/python%E5%9F%BA%E7%A1%80/1.%E5%9F%BA%E7%A1%80/2.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '数据类型和运算符',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-28 18:44:49'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="devin's blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="devin's blog"><span class="site-name">devin's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">数据类型和运算符</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-04-28T10:40:04.844Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-28T10:44:49.000Z" title="更新于 2023-04-28 18:44:49">2023-04-28</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="数据类型和运算符"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="数据类型和运算符"><a href="#数据类型和运算符" class="headerlink" title="数据类型和运算符"></a>数据类型和运算符</h2><h3 id="一、变量和类型"><a href="#一、变量和类型" class="headerlink" title="一、变量和类型"></a>一、变量和类型</h3><p>在程序设计中，变量是一种存储数据的载体。计算机中的变量是实际存在的数据或者说是存储器中存储数据的一块内存空间，变量的值可以被读取和修改，这是所有计算和控制的基础。首先介绍几种基础的数据类型：</p>
+<ul>
+<li><p>整型：Python中可以处理任意大小的整数（Python 2.x中有<code>int</code>和<code>long</code>两种类型的整数，但这种区分对Python来说意义不大，因此在Python 3.x中整数只有int这一种了），而且支持二进制（如<code>0b100</code>，换算成十进制是4）、八进制（如<code>0o100</code>，换算成十进制是64）、十进制（<code>100</code>）和十六进制（<code>0x100</code>，换算成十进制是256）的表示法。</p>
+</li>
+<li><p>浮点型：浮点数也就是小数，之所以称为浮点数，是因为按照科学记数法表示时，一个浮点数的小数点位置是可变的，浮点数除了数学写法（如<code>123.456</code>）之外还支持科学计数法（如<code>1.23456e2</code>）。</p>
+</li>
+<li><p>字符串型：字符串是以单引号或双引号括起来的任意文本，比如<code>&#39;hello&#39;</code>和<code>&quot;hello&quot;</code>,字符串还有原始字符串表示法、字节字符串表示法、Unicode字符串表示法，而且可以书写成多行的形式（用三个单引号或三个双引号开头，三个单引号或三个双引号结尾）。</p>
+</li>
+<li><p>布尔型：布尔值只有<code>True</code>、<code>False</code>两种值，要么是<code>True</code>，要么是<code>False</code>，在Python中，可以直接用<code>True</code>、<code>False</code>表示布尔值（请注意大小写），也可以通过布尔运算计算出来（例如<code>3 &lt; 5</code>会产生布尔值<code>True</code>，而<code>2 == 1</code>会产生布尔值<code>False</code>）。</p>
+</li>
+<li><p>复数型：形如<code>3+5j</code>，跟数学上的复数表示一样，唯一不同的是虚部的<code>i</code>换成了<code>j</code>。实际上，这个类型并不常用。</p>
+<ol>
+<li><h4 id="变量命名"><a href="#变量命名" class="headerlink" title="变量命名"></a>变量命名</h4><p> 对于每个变量我们需要给它取一个名字，就如同我们每个人都有属于自己的响亮的名字一样。在Python中，变量命名需要遵循以下这些必须遵守硬性规则和强烈建议遵守的非硬性规则。</p>
+<ul>
+<li><strong>硬性规则</strong>：<ul>
+<li>变量名由字母（广义的Unicode字符，不包括特殊字符）、数字和下划线构成，数字不能开头。</li>
+<li>大小写敏感（大写的<code>a</code>和小写的<code>A</code>是两个不同的变量）。</li>
+<li>不要跟关键字（有特殊含义的单词，后面会讲到）和系统保留字（如函数、模块等的名字）冲突。</li>
+</ul>
+</li>
+<li><strong>PEP 8要求</strong>：<ul>
+<li>用小写字母拼写，多个单词用下划线连接。</li>
+<li>受保护的实例属性用单个下划线开头。</li>
+<li>私有的实例属性用两个下划线开头。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h4 id="变量的使用"><a href="#变量的使用" class="headerlink" title="变量的使用"></a>变量的使用</h4><p> python的变量不需要声明数据类型，使用时直接使用**&#x3D;**进行赋值。使用变量保存数据：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">version:0.1</span></span><br><span class="line"><span class="string">Author:youzi</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">a = <span class="number">100</span></span><br><span class="line">b = <span class="number">200</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="查看变量的数据类型"><a href="#查看变量的数据类型" class="headerlink" title="查看变量的数据类型"></a>查看变量的数据类型</h4><p> python中提供了<code>type()</code>函数用于查看变量的数据类型，<code>id()</code>函数查看变量的内存地址。示例：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">version:0.1</span></span><br><span class="line"><span class="string">Author:youzi</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">number1 = <span class="number">100</span></span><br><span class="line">number2 = <span class="number">200.01</span></span><br><span class="line">bool1 = <span class="literal">True</span></span><br><span class="line">str1 = <span class="string">&quot;hello&quot;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(number1))    <span class="comment"># int</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(number2))	<span class="comment"># float</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(bool1))	    <span class="comment"># bool</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(str1))	    <span class="comment"># str</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(str1))</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>  python中内置了很多<strong>函数</strong>可以帮助我们对类型进行转换，常用的有：</p>
+<pre><code>  - `int()`：将一个数值或字符串(字符串必须为数字)转换成整数，可以指定进制。
+  - `float()`：将一个字符串(字符串中必须为数字)转换成浮点数。
+  - `str()`：将指定的对象转换成字符串形式，可以指定编码。
+  - `chr()`：将整数转换成该编码对应的字符串（一个字符）。
+</code></pre>
+<ul>
+<li><code>ord()</code>：将字符串（一个字符）转换成对应的编码（整数）。</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li><h4 id="保存键盘中输入的数据"><a href="#保存键盘中输入的数据" class="headerlink" title="保存键盘中输入的数据"></a>保存键盘中输入的数据</h4><p> python中内置了<code>input</code>函数用来让用户输入，输入的内容都默认为<strong>str</strong>类型，使用时对类型进行转化：</p>
+<pre><code> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">使用input()函数获取键盘输入(字符串)</span></span><br><span class="line"><span class="string">使用int()函数将输入的字符串转换成整数</span></span><br><span class="line"><span class="string">使用print()函数输出变量中保存的内容</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Version: 0.1</span></span><br><span class="line"><span class="string">Author: youzi</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">a = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;a = &#x27;</span>))</span><br><span class="line">b = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;b = &#x27;</span>))</span><br><span class="line">c = <span class="built_in">input</span>(<span class="string">&quot;c = &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(a,<span class="built_in">type</span>(a))</span><br><span class="line"><span class="built_in">print</span>(b,<span class="built_in">type</span>(b))</span><br><span class="line"><span class="built_in">print</span>(c,<span class="built_in">type</span>(c))</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ol>
+<h3 id="二、运算符"><a href="#二、运算符" class="headerlink" title="二、运算符"></a>二、运算符</h3><p>Python支持多种运算符，下表大致按照优先级从高到低的顺序列出了所有的运算符，运算符的优先级指的是多个运算符同时出现时，先做什么运算然后再做什么运算。如果不确定运算符的优先级，可以使用<strong>小括号</strong>，小括号的优先级最高。</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>[]</code> <code>[:]</code></td>
+<td>下标，切片</td>
+</tr>
+<tr>
+<td><code>**</code></td>
+<td>指数</td>
+</tr>
+<tr>
+<td><code>~</code> <code>+</code> <code>-</code></td>
+<td>按位取反, 正负号</td>
+</tr>
+<tr>
+<td><code>*</code> <code>/</code> <code>%</code> <code>//</code></td>
+<td>乘，除，模，整除</td>
+</tr>
+<tr>
+<td><code>+</code> <code>-</code></td>
+<td>加，减</td>
+</tr>
+<tr>
+<td><code>&gt;&gt;</code> <code>&lt;&lt;</code></td>
+<td>右移，左移</td>
+</tr>
+<tr>
+<td><code>&amp;</code></td>
+<td>按位与</td>
+</tr>
+<tr>
+<td><code>^</code> &#96;</td>
+<td>&#96;</td>
+</tr>
+<tr>
+<td><code>&lt;=</code> <code>&lt;</code> <code>&gt;</code> <code>&gt;=</code></td>
+<td>小于等于，小于，大于，大于等于</td>
+</tr>
+<tr>
+<td><code>==</code> <code>!=</code></td>
+<td>等于，不等于</td>
+</tr>
+<tr>
+<td><code>is</code> <code>is not</code></td>
+<td>身份运算符</td>
+</tr>
+<tr>
+<td><code>in</code> <code>not in</code></td>
+<td>成员运算符</td>
+</tr>
+<tr>
+<td><code>not</code> <code>or</code> <code>and</code></td>
+<td>逻辑运算符</td>
+</tr>
+<tr>
+<td><code>=</code> <code>+=</code> <code>-=</code> <code>*=</code> <code>/=</code> <code>%=</code> <code>//=</code> <code>**=</code> <code>&amp;=</code> &#96;</td>
+<td>&#x3D;<code> </code>^&#x3D;<code> </code>&gt;&gt;&#x3D;<code> </code>&lt;&lt;&#x3D;&#96;</td>
+</tr>
+</tbody></table>
+<ol>
+<li><h4 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h4><p> 赋值运算符应该是最为常见的运算符，它的作用是将右边的值赋给左边的变量。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">赋值运算符和复合赋值运算符</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Version: 0.1</span></span><br><span class="line"><span class="string">Author: youzi</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">a = <span class="number">10</span></span><br><span class="line">b = <span class="number">3</span></span><br><span class="line">a += b        <span class="comment"># 相当于：a = a + b</span></span><br><span class="line">a *= a + <span class="number">2</span>    <span class="comment"># 相当于：a = a * (a + 2)</span></span><br><span class="line"><span class="built_in">print</span>(a)      <span class="comment"># 算一下这里会输出什么</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="比较运算符和逻辑运算符"><a href="#比较运算符和逻辑运算符" class="headerlink" title="比较运算符和逻辑运算符"></a>比较运算符和逻辑运算符</h4><p> 比较运算符有的地方也称为关系运算符，包括<code>==</code>、<code>!=</code>、<code>&lt;</code>、<code>&gt;</code>、<code>&lt;=</code>、<code>&gt;=</code>。唯一需要提醒的是比较相等用的是<code>==</code>，请注意这个地方是两个等号，因为<code>=</code>是赋值运算符，<code>==</code>才是比较相等的比较运算符。比较运算符会产生布尔值，要么是<code>True</code>要么是<code>False</code>。</p>
+<p> 逻辑运算符有三个，分别是<code>and</code>、<code>or</code>和<code>not</code>。<code>and</code>的优先级高于<code>or</code>。<code>and</code>字面意思是“而且”，所以<code>and</code>运算符会连接两个布尔值，如果两个布尔值都是<code>True</code>，那么运算的结果就是<code>True</code>；左右两边的布尔值有一个是<code>False</code>，最终的运算结果就是<code>False</code>。如果<code>and</code>左边的布尔值是<code>False</code>，不管右边的布尔值是什么，最终的结果都是<code>False</code>，所以在做运算的时候右边的值会被跳过（短路处理），这也就意味着在<code>and</code>运算符左边为<code>False</code>的情况下，右边的表达式根本不会执行。<code>or</code>字面意思是“或者”，所以<code>or</code>运算符也会连接两个布尔值，如果两个布尔值有任意一个是<code>True</code>，那么最终的结果就是<code>True</code>。当然，<code>or</code>运算符也是有短路功能的，在它左边的布尔值为<code>True</code>的情况下，右边的表达式根本不会执行。<code>not</code>运算符的后面会跟上一个布尔值，它的作用是得到与该布尔值相反的值，也就是说，后面的布尔值如果是<code>True</code>运算结果就是<code>False</code>，而后面的布尔值如果是<code>False</code>则运算结果就是<code>True</code>。</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">比较运算符和逻辑运算符的使用</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Version: 0.1</span></span><br><span class="line"><span class="string">Author: 柚子</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">flag0 = <span class="number">1</span> == <span class="number">1</span></span><br><span class="line">flag1 = <span class="number">3</span> &gt; <span class="number">2</span></span><br><span class="line">flag2 = <span class="number">2</span> &lt; <span class="number">1</span></span><br><span class="line">flag3 = flag1 and <span class="type">flag2</span></span><br><span class="line"><span class="variable">flag4</span> <span class="operator">=</span> flag1 or <span class="type">flag2</span></span><br><span class="line"><span class="variable">flag5</span> <span class="operator">=</span> not (<span class="number">1</span> != <span class="number">2</span>)</span><br><span class="line">print(<span class="string">&#x27;flag0 =&#x27;</span>, flag0)    # flag0 = True</span><br><span class="line"><span class="title function_">print</span><span class="params">(<span class="string">&#x27;flag1 =&#x27;</span>, flag1)</span>    # flag1 = True</span><br><span class="line"><span class="title function_">print</span><span class="params">(<span class="string">&#x27;flag2 =&#x27;</span>, flag2)</span>    # flag2 = False</span><br><span class="line"><span class="title function_">print</span><span class="params">(<span class="string">&#x27;flag3 =&#x27;</span>, flag3)</span>    # flag3 = False</span><br><span class="line"><span class="title function_">print</span><span class="params">(<span class="string">&#x27;flag4 =&#x27;</span>, flag4)</span>    # flag4 = True</span><br><span class="line"><span class="title function_">print</span><span class="params">(<span class="string">&#x27;flag5 =&#x27;</span>, flag5)</span>    # flag5 = False</span><br></pre></td></tr></table></figure>
+
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">比较运算符和逻辑运算符的使用</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Version: 0.1</span></span><br><span class="line"><span class="string">Author: 骆昊</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">flag0 = <span class="number">1</span> == <span class="number">1</span></span><br><span class="line">flag1 = <span class="number">3</span> &gt; <span class="number">2</span></span><br><span class="line">flag2 = <span class="number">2</span> &lt; <span class="number">1</span></span><br><span class="line">flag3 = flag1 <span class="keyword">and</span> flag2</span><br><span class="line">flag4 = flag1 <span class="keyword">or</span> flag2</span><br><span class="line">flag5 = <span class="keyword">not</span> (<span class="number">1</span> != <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;flag0 =&#x27;</span>, flag0)    <span class="comment"># flag0 = True</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;flag1 =&#x27;</span>, flag1)    <span class="comment"># flag1 = True</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;flag2 =&#x27;</span>, flag2)    <span class="comment"># flag2 = False</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;flag3 =&#x27;</span>, flag3)    <span class="comment"># flag3 = False</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;flag4 =&#x27;</span>, flag4)    <span class="comment"># flag4 = True</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;flag5 =&#x27;</span>, flag5)    <span class="comment"># flag5 = False</span></span><br></pre></td></tr></table></figure>
+
+<p> <strong>说明：</strong></p>
+<p> ​	比较运算符的优先级高于赋值运算符，所以在：f<code>lag0 = 1 == 1</code>时候，flag0的值为<code>True</code>。<code>print</code>函数想输出多个值时，多个值使用<strong>英文逗号</strong>隔开。</p>
+</li>
+<li><h4 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h4><ol>
+<li><p><strong>看程序写结果，总结用法：</strong></p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">使用input()函数获取键盘输入(字符串)</span></span><br><span class="line"><span class="string">使用int()函数将输入的字符串转换成整数</span></span><br><span class="line"><span class="string">使用print()函数输出带占位符的字符串</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Version: 0.1</span></span><br><span class="line"><span class="string">Author: youzi</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">a =  <span class="built_in">int</span>(<span class="number">3.4</span>)</span><br><span class="line">b = <span class="built_in">int</span>(<span class="number">3.5</span>)</span><br><span class="line">c = <span class="built_in">int</span>(<span class="string">&quot;12&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(a,b,c)</span><br></pre></td></tr></table></figure>
+</li>
+<li><h5 id="输入圆的半径计算计算周长和面积。"><a href="#输入圆的半径计算计算周长和面积。" class="headerlink" title="输入圆的半径计算计算周长和面积。"></a><strong>输入圆的半径计算计算周长和面积。</strong></h5> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">输入半径计算圆的周长和面积</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Version: 0.1</span></span><br><span class="line"><span class="string">Author: 柚子</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">radius = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&#x27;请输入圆的半径: &#x27;</span>))</span><br><span class="line">perimeter = <span class="number">2</span> * <span class="number">3.14</span> * radius</span><br><span class="line">area = <span class="number">3.14</span> * radius * radius</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;周长: %.2f&#x27;</span> % perimeter)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;面积: %.2f&#x27;</span> % area)</span><br></pre></td></tr></table></figure>
+
+<p> 说明：<code>%.2f</code>是python小数类型的占位符，以后会有详细用法。</p>
+</li>
+<li><p><strong>判断年份是不是闰年</strong></p>
+<p> 闰年：能被4整除且不能被100整除，或者能被400整除的。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">输入年份 如果是闰年输出True 否则输出False</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Version: 0.1</span></span><br><span class="line"><span class="string">Author: 柚子</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">year = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;请输入年份: &#x27;</span>))</span><br><span class="line"><span class="comment"># 如果代码太长写成一行不便于阅读 可以使用\对代码进行折行</span></span><br><span class="line">is_leap = year % <span class="number">4</span> == <span class="number">0</span> <span class="keyword">and</span> year % <span class="number">100</span> != <span class="number">0</span> <span class="keyword">or</span> \</span><br><span class="line">          year % <span class="number">400</span> == <span class="number">0</span></span><br><span class="line"><span class="built_in">print</span>(is_leap)</span><br></pre></td></tr></table></figure>
+
+<p> 说明：之前提到过<code>and</code>的优先级比<code>or</code>高。<br> is_leap &#x3D; year % 4 &#x3D;&#x3D; 0 and year % 100 !&#x3D; 0 or <br>       year % 400 &#x3D;&#x3D; 0<br> print(is_leap)</p>
+<pre><code>
+说明：之前提到过`and`的优先级比`or`高。
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">devin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/04/28/TreasureBox/python/python%E5%9F%BA%E7%A1%80/1.%E5%9F%BA%E7%A1%80/2.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/">http://example.com/2023/04/28/TreasureBox/python/python%E5%9F%BA%E7%A1%80/1.%E5%9F%BA%E7%A1%80/2.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">devin's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/04/28/TreasureBox/python/python%E5%9F%BA%E7%A1%80/1.%E5%9F%BA%E7%A1%80/1.%E5%88%9D%E8%AF%86python/" title="初识python"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">初识python</div></div></a></div><div class="next-post pull-right"><a href="/2023/04/28/TreasureBox/python/pip%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8/" title="pip不能使用"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">pip不能使用</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">devin</div><div class="author-info__description">分享技术知识</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liuhuanxg"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.</span> <span class="toc-text">数据类型和运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%8F%98%E9%87%8F%E5%92%8C%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">一、变量和类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E5%91%BD%E5%90%8D"><span class="toc-number">1.1.1.</span> <span class="toc-text">变量命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.1.2.</span> <span class="toc-text">变量的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%8F%98%E9%87%8F%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.3.</span> <span class="toc-text">查看变量的数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98%E9%94%AE%E7%9B%98%E4%B8%AD%E8%BE%93%E5%85%A5%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">1.1.4.</span> <span class="toc-text">保存键盘中输入的数据</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.2.</span> <span class="toc-text">二、运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.2.1.</span> <span class="toc-text">赋值运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.2.2.</span> <span class="toc-text">比较运算符和逻辑运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0"><span class="toc-number">1.2.3.</span> <span class="toc-text">练习</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E5%9C%86%E7%9A%84%E5%8D%8A%E5%BE%84%E8%AE%A1%E7%AE%97%E8%AE%A1%E7%AE%97%E5%91%A8%E9%95%BF%E5%92%8C%E9%9D%A2%E7%A7%AF%E3%80%82"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">输入圆的半径计算计算周长和面积。</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/hello-world/" title="Hello World">Hello World</a><time datetime="2023-04-28T10:44:48.968Z" title="发表于 2023-04-28 18:44:48">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/1%E3%80%81TCPIP%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="1、TCPIP网络模型">1、TCPIP网络模型</a><time datetime="2023-04-28T10:40:04.953Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/" title="算法">算法</a><time datetime="2023-04-28T10:40:04.944Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/kafka/1.kafka%E8%AF%A6%E8%A7%A3/" title="kafka详解">kafka详解</a><time datetime="2023-04-28T10:40:04.944Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1.%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%88%9D%E8%AF%86/" title="数据结构初识">数据结构初识</a><time datetime="2023-04-28T10:40:04.943Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By devin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

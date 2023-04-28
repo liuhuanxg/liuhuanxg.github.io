@@ -1,0 +1,11 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+__pypackages__/
+*.sage.py
+.env
+.idea/
+themes/
+node_modules/
+.deploy_git/

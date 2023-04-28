@@ -1,0 +1,273 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>devin's blog - vinya</title><meta name="author" content="devin"><meta name="copyright" content="devin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="分享技术知识">
+<meta property="og:type" content="website">
+<meta property="og:title" content="devin&#39;s blog">
+<meta property="og:url" content="http://example.com/page/12/index.html">
+<meta property="og:site_name" content="devin&#39;s blog">
+<meta property="og:description" content="分享技术知识">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="devin">
+<meta property="article:tag" content="开源">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/12/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'devin\'s blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-04-28 18:24:54'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="devin's blog" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">150</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="devin's blog"><span class="site-name">devin's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">devin's blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/django/5.django-zhan-dian-guan-li/2.modeladmin-xuan-xiang/" title="ModelAdmin选项">ModelAdmin选项</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.378Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">ModelAdmin选项
+ModelAdmin是比较灵活的，具有定制页面的选项，所有选项都在ModelAdmin子类上定义：
+1234from django.contrib import adminclass AuthorAdmin(admin.ModelAdmin):    date_hierarchy = 'pub_date'
+
+
+date_hierarchy 设置date_hierarchy为模型中的DateField或DateTimeField，更改列表页面实现一个简单的分组功能，将符合某个日期分类的数据归为一类。如：
+ 1date_hierarchy = 'pub_date'
+
+ 还可以使用__查找在相关模型上指定的字段，如：
+ 1date_hierarchy = 'author__pub_date'
+
+ 这会根据可用的数据智能地分类，如果所有日期都在一个月之内，则按日级时间分类。
+
+empty_value_display 覆盖记录字段为空（None，空字符串等）的默认显示值。默认值为破折号（—）。
+ 1234from django.contrib import adminc ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/django/4.biao-dan/2.django-de-form-lei/" title="Django的Form类">Django的Form类</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.377Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">Django的From类Django表单系统的核心组件是Form类，Form类标书一张表单并决定它如何工作以及呈现。
+类似模型类中的字段映射到数据库字段的方式，表单类的字段会映射到HTML表单的input元素。ModelForm通过Form映射模型类的字段到HTML表单的input元素，Django的admin就基于此。
+表单字段本身也是累，他们管理表单数据并在提交表单时执行验证。DateField和FileField处理的数据类型差别较大，所以必须用来处理不同的字段。
+在浏览器中，表单字段以HTML“控件”（用户界面的一个片段）的形式展现给我们，每个字段类型都有与之相匹配的控件类，但在必要时可以覆盖。
+一、在Django 中构建一张表单Form类：在forms.py中去定义：
+1234from django import formsclass NameForm(forms.Form):    your_name = forms.CharField(label='Your name', max_length=100)
+
+当设置了最大长度时，在前端会自动校验输入的字符的长度，在前端中的表 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/django/4.biao-dan/3.biao-dan-de-shu-xing/" title="表单的属性">表单的属性</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.377Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">表单的属性一、绑定和非绑定形式
+is_bound
+
+
+如果将其绑定到一组数据中，则可以验证该数据并将表单显示为HTML，并将数据显示在HTML中。
+
+如果未绑定，则无法进行验证（因为没有要验证的数据！），但仍可以将空白表单呈现为HTML。
+  要创建一个Form示例，只需要实例化该类：
+  1f = ContactForm()
+
+  要将数据绑定到表单，需要将数据作为字典传递给Form类构造函数的第一个参数：
+  12345data = {'subject': 'hello',       'message': 'Hi there',       'sender': 'foo@example.com',       'cc_myself': True}f = ContactForm(data)
+
+  在该字典中，键是字段名称，字段名称与Form类中的属性相对应，这些值是想要验证的数据，通常这些都是字符串，但不强制要求是字符串。
+  如果需要在运行时区分绑定表单实例和未绑定表单实例，需要检查is_bound属性的值。
+  123456789f = ContactForm()f.is_bo ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/django/4.biao-dan/1.biao-dan-gai-shu/" title="表单概述">表单概述</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.377Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">表单概述一、HTML表单在HTML中，表单是在 &lt;form&gt;...&lt;/form&gt; 中的一些元素，它允许访客做一些类似输入文本、选择选项、操作对象或空间等动作，然后发送这些信息到服务端。
+一些表单界面元素（文本框或复选框）非常简单并内置在HTML中。其他会复杂些；像弹出日期选择或者允许移动滑块或者操作控件，一般通过使用JavaScript，CSS以及HTML表单中的 &lt;input&gt; 元素来实现这些效果。
+和它的 &lt;input&gt; 元素一样，表单必须指定两样东西：
+
+何地（action）：负责响应用户输入数据的URL地址
+如何（method）：数据请求使用的HTTP方法。
+
+二、GET和POSTGET和POST是处理表单时唯一使用的HTTP方法：
+
+POST：浏览器将表单数据打包，编码以进行传输，将其发送到服务器，然后接收其响应。
+GET：相比于POST，GET请求会将数据捆绑为一个字符串，然后使用该字符串来组成一个URL。该URL包含必须将数据发送到的地址以及数据键和值。类似：https://docs.djangoproject.com/se ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/django/3.mo-ban-ceng/2.biao-qian/" title="标签">标签</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.376Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">标签标签比变量更复杂：一些在输出中创建文本，一些通过执行循环或逻辑来控制流，有些将外部信息加载到模板中以供以后的变量使用。{% tag %}`
+
+一些标签需要开始和结束标签。例如：
+
+`{% tag %} ... tag contents ... {% endtag %}
+官网链接：https://docs.djangoproject.com/zh-hans/2.1/ref/templates/language/
+
+csrf_token 抵挡跨域攻击，用于form表单的post提交时使用。
+
+cycle 每次遇到此标签时，都会产生其参数之一。第一个参数在第一次遇到时产生，第二个参数在第二次遇到时产生，依此类推。一旦所有参数用尽，标记将循环到第一个参数并再次产生它。
+ 12345&gt;{% for o in some_list %}    &lt;tr class="{% cycle 'row1' 'row2' %}"&gt;        ...    &lt;/tr&gt;{% endfor %}
+
+ 在某些情况下，您可能希望引用循环的当前值而不前进到下一个值。为此，只需使用“ a ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/django/3.mo-ban-ceng/4.zi-ding-yi-guo-lu-qi-he-biao-qian/" title="自定义过滤器和标签">自定义过滤器和标签</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.376Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">自定义模板和过滤器Django的模板语言带有多种内置标签和过滤器，用于满足应用程序的逻辑需求。但是，当这些不能满足需求时。您可以通过使用Python定义自定义标签和过滤器来扩展模板引擎，然后使用{% load %}标签在模板中引入。
+一、代码布局将Django应用程序添加到INSTALLED_APPS中，它在以下所述的常规位置中定义的所有标签都会自动变为可加载到模板中。该应用程序应该包含一个templatetags目录，在相同的水平 models.py，views.py等等文件。
+自定义标签和过滤器将位于templatetags 目录内的模块中。模块文件的名称是以后用来加载标签的名称，因此需要选择一个不会与另一个应用程序中的自定义标签和过滤器冲突的名称。
+如果您的自定义标签/过滤器位于名为的文件中 meishi_extras.py，整个目录结构为：
+
+
+在模板文件中使用{% load meishi_extras%}
+放在templatetags包中的模块数量没有限制，使用{% load  %}加载的是模块名称，而不是标签/过滤器。
+为了成为一个有效的标签库，模块名称必须包含一个名为模块 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/django/3.mo-ban-ceng/3.mo-ban-ji-cheng-yu-jia-zai/" title="模板继承与加载">模板继承与加载</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.376Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">模板继承与加载一、模板继承Django模板引擎中最强大（因此也是最复杂）的部分是模板继承。模板继承可以构建基本的“骨架”模板，该模板包含站点的所有常见元素并定义子模板可以覆盖的块。
+例：
+12345678910111213141516171819202122&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt;    &lt;link rel="stylesheet" href="style.css"&gt;    &lt;title&gt;{% block title %}My amazing site{% endblock %}&lt;/title&gt;&lt;/head&gt;&lt;body&gt;    &lt;div id="sidebar"&gt;        {% block sidebar %}        &lt;ul&gt;            &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;            &lt;li&gt;&lt; ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/django/1.mo-xing-ceng/4.zi-duan-yue-shu/" title="字段约束">字段约束</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.375Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">字段约束2、字段约束(1) null：默认为False，当设置为True时，该字段插入数据时可以为空，使用NULL进行填充。
+(2) blank：默认为False，为False时在admin后台中表单必须要填内容，为True时可以允许表单为空。一般与null=True或defalut连用。
+(3) choices：接收一个可重复的列表或元组（基本单位为二元组）。如果指定了该参数，在实例化该模型时，该变量只能选择列表中的值。
+如：
+123456789class Person(models.Model):  SHIRT_SIZES = (        ('S', 'Small'),       ('M', 'Medium'),        ('L', 'Large'),    )  name = models.CharField(max_length=60)  shirt_size = models.CharField(max_length=1,choices=SHIRT_SIZES)
+
+(4) default：该变量的值，可以是一个值或者是一个可调用的对象，如果是个可调用的对象，每次 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/django/1.mo-xing-ceng/5.queryset-api/" title="QuerySet API">QuerySet API</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.375Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">QuerySet API使用QuerySet可以构造、过滤、切片、和大致的结果而不实际访问数据库。除非执行某些操作来评估查询集，否则实际上不会发生对数据库的查询活动。
+(1) 基本属性
+迭代
+ QuerySet是可迭代的，并且在第一次对其迭代是会执行其数据库查询。如：
+ 12for e in Entry.objects.all():	 print(e.headline)
+
+切片
+ 可以使用python的数组切片语法对QuerySet集进行切片操作。
+
+len
+ 返回QuerySet列表的长度。
+
+list
+ 使用list()进行强制转化。entry_list = list(Entry.objects.all())
+
+exists
+ 判断结果集中是否存在至少一个结果。Entry.objects.all().exists()。
+
+
+(2) 查询
+filter
+ ​	条件查找，是一个结果集，多个条件时使用逗号(,)隔开。Entry.objects.filter(id=3,name=’张三’)。
+
+exclude
+ 筛选出与给定查找参数不匹配的结果，是一个结果集，多个条件时使用逗号(,)隔开。 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/05/19/treasurebox/python/django/2.shi-tu-ceng/1.url-diao-du-qi/" title="URL调度器">URL调度器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-19T01:14:40.375Z" title="发表于 2022-05-19 09:14:40">2022-05-19</time></span></div><div class="content">URL调度器一、请求处理流程1from django.urls import path,include
+
+当一个用户请求Django站点的页面时，Django系统按以下流程执行python代码：
+
+Django首先确定要使用的根URLconf模块，通常，这是在settings.py中设置的ROOT_URLCONF的值。但是如果传入HttpRequest对象具有urlconf 属性（由中间件设置），则将使用其值代替ROOT_URLCONF设置。
+Django加载该Python模块并查找变量 urlpatterns。这是django.urls.path() 和/或django.urls.re_path()实例的Python列表。
+Django依次匹配每个URL模式，在与请求的URL匹配的第一个模式停下来。
+一旦与其中一个URL模式匹配，Django就会导入并调用给定的视图，该视图是一个简单的Python函数（或基于类的视图）。该视图将传递以下参数：
+一个HttpRequest实例。
+如果匹配的URL模式未返回命名组，则来自正则表达式的匹配项将作为位置参数。
+关键字参数由与路径表达式匹配的任 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/11/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/#content-inner">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/#content-inner">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/#content-inner">15</a><a class="extend next" rel="next" href="/page/13/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">devin</div><div class="author-info__description">分享技术知识</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">150</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liuhuanxg"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/20/treasurebox/elasticsearch/xue-xi-bi-ji/index/" title="index">index</a><time datetime="2023-04-20T02:33:25.636Z" title="发表于 2023-04-20 10:33:25">2023-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/20/treasurebox/elasticsearch/index/" title="index">index</a><time datetime="2023-04-20T02:25:18.254Z" title="发表于 2023-04-20 10:25:18">2023-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/24/treasurebox/python/python-cheng-xu-cpu-shi-yong-lu-fen-xi/python-fen-xi-mo-kuai/" title="python分析模块">python分析模块</a><time datetime="2023-03-24T08:25:41.271Z" title="发表于 2023-03-24 16:25:41">2023-03-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/22/treasurebox/elasticsearch/xue-xi-bi-ji/1.he-xin-zhi-shi-pian-2week/9.suggester/" title="suggester">suggester</a><time datetime="2023-03-22T13:06:21.415Z" title="发表于 2023-03-22 21:06:21">2023-03-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/03/22/treasurebox/python/python-cheng-xu-cpu-shi-yong-lu-fen-xi/fen-xi-python-cheng-xu-cpu-shi-yong-lu-an-li/" title="分析python程序CPU使用率案例">分析python程序CPU使用率案例</a><time datetime="2023-03-22T09:26:02.499Z" title="发表于 2023-03-22 17:26:02">2023-03-22</time></div></div></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">14</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/12/"><span class="card-archive-list-date">十二月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">七月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/06/"><span class="card-archive-list-date">六月 2022</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/05/"><span class="card-archive-list-date">五月 2022</span><span class="card-archive-list-count">119</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">150</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-04-28T10:24:53.831Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By devin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>MySQL高阶 | devin's blog</title><meta name="author" content="devin"><meta name="copyright" content="devin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="MySQL高阶—事务、触发器、存储过程一、数据库事务（1）数据库中的事务有四大特性：ACID 原子性：每个事务都是不可分割的执行，要么全部成功，要么全部失败。 一致性：事务执行之前和执行之后的状态保持一致。比如A有1000元，B有1000元，A给B转账500元之后，A与B的钱数之和应该还是2000元。 隔离性：多个事务同时操作，每个事务之间相互独立，互不影响。 持久性：事务提交成功后对数据库的改变">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL高阶">
+<meta property="og:url" content="http://example.com/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/10.MySQL%E9%AB%98%E9%98%B6/index.html">
+<meta property="og:site_name" content="devin&#39;s blog">
+<meta property="og:description" content="MySQL高阶—事务、触发器、存储过程一、数据库事务（1）数据库中的事务有四大特性：ACID 原子性：每个事务都是不可分割的执行，要么全部成功，要么全部失败。 一致性：事务执行之前和执行之后的状态保持一致。比如A有1000元，B有1000元，A给B转账500元之后，A与B的钱数之和应该还是2000元。 隔离性：多个事务同时操作，每个事务之间相互独立，互不影响。 持久性：事务提交成功后对数据库的改变">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-04-28T10:40:04.914Z">
+<meta property="article:modified_time" content="2023-04-28T10:44:49.081Z">
+<meta property="article:author" content="devin">
+<meta property="article:tag" content="开源">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/10.MySQL%E9%AB%98%E9%98%B6/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'MySQL高阶',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-28 18:44:49'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="devin's blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="devin's blog"><span class="site-name">devin's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">MySQL高阶</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-04-28T10:40:04.914Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-28T10:44:49.081Z" title="更新于 2023-04-28 18:44:49">2023-04-28</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="MySQL高阶"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="MySQL高阶—事务、触发器、存储过程"><a href="#MySQL高阶—事务、触发器、存储过程" class="headerlink" title="MySQL高阶—事务、触发器、存储过程"></a>MySQL高阶—事务、触发器、存储过程</h2><h3 id="一、数据库事务"><a href="#一、数据库事务" class="headerlink" title="一、数据库事务"></a>一、数据库事务</h3><h4 id="（1）数据库中的事务有四大特性：ACID"><a href="#（1）数据库中的事务有四大特性：ACID" class="headerlink" title="（1）数据库中的事务有四大特性：ACID"></a>（1）<strong>数据库中的事务有四大特性：ACID</strong></h4><ul>
+<li><strong>原子性</strong>：每个事务都是不可分割的执行，要么全部成功，要么全部失败。</li>
+<li><strong>一致性</strong>：事务执行之前和执行之后的状态保持一致。比如A有1000元，B有1000元，A给B转账500元之后，A与B的钱数之和应该还是2000元。</li>
+<li><strong>隔离性</strong>：多个事务同时操作，每个事务之间相互独立，互不影响。</li>
+<li><strong>持久性</strong>：事务提交成功后对数据库的改变是永久的。</li>
+</ul>
+<h4 id="（2）数据库三范式"><a href="#（2）数据库三范式" class="headerlink" title="（2）数据库三范式"></a>（2）<strong>数据库三范式</strong></h4><p>​	数据库的范式(规范的数据表示公式)：按照什么方式在数据库中表示（存储）是完全合理是做不到的，只能在数据库设计过程中尽量靠近三范式约束。</p>
+<ul>
+<li><p><strong>1NF</strong>：字段不可分割</p>
+<p>  数据库中的每一列数据，是不能再拆分的。</p>
+</li>
+<li><p><strong>2NF</strong>：有主键，非主键字段依赖主键。</p>
+<p>  数据库中的每一条数据都是唯一的，主键作为数据唯一的描述符。</p>
+</li>
+<li><p><strong>3NF</strong>：非关键字的任何字段属性，不能产生相互的依赖条件	</p>
+<p>  不是主键的任何其他字段，不能产生相互的依赖关系。</p>
+</li>
+</ul>
+<h4 id="（3）事务的隔离级别"><a href="#（3）事务的隔离级别" class="headerlink" title="（3）事务的隔离级别"></a>（3）事务的隔离级别</h4><p>​	事务的隔离级别，指多个事务同时操作数据库时，不同事务之间应该怎么定义他们的操作。</p>
+<ul>
+<li><p><strong>读未提交：read uncommitted</strong></p>
+<p>  一个事务中，读取了另一个事务中没有提交的数据，两个事务之间造成了影响。</p>
+</li>
+<li><p><strong>读已提交：read committed</strong></p>
+<p>  一个事务中，读取了另一个事务中提交的数据。</p>
+</li>
+<li><p><strong>可重复读：repeat read</strong></p>
+<p>  在一次完整的事务中，每次读取的数据都是一致的，不会发生变化，所有提交的更新的数据都会在下一个事务中读取到。数据库默认的隔离级别</p>
+</li>
+<li><p><strong>串行化&#x2F;序列化：serializerable</strong></p>
+<p>  所有的事务操作全部排队，依次执行</p>
+</li>
+</ul>
+<h3 id="二、触发器"><a href="#二、触发器" class="headerlink" title="二、触发器"></a>二、触发器</h3><p>数据库中提供了特殊的处理方法：自动化操作，本质上是当数据库中发生了一些行为之后，导致一些其他的行为自动触发，类似python开发中的事件驱动开发。</p>
+<p>数据库中提供了一种数据库高级对象：触发器；描述的是数据表上一个条件被触发执行的后续行为操作。</p>
+<h4 id="①-触发器语法："><a href="#①-触发器语法：" class="headerlink" title="① 触发器语法："></a>① 触发器语法：</h4><p>create trigger trigger_name trigger_time trigger_event on table_name for each row trigger_stmt end;</p>
+<p>描述：在某张表上，发生了一个触发事件，在触发事件发生之前|之后(触发时机)，执行触发器中定义的要执行的程序。</p>
+<p><strong>trigger_time：触发时机，before|after</strong></p>
+<p><strong>trigger_event：触发事件,insert|update|delete</strong></p>
+<h4 id="②触发器案例：自动下单功能"><a href="#②触发器案例：自动下单功能" class="headerlink" title="②触发器案例：自动下单功能"></a><strong>②触发器案例</strong>：自动下单功能</h4><ul>
+<li><p>创建测试数据表</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> goods(</span><br><span class="line">  gid <span class="type">int</span> auto_increment <span class="keyword">primary</span> key comment <span class="string">&#x27;商品主键&#x27;</span>,</span><br><span class="line">  gname <span class="type">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;商品名称&#x27;</span>,</span><br><span class="line">  gprice <span class="keyword">double</span> <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;商品单价&#x27;</span>,</span><br><span class="line">  gstock <span class="type">int</span> <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;商品库存&#x27;</span>,</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> goods_order(</span><br><span class="line">	goid <span class="type">int</span> auto_increment <span class="keyword">primary</span> key comment <span class="string">&#x27;订单编号&#x27;</span>,</span><br><span class="line">    goname <span class="type">varchar</span>(<span class="number">20</span>) comment <span class="string">&#x27;购买商品名称&#x27;</span>,</span><br><span class="line">    goprice <span class="keyword">double</span> comment <span class="string">&#x27;成交单价&#x27;</span>,</span><br><span class="line">    gocount <span class="type">int</span> comment <span class="string">&#x27;购买数量&#x27;</span>,</span><br><span class="line">    subtotal <span class="keyword">double</span> comment <span class="string">&#x27;小计金额&#x27;</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建触发器</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">delimiter $$</span><br><span class="line"><span class="comment">-- 创建一个触发器</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">trigger</span> goods_sale_auto</span><br><span class="line">	<span class="comment">-- 在goods表格修改之后执行触发器</span></span><br><span class="line">	after <span class="keyword">update</span> <span class="keyword">on</span> goods <span class="keyword">for</span> <span class="keyword">each</span> <span class="type">row</span></span><br><span class="line">	<span class="comment">-- 要执行的程序开始操作</span></span><br><span class="line">	<span class="keyword">begin</span> </span><br><span class="line">		<span class="comment">-- 声明两个变量</span></span><br><span class="line">		<span class="keyword">declare</span> buycount <span class="type">int</span>;</span><br><span class="line">		<span class="keyword">declare</span> subtotal <span class="keyword">double</span>;</span><br><span class="line">		<span class="comment">-- 判断库存是否更新：更新前old，更新后new</span></span><br><span class="line">		if new.gstock<span class="operator">&lt;</span>old.gstock</span><br><span class="line">		<span class="keyword">then</span> </span><br><span class="line">			<span class="comment">--获取购买的数量</span></span><br><span class="line">			<span class="keyword">set</span> buycount <span class="operator">=</span> old.gstock <span class="operator">-</span> new.gstock;</span><br><span class="line">			<span class="keyword">set</span> subtotal <span class="operator">=</span> buycount <span class="operator">*</span> <span class="keyword">old</span>,gprice;</span><br><span class="line">			<span class="keyword">insert</span> <span class="keyword">into</span> goods_order(gname,goprice,gcount,subtotal) <span class="keyword">values</span>(old.gname,<span class="keyword">old</span>,gprice,buycount,subtotal);</span><br><span class="line">		<span class="keyword">end</span> if;</span><br><span class="line">	<span class="comment">-- 要执行的程序完结操作</span></span><br><span class="line">	<span class="keyword">end</span>;</span><br><span class="line">	$$</span><br><span class="line">	delimiter;  <span class="comment">--触发器创建完成后，修改结束符为默认的分号</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="三、存储过程"><a href="#三、存储过程" class="headerlink" title="三、存储过程"></a>三、存储过程</h3><p>​	触发器是数据库中根据发生的条件(某张表上发生了INSERT&#x2F;UPDATE&#x2F;DELETE操作)自动执行的<strong>数据库程序</strong>，当我们需要自定义程序，并且手工调用时要怎么去做？</p>
+<p>​	数据库提供了另外一种高级对象：存储程序，一般称为存储过程，就是一个用户按照规范语法编写的程序代码，可以将项目中的业务逻辑封装在程序中，通过固定的语法方式直接调用执行，类似python中的函数。</p>
+<h4 id="（1）基本语法结构"><a href="#（1）基本语法结构" class="headerlink" title="（1）基本语法结构"></a>（1）基本语法结构</h4><p>​	创建存储过程</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> proc_name ([proc_parameters]) routing_body</span><br></pre></td></tr></table></figure>
+
+<p>create procedure 固定语法：创建存储过程</p>
+<p>proc_name：自定义存储过程名称</p>
+<p>proc_parameters：存储过程执行需要的参数</p>
+<p>routing_body：存储程序要执行的程序代码</p>
+<h4 id="（2）案例"><a href="#（2）案例" class="headerlink" title="（2）案例"></a>（2）案例</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">delimiter $$</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> employee_avg()</span><br><span class="line"><span class="keyword">begin</span> </span><br><span class="line">	<span class="comment">-- 模拟一行或多行代码</span></span><br><span class="line">	<span class="keyword">select</span> <span class="built_in">AVG</span>(salary) <span class="keyword">from</span> ex01.employee</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line">$$</span><br><span class="line"><span class="comment">-- 调用存储过程</span></span><br><span class="line"><span class="keyword">call</span> employee_avg();</span><br></pre></td></tr></table></figure>
+
+<h4 id="（3）带有返回值的存储过程"><a href="#（3）带有返回值的存储过程" class="headerlink" title="（3）带有返回值的存储过程"></a>（3）带有返回值的存储过程</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">delimiter $$</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> my_employee2(<span class="keyword">out</span> res <span class="keyword">double</span>)</span><br><span class="line"><span class="keyword">begin</span> </span><br><span class="line">	<span class="comment">-- 查询数据，并将数据保存到变量中</span></span><br><span class="line">	<span class="keyword">select</span> <span class="built_in">AVG</span>(salary) <span class="keyword">into</span> res <span class="keyword">from</span> ex01.employee</span><br><span class="line"><span class="keyword">end</span>;</span><br><span class="line">$$</span><br><span class="line"><span class="comment">-- 调用存储过程</span></span><br><span class="line"><span class="keyword">call</span> my_employee2(<span class="variable">@res</span>);</span><br><span class="line"><span class="comment">--查看返回值的数据</span></span><br><span class="line"><span class="keyword">select</span> <span class="variable">@res</span>;</span><br></pre></td></tr></table></figure>
+
+<p>返回值声明在存储过程名称后面的括号：</p>
+<p><strong>out：</strong>返回数据</p>
+<p><strong>in：</strong>输入数据</p>
+<p><strong>input：</strong>既是输入数据，同时也能返回数据</p>
+<p>调用时，需要使用变量接受数据，为了跟其他变量区分，添加@符号：call mey_employee(@res);�，同时也能返回数据</p>
+<p>调用时，需要使用变量接受数据，为了跟其他变量区分，添加@符号：call mey_employee(@res);</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">devin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/10.MySQL%E9%AB%98%E9%98%B6/">http://example.com/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/10.MySQL%E9%AB%98%E9%98%B6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">devin's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/1.%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" title="数据库基本操作"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">数据库基本操作</div></div></a></div><div class="next-post pull-right"><a href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/11.%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E/" title="配置文件说明"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">配置文件说明</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">devin</div><div class="author-info__description">分享技术知识</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liuhuanxg"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL%E9%AB%98%E9%98%B6%E2%80%94%E4%BA%8B%E5%8A%A1%E3%80%81%E8%A7%A6%E5%8F%91%E5%99%A8%E3%80%81%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">MySQL高阶—事务、触发器、存储过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1"><span class="toc-number">1.1.</span> <span class="toc-text">一、数据库事务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E7%9A%84%E4%BA%8B%E5%8A%A1%E6%9C%89%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7%EF%BC%9AACID"><span class="toc-number">1.1.1.</span> <span class="toc-text">（1）数据库中的事务有四大特性：ACID</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%89%E8%8C%83%E5%BC%8F"><span class="toc-number">1.1.2.</span> <span class="toc-text">（2）数据库三范式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E4%BA%8B%E5%8A%A1%E7%9A%84%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="toc-number">1.1.3.</span> <span class="toc-text">（3）事务的隔离级别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="toc-number">1.2.</span> <span class="toc-text">二、触发器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A0-%E8%A7%A6%E5%8F%91%E5%99%A8%E8%AF%AD%E6%B3%95%EF%BC%9A"><span class="toc-number">1.2.1.</span> <span class="toc-text">① 触发器语法：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A1%E8%A7%A6%E5%8F%91%E5%99%A8%E6%A1%88%E4%BE%8B%EF%BC%9A%E8%87%AA%E5%8A%A8%E4%B8%8B%E5%8D%95%E5%8A%9F%E8%83%BD"><span class="toc-number">1.2.2.</span> <span class="toc-text">②触发器案例：自动下单功能</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B"><span class="toc-number">1.3.</span> <span class="toc-text">三、存储过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.1.</span> <span class="toc-text">（1）基本语法结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E6%A1%88%E4%BE%8B"><span class="toc-number">1.3.2.</span> <span class="toc-text">（2）案例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E5%B8%A6%E6%9C%89%E8%BF%94%E5%9B%9E%E5%80%BC%E7%9A%84%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B"><span class="toc-number">1.3.3.</span> <span class="toc-text">（3）带有返回值的存储过程</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/hello-world/" title="Hello World">Hello World</a><time datetime="2023-04-28T10:44:48.968Z" title="发表于 2023-04-28 18:44:48">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/1%E3%80%81TCPIP%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" title="1、TCPIP网络模型">1、TCPIP网络模型</a><time datetime="2023-04-28T10:40:04.953Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/" title="算法">算法</a><time datetime="2023-04-28T10:40:04.944Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/kafka/1.kafka%E8%AF%A6%E8%A7%A3/" title="kafka详解">kafka详解</a><time datetime="2023-04-28T10:40:04.944Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/04/28/TreasureBox/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1.%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%88%9D%E8%AF%86/" title="数据结构初识">数据结构初识</a><time datetime="2023-04-28T10:40:04.943Z" title="发表于 2023-04-28 18:40:04">2023-04-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By devin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

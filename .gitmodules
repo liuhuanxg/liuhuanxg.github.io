@@ -1,0 +1,14 @@
+[submodule "TreasureBox"]
+	path = source/_posts/TreasureBox
+	url = git@github.com:liuhuanxg/TreasureBox.git
+
+[submodule "butterfly"]
+	path = themes/butterfly
+	url = https://github.com/jerryc127/hexo-theme-butterfly
+
+[submodule "miho"]
+	path = themes/butterfly
+	url = https://github.com/WongMinHo/hexo-theme-miho.git
+[submodule "source/_posts/TreasureBox"]
+	path = source/_posts/TreasureBox
+	url = git@github.com:liuhuanxg/TreasureBox.git
